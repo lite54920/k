@@ -42,3 +42,30 @@
 | 38 | By Them | https://bythem.co/ | None (emails only) | Fashion, beauty and lifestyle creators plus mixed-media and visual artists (AU/US/UK/EU) | — | Email only |  |  | lauren@bythem.co (Founder); info@bythem.co (listed for representation) | No web form. Social-first fashion/beauty roster, so low long-form fit. Email not sent. |
 | 39 | The Sunshine Agency | https://www.thesunshineagency.au/ | https://www.thesunshineagency.au/contact (Squarespace) | Athletes, creators and personalities (e.g. ultra-endurance athletes); boutique management plus marketing and education | I came across your roster and noticed that you represent a curated roster of athletes, creators and personalities. | Ready for CAPTCHA |  |  | emma@thesunshineagency.net (+61 451 003 662) | The contact page is Squarespace with invisible reCAPTCHA Enterprise. Not attempted. The /talent brief form only opens a mailto: to emma@, so it is not a real submission. Leave the newsletter box unticked; 'What services': General Inquiry. Lower-priority fit. |
 | 40 | Dopamine Studios | https://www.dopaminestudios.co.uk/ | https://www.dopaminestudios.co.uk/contact | Fashion, beauty, lifestyle, cars, family, food & drink broadcasting (e.g. wine expert and broadcaster Helen McGinn) | I came across your roster and noticed that you represent creators and broadcasters across fashion, beauty, lifestyle, family, cars and food & drink, with IP that extends beyond social. | Ready for CAPTCHA |  |  | hello@dopaminestudios.co.uk | Duda form (Name, Email, Message) with a reCAPTCHA v2 checkbox. Not submitted. |
+| 41 | MUSE | https://musetheagency.com/ | None (contact page lists emails only) | UGC creators, digital talent and models (200+ talents across 30+ countries; Manchester) | — | Email only |  |  | info@musetheagency.com (general) | No web form. UGC/model focus, so low long-form fit. Email not sent. |
+| 42 | Reach Talent Agency | https://www.reachtalentagency.com/ | https://www.reachtalentagency.com/contact-us | Small UK creator roster (6 listed); mainly an influencer marketing / UGC agency. Niches not stated | I came across your roster and noticed that alongside your influencer marketing work you manage a roster of UK content creators. | Ready for CAPTCHA | Attempted 2026-09-25 01:43 (stopped at verification) | Wix showed a 'Verification — Please confirm you're human' reCAPTCHA checkbox after Get Started | mailbox@reachtalentagency.com | CAPTCHA not solved, so the enquiry was NOT sent. Complete manually (Name, Email, Message). |
+| 43 | Bright Management | https://brightmgmt.co/ | None suitable (the only form is a creator representation application) | Creators and personalities with 100K to 6M+ followers (London / Austin) | — | Email only |  |  | hello@brightmgmt.co (brands); talent@brightmgmt.co | The contact form requires TikTok/Instagram handles and audience-demographic uploads (creator application), so it was not used. Email not sent. |
+| 44 | Hamlet Management | https://www.hamletmanagement.com/ | https://www.hamletmanagement.com/ ('Send Us A Message' Wix form) | Performers and creators across film, TV, theatre, dance, musical theatre, opera and digital media (actor- and performer-led) | I came across Hamlet Management and noticed that you represent performers and creators across film, television, theatre, dance and digital media. | Ready for CAPTCHA | Attempted 2026-09-25 01:43 (stopped at verification) | Wix showed a 'Verification — Please confirm you're human' reCAPTCHA checkbox | partnerships@hamletmanagement.com; creators@hamletmanagement.com | CAPTCHA not solved, so the enquiry was NOT sent. Performer-focused roster, so lower long-form fit. |
+| 45 | HOUSE Talent | https://housetalent.co.uk/ | None ('Let's chat' is a mailto: link) | Interiors, lifestyle, hospitality and F&B creators: interior designers, journalists, business owners, artists (e.g. Our Riverside Dream) | — | Email only |  |  | rea@housetalent.co.uk | No web form. Also runs creator training ('Housekeeping'). Email not sent. |
+
+## Totals (companies 1–45)
+
+| Status | Count |
+|---|---|
+| Submitted | 9 |
+| Ready for CAPTCHA (needs manual completion) | 12 |
+| Email only | 10 |
+| Blocked (required info missing, or bot wall) | 8 |
+| Possible competitor | 2 |
+| Skipped — unsuitable | 3 |
+| Website unavailable | 1 |
+| **Total** | **45** |
+
+## Notes
+
+- Scope: the brief said to start with Repulse Media and finish with HOUSE Talent (#45). The 12 companies listed after it (#46 The Booking Project through #57 Semaphore) were not contacted.
+- No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
+- No CAPTCHA was solved or bypassed. For three Squarespace sites (Sharper, Spires, The Gold Arena), one submission was attempted and the site's invisible reCAPTCHA rejected it, so nothing was received. Those sites were not retried. Later Squarespace forms were not attempted.
+- No phone number, website, address, social handle or budget was invented. Forms that required any of these are marked Blocked.
+- Where a roster is mainly short-form or social-first, the long-form clause was left out of the opening sentence so it stays accurate.
+- Timestamps are UTC, taken from the automation host at the moment the submit button was clicked.

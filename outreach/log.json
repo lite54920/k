@@ -518,5 +518,70 @@
   "Confirmation message or reference": "",
   "Public contact email": "hello@dopaminestudios.co.uk",
   "Notes or blocker": "Duda form (Name, Email, Message) with a reCAPTCHA v2 checkbox. Not submitted."
+ },
+ {
+  "#": 41,
+  "Company": "MUSE",
+  "Official website": "https://musetheagency.com/",
+  "Contact-form URL": "None (contact page lists emails only)",
+  "Relevant roster niches": "UGC creators, digital talent and models (200+ talents across 30+ countries; Manchester)",
+  "Personalized opening sentence": "—",
+  "Submission status": "Email only",
+  "Submission date and time (UTC)": "",
+  "Confirmation message or reference": "",
+  "Public contact email": "info@musetheagency.com (general)",
+  "Notes or blocker": "No web form. UGC/model focus, so low long-form fit. Email not sent."
+ },
+ {
+  "#": 42,
+  "Company": "Reach Talent Agency",
+  "Official website": "https://www.reachtalentagency.com/",
+  "Contact-form URL": "https://www.reachtalentagency.com/contact-us",
+  "Relevant roster niches": "Small UK creator roster (6 listed); mainly an influencer marketing / UGC agency. Niches not stated",
+  "Personalized opening sentence": "I came across your roster and noticed that alongside your influencer marketing work you manage a roster of UK content creators.",
+  "Submission status": "Ready for CAPTCHA",
+  "Submission date and time (UTC)": "Attempted 2026-09-25 01:43 (stopped at verification)",
+  "Confirmation message or reference": "Wix showed a 'Verification — Please confirm you're human' reCAPTCHA checkbox after Get Started",
+  "Public contact email": "mailbox@reachtalentagency.com",
+  "Notes or blocker": "CAPTCHA not solved, so the enquiry was NOT sent. Complete manually (Name, Email, Message)."
+ },
+ {
+  "#": 43,
+  "Company": "Bright Management",
+  "Official website": "https://brightmgmt.co/",
+  "Contact-form URL": "None suitable (the only form is a creator representation application)",
+  "Relevant roster niches": "Creators and personalities with 100K to 6M+ followers (London / Austin)",
+  "Personalized opening sentence": "—",
+  "Submission status": "Email only",
+  "Submission date and time (UTC)": "",
+  "Confirmation message or reference": "",
+  "Public contact email": "hello@brightmgmt.co (brands); talent@brightmgmt.co",
+  "Notes or blocker": "The contact form requires TikTok/Instagram handles and audience-demographic uploads (creator application), so it was not used. Email not sent."
+ },
+ {
+  "#": 44,
+  "Company": "Hamlet Management",
+  "Official website": "https://www.hamletmanagement.com/",
+  "Contact-form URL": "https://www.hamletmanagement.com/ ('Send Us A Message' Wix form)",
+  "Relevant roster niches": "Performers and creators across film, TV, theatre, dance, musical theatre, opera and digital media (actor- and performer-led)",
+  "Personalized opening sentence": "I came across Hamlet Management and noticed that you represent performers and creators across film, television, theatre, dance and digital media.",
+  "Submission status": "Ready for CAPTCHA",
+  "Submission date and time (UTC)": "Attempted 2026-09-25 01:43 (stopped at verification)",
+  "Confirmation message or reference": "Wix showed a 'Verification — Please confirm you're human' reCAPTCHA checkbox",
+  "Public contact email": "partnerships@hamletmanagement.com; creators@hamletmanagement.com",
+  "Notes or blocker": "CAPTCHA not solved, so the enquiry was NOT sent. Performer-focused roster, so lower long-form fit."
+ },
+ {
+  "#": 45,
+  "Company": "HOUSE Talent",
+  "Official website": "https://housetalent.co.uk/",
+  "Contact-form URL": "None ('Let's chat' is a mailto: link)",
+  "Relevant roster niches": "Interiors, lifestyle, hospitality and F&B creators: interior designers, journalists, business owners, artists (e.g. Our Riverside Dream)",
+  "Personalized opening sentence": "—",
+  "Submission status": "Email only",
+  "Submission date and time (UTC)": "",
+  "Confirmation message or reference": "",
+  "Public contact email": "rea@housetalent.co.uk",
+  "Notes or blocker": "No web form. Also runs creator training ('Housekeeping'). Email not sent."
  }
 ]
