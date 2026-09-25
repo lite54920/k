@@ -1,0 +1,1653 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deepstar Hearts</title>
+<meta name="description" content="A 2D romance hunter game: fight Hollows beside your companion, unlock their stories, and collect memories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Zen+Maru+Gothic:wght@400;500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#080a1a;
+  --bg2:#12163a;
+  --panel:rgba(18,20,46,.84);
+  --panel-hi:rgba(34,36,78,.92);
+  --line:rgba(170,176,255,.22);
+  --ink:#eeeaff;
+  --dim:#a6a8d2;
+  --rose:#f5a6c8;
+  --cyan:#8ae7ff;
+  --gold:#ffd57e;
+  --violet:#a488ff;
+  --danger:#ff5f80;
+  --r3:#8fb6ff;
+  --r4:#c79bff;
+  --r5:#ffd57e;
+  --display:'Philosopher', 'Palatino Linotype', Georgia, serif;
+  --body:'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Segoe UI', system-ui, sans-serif;
+}
+html,body{height:100%}
+[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;overflow:hidden;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+#bgc{position:fixed;inset:0;width:100%;height:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,.tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;gap:14px;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px calc(env(safe-area-inset-bottom,0px) + 14px);overflow-y:auto;overflow-x:hidden}
+.wrap{width:100%;max-width:1040px;margin-inline:auto;display:flex;flex-direction:column;gap:14px}
+
+/* buttons */
+.btn{--c:var(--rose);position:relative;border:1px solid color-mix(in srgb,var(--c) 60%,transparent);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 26%,#14163a),color-mix(in srgb,var(--c) 10%,#0d0f28));padding:10px 20px;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);letter-spacing:.04em;font-weight:700;transition:filter .15s,transform .1s}
+.btn:hover{filter:brightness(1.2)}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{filter:grayscale(.8) brightness(.6);cursor:not-allowed}
+.btn.gold{--c:var(--gold)}
+.btn.cyan{--c:var(--cyan)}
+.btn.ghost{background:transparent;border-color:var(--line)}
+.back{align-self:flex-start}
+
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.panel{background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+/* title */
+#s-title{align-items:center;justify-content:center;text-align:center}
+.logo{font-family:var(--display);font-size:clamp(44px,9vw,96px);line-height:.95;letter-spacing:.01em;background:linear-gradient(180deg,#fff 20%,var(--rose) 70%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px rgba(245,166,200,.35))}
+.logo i{font-style:italic;font-weight:400}
+.tag{color:var(--dim);max-width:34ch;margin:10px auto 26px;line-height:1.6}
+.namebox{display:flex;flex-direction:column;gap:10px;align-items:center;width:min(320px,100%)}
+.namebox label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.namebox input{width:100%;background:rgba(10,12,32,.8);border:1px solid var(--line);color:var(--ink);font:inherit;font-size:18px;text-align:center;padding:10px;border-radius:0}
+.title-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+
+/* top bar */
+.topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 14px}
+.who{display:flex;flex-direction:column;gap:4px;min-width:150px;flex:1}
+.who b{font-family:var(--display);font-size:20px}
+.expbar{height:5px;background:rgba(255,255,255,.1);width:min(220px,100%)}
+.expbar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--rose))}
+.gems{display:flex;align-items:center;gap:6px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--gold)}
+.gem{width:14px;height:14px;background:linear-gradient(135deg,#fff3c4,var(--gold) 50%,#c98b2a);clip-path:polygon(50% 0,100% 40%,50% 100%,0 40%)}
+.iconbtn{background:transparent;border:1px solid var(--line);padding:6px 10px;font-size:12px;letter-spacing:.1em}
+
+/* hub */
+.hub{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:stretch;flex:1;min-height:0}
+.feature{position:relative;min-height:340px;display:flex;flex-direction:column}
+.feature canvas{flex:1;width:100%;min-height:300px;cursor:pointer}
+.bubble{position:absolute;left:12px;right:12px;bottom:12px;padding:12px 16px;line-height:1.6}
+.bubble .nm{font-family:var(--display);font-weight:700;color:var(--rose);margin-right:8px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center}
+.mbtn{--c:var(--rose);display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:18px 16px;min-height:104px;border:1px solid color-mix(in srgb,var(--c) 45%,transparent);background:linear-gradient(160deg,color-mix(in srgb,var(--c) 22%,rgba(18,20,46,.9)),rgba(12,14,34,.9));clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);transition:filter .15s,transform .1s}
+.mbtn:hover{filter:brightness(1.18)}
+.mbtn:active{transform:scale(.98)}
+.mbtn b{font-family:var(--display);font-size:22px}
+.mbtn span{color:var(--dim);font-size:13px;line-height:1.4}
+.mbtn.hunt{--c:var(--cyan)}.mbtn.story{--c:var(--rose)}.mbtn.wish{--c:var(--gold)}.mbtn.mem{--c:var(--violet)}
+.aff-row{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--line);font-size:12px;background:rgba(10,12,30,.6)}
+.chip .dot{width:8px;height:8px;border-radius:50%}
+
+@media (max-width:760px){
+  .hub{grid-template-columns:1fr}
+  .feature{min-height:300px}
+  .feature canvas{min-height:260px}
+  .mbtn{min-height:86px;padding:14px}
+  .mbtn b{font-size:19px}
+}
+
+/* companion picker */
+.pickers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pick{border:1px solid var(--line);background:var(--panel);padding:8px 8px 10px;display:flex;flex-direction:column;align-items:center;gap:4px;transition:border-color .15s,background .15s}
+.pick canvas{width:100%;aspect-ratio:1/1;max-width:120px}
+.pick b{font-family:var(--display);font-size:16px}
+.pick small{color:var(--dim);font-size:11px;text-align:center;line-height:1.3}
+.pick.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 16%,var(--panel))}
+@media (max-width:520px){.pick small{display:none}}
+.skillnote{padding:10px 14px;line-height:1.5;color:var(--dim);font-size:13px}
+.skillnote b{color:var(--ink)}
+
+.stages{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.stage{display:flex;flex-direction:column;gap:6px;text-align:left;padding:14px 16px;border:1px solid var(--line);background:var(--panel);transition:border-color .15s,filter .15s}
+.stage:hover:not([disabled]){border-color:var(--cyan)}
+.stage[disabled]{opacity:.45;cursor:not-allowed}
+.stage .no{font-size:11px;letter-spacing:.2em;color:var(--cyan)}
+.stage b{font-family:var(--display);font-size:19px}
+.stage small{color:var(--dim)}
+.stage .boss{color:var(--danger);font-weight:700}
+
+/* stories */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{--c:var(--rose);border:1px solid var(--line);background:var(--panel);padding:8px 16px;font-family:var(--display);font-size:16px;font-weight:700}
+.tab.on{border-color:var(--c);color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--panel))}
+.chaps{display:flex;flex-direction:column;gap:10px}
+.chap{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 16px;text-align:left;border:1px solid var(--line);background:var(--panel)}
+.chap[disabled]{opacity:.5;cursor:not-allowed}
+.chap .n{font-family:var(--display);font-size:28px;color:var(--c,var(--rose));width:34px;text-align:center}
+.chap b{font-family:var(--display);font-size:18px;display:block}
+.chap small{color:var(--dim)}
+.chap .st{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.bond{display:flex;align-items:center;gap:12px;padding:12px 16px}
+.bond .bar{flex:1;height:8px;background:rgba(255,255,255,.08)}
+.bond .bar i{display:block;height:100%}
+
+/* scene */
+#s-scene{padding:0;overflow:hidden}
+#sceneCv{position:absolute;inset:0;width:100%;height:100%}
+.dlg{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:calc(100% - 32px);max-width:860px;padding:18px 22px 22px;min-height:132px;cursor:pointer}
+.dlg .spk{font-family:var(--display);font-size:20px;font-weight:700;margin-bottom:6px;min-height:24px}
+.dlg .txt{font-size:17px;line-height:1.7;min-height:58px}
+.dlg .more{position:absolute;right:18px;bottom:10px;font-size:12px;color:var(--dim);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+.choices{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 170px);width:calc(100% - 32px);max-width:560px;display:flex;flex-direction:column;gap:10px}
+.choices .btn{text-align:left;padding:14px 20px;font-weight:500}
+.skip{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px}
+.scene-title{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);left:16px;font-family:var(--display);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+
+/* cards */
+.card-cv{width:100%;aspect-ratio:5/7;max-width:100%;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.cardbtn{background:none;border:0;padding:0;display:flex;flex-direction:column;gap:6px;text-align:left}
+.cardbtn small{color:var(--dim);font-size:12px}
+.cardbtn .eq{color:var(--gold);font-weight:700}
+
+/* wish */
+.banner{position:relative;min-height:260px}
+.banner canvas{width:100%;height:100%;min-height:260px;display:block}
+.banner .info{position:absolute;left:18px;bottom:16px;right:18px;display:flex;flex-direction:column;gap:6px;text-shadow:0 2px 8px #000}
+.banner .info h2{font-size:clamp(26px,5vw,40px)}
+.banner .info p{margin:0;color:var(--dim);line-height:1.5;max-width:48ch}
+.pullrow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.pullrow .pity{color:var(--dim);font-size:13px;flex:1;min-width:180px}
+.rates{color:var(--dim);font-size:12px;line-height:1.6}
+
+.overlay{position:fixed;inset:0;background:rgba(4,5,14,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);z-index:20;overflow-y:auto}
+.results{display:grid;grid-template-columns:repeat(5,minmax(0,130px));gap:10px;justify-content:center;width:100%}
+@media (max-width:700px){.results{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.results .r{opacity:0;transform:translateY(16px) scale(.9);animation:pop .45s forwards}
+.results .r small{display:block;text-align:center;font-size:11px;color:var(--dim);margin-top:4px}
+.results .r small.new{color:var(--gold)}
+@keyframes pop{to{opacity:1;transform:none}}
+.star-drop{width:6px;height:120px;border-radius:3px;animation:drop 1s ease-in forwards}
+@keyframes drop{from{transform:translateY(-60vh);opacity:0}30%{opacity:1}to{transform:translateY(0);opacity:0}}
+
+.modal-card{display:grid;grid-template-columns:minmax(0,260px) minmax(0,340px);gap:20px;align-items:center;max-width:680px;width:100%}
+.modal-card .meta{display:flex;flex-direction:column;gap:10px}
+.modal-card .meta p{margin:0;color:var(--dim);line-height:1.6}
+.stat{display:flex;gap:16px;font-variant-numeric:tabular-nums}
+.stat span{color:var(--dim)}
+@media (max-width:600px){.modal-card{grid-template-columns:1fr;justify-items:center;text-align:center}.modal-card .meta{align-items:center}.modal-card canvas{max-width:220px}}
+
+/* battle */
+#s-battle{padding:0;overflow:hidden;background:#03040c}
+#bc{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.bt-top{position:absolute;top:calc(env(safe-area-inset-top,0px) + 8px);right:12px;display:flex;gap:8px;z-index:3}
+.touch{position:absolute;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);display:grid;grid-template-columns:auto auto;gap:12px;align-items:end;z-index:3}
+.tb{width:74px;height:74px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(20,22,50,.55);font-weight:700;font-size:13px;letter-spacing:.06em;touch-action:none}
+.tb.atk{width:92px;height:92px;border-color:var(--rose);grid-row:span 2}
+.tb.skl{border-color:var(--gold)}
+.tb.dsh{border-color:var(--cyan)}
+.tb.ready{background:rgba(255,213,126,.35);box-shadow:0 0 18px var(--gold)}
+.res{min-width:min(420px,100%);padding:26px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.res h2{font-size:34px}
+.res .rw{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;color:var(--dim)}
+.res .rw b{color:var(--ink);font-variant-numeric:tabular-nums}
+.res .btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+#toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 14px);transform:translate(-50%,-150%);padding:10px 18px;background:var(--panel-hi);border:1px solid var(--gold);color:var(--ink);z-index:50;transition:transform .3s;max-width:calc(100% - 32px);text-align:center}
+#toast.on{transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+
+<canvas id="bgc"></canvas>
+
+<section id="s-title" class="screen">
+  <div class="eyebrow">A 2D romance hunter</div>
+  <div class="logo">Deepstar<br><i>Hearts</i></div>
+  <p class="tag">Lumora's sky has split open. Hunt the Hollows that fall through the Rift, and find out why the light in your chest makes four very different people refuse to leave your side.</p>
+  <form class="namebox" id="nameForm">
+    <label for="nameIn">Your hunter name</label>
+    <input id="nameIn" maxlength="14" autocomplete="off" value="Nova">
+    <div class="title-btns">
+      <button class="btn" type="submit" id="startBtn">Begin</button>
+      <button class="btn ghost" type="button" id="resetBtn" hidden>New game</button>
+    </div>
+  </form>
+</section>
+
+<section id="s-hub" class="screen" hidden>
+  <div class="wrap" style="flex:1">
+    <header class="topbar panel">
+      <div class="who"><b id="hubName">Nova</b><span class="eyebrow" id="hubLv">Hunter Lv 1</span><div class="expbar"><i id="hubExp" style="width:0%"></i></div></div>
+      <div class="gems"><span class="gem"></span><span id="hubGems">0</span></div>
+      <button class="iconbtn" id="sndBtn" type="button">Sound: on</button>
+    </header>
+    <div class="hub">
+      <div class="feature panel">
+        <canvas id="hubCv" aria-label="Your companion. Tap to talk."></canvas>
+        <div class="bubble panel" id="hubLine"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+        <nav class="menu">
+          <button class="mbtn hunt" data-go="hunt"><b>Hunt</b><span>Clear Hollow waves with your companion</span></button>
+          <button class="mbtn story" data-go="stories"><b>Stories</b><span>Bond chapters for each companion</span></button>
+          <button class="mbtn wish" data-go="wish"><b>Wish</b><span>Draw memory cards with gems</span></button>
+          <button class="mbtn mem" data-go="mem"><b>Memories</b><span>Your collection and equipped cards</span></button>
+        </nav>
+        <div class="panel" style="padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+          <span class="eyebrow">Bond</span>
+          <div class="aff-row" id="hubAff"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s-hunt" class="screen" hidden>
+  <div class="wrap">
+    <button class="btn ghost back" data-go="hub">‹ Lumora</button>
+    <div><div class="eyebrow">Choose your partner</div><h2>Hunt</h2></div>
+    <div class="pickers" id="pickers"></div>
+    <div class="skillnote panel" id="skillNote"></div>
+    <div class="eyebrow">Hunt zones</div>
+    <div class="stages" id="stages"></div>
+    <p class="rates">Keyboard: WASD or arrow keys to move · J or click to attack · K, Shift or Space to dash · L or E for your partner's Resonance skill. Dash just before a hit lands for a Perfect Dodge, which slows time and charges Resonance. On touch screens, drag the left side to move.</p>
+  </div>
+</section>
+
+<section id="s-stories" class="screen" hidden>
+  <div class="wrap">
+    <button class="btn ghost back" data-go="hub">‹ Lumora</button>
+    <div><div class="eyebrow">Bond chapters</div><h2>Stories</h2></div>
+    <div class="tabs" id="storyTabs"></div>
+    <div class="bond panel" id="bondBar"></div>
+    <div class="chaps" id="chaps"></div>
+  </div>
+</section>
+
+<section id="s-scene" class="screen" hidden>
+  <canvas id="sceneCv"></canvas>
+  <div class="scene-title" id="sceneTitle"></div>
+  <button class="btn ghost skip" id="skipBtn" type="button">Skip ›</button>
+  <div class="choices" id="choices" hidden></div>
+  <div class="dlg panel" id="dlg"><div class="spk" id="dlgSpk"></div><div class="txt" id="dlgTxt"></div><div class="more" id="dlgMore">▼</div></div>
+</section>
+
+<section id="s-wish" class="screen" hidden>
+  <div class="wrap">
+    <button class="btn ghost back" data-go="hub">‹ Lumora</button>
+    <div class="banner panel"><canvas id="bannerCv"></canvas>
+      <div class="info"><span class="eyebrow">Standard wish</span><h2>Constellation of Four</h2><p>Every memory is a moment you shared. Equip a companion's memory to power up hunts with them.</p></div>
+    </div>
+    <div class="pullrow">
+      <div class="gems"><span class="gem"></span><span id="wishGems">0</span></div>
+      <span class="pity" id="pityTxt"></span>
+      <button class="btn cyan" id="pull1">Wish ×1 · 100</button>
+      <button class="btn gold" id="pull10">Wish ×10 · 1000</button>
+    </div>
+    <p class="rates">Rates: 5★ 3% · 4★ 17% · 3★ 80%. Guaranteed 5★ within 60 wishes, and at least one 4★ in every 10. A duplicate card raises its level, up to Lv 5.</p>
+  </div>
+</section>
+
+<section id="s-mem" class="screen" hidden>
+  <div class="wrap">
+    <button class="btn ghost back" data-go="hub">‹ Lumora</button>
+    <div><div class="eyebrow" id="memCount">Collection</div><h2>Memories</h2></div>
+    <div class="tabs" id="memTabs"></div>
+    <div class="grid" id="memGrid"></div>
+  </div>
+</section>
+
+<section id="s-battle" class="screen" hidden>
+  <canvas id="bc"></canvas>
+  <div class="bt-top"><button class="btn ghost" id="pauseBtn" type="button">Pause</button></div>
+  <div class="touch" id="touch" hidden>
+    <button class="tb skl" id="tSkl" type="button">SKILL</button>
+    <button class="tb atk" id="tAtk" type="button">ATTACK</button>
+    <button class="tb dsh" id="tDsh" type="button">DASH</button>
+  </div>
+</section>
+
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* =========================================================
+   DATA
+   ========================================================= */
+const ORDER = ['orion','lucien','marin','kade'];
+const CHARS = {
+  orion:{name:'Orion',role:'Deepspace Hunter',hair:'#e8ecf8',hairDark:'#a3b1d6',eye:'#5fb2ff',skin:'#f8e2d4',outfit:'#26305a',trim:'#8ae7ff',accent:'#8ae7ff',style:'soft',
+    skill:'Starfall Edge',skillDesc:'A comet-bright slash that cuts through every Hollow in a long line.',
+    bio:'Your assigned partner. Sleepy, quiet, and far too fast.'},
+  lucien:{name:'Lucien',role:'Cardiac Surgeon',hair:'#343947',hairDark:'#1c1f29',eye:'#e6a64a',skin:'#f6ddcc',outfit:'#eef1f7',inner:'#2a2f3e',trim:'#ffd57e',accent:'#ffd57e',style:'neat',glasses:true,
+    skill:'Frost Pulse',skillDesc:'Heals you for 30% HP, then freezes and damages every Hollow nearby.',
+    bio:'Lumora General\'s youngest head of cardiology. Cold hands, colder voice.'},
+  marin:{name:'Marin',role:'Painter of the Tides',hair:'#c3adf7',hairDark:'#8a72d6',eye:'#ff8cc0',skin:'#fae4da',outfit:'#f4efe4',trim:'#b98cff',accent:'#c79bff',style:'long',
+    skill:'Tidal Canvas',skillDesc:'A crashing wave that clears enemy shots and hurls Hollows away.',
+    bio:'A celebrated, very dramatic artist. He smells like the sea.'},
+  kade:{name:'Kade',role:'Boss of Sector 9',hair:'#f2f2f6',hairDark:'#b4b4c6',eye:'#ff2e4d',skin:'#f3dccf',outfit:'#16161f',trim:'#ff4d6d',accent:'#ff5f80',style:'swept',
+    skill:'Crimson Verdict',skillDesc:'Marks every Hollow on the field, then strikes them all at once.',
+    bio:'Runs the undercity. Has a crow named Ember and no respect for rules.'}
+};
+
+const CARDS = [
+  ['o5','orion',5,'Across the Oldest Light','surprised','A star chart older than the city, with your name in the corner.',['#0b1440','#3a5cb0']],
+  ['o4a','orion',4,'Observatory Nap','happy','"Five more minutes is very reasonable."',['#1a2350','#f0a37c']],
+  ['o4b','orion',4,'Partner\'s Blade','neutral','His blade glows like a comet\'s tail.',['#0e1a3a','#4bb8e0']],
+  ['o3a','orion',3,'Night Patrol','neutral','Lantern light on the night market.',['#141a3a','#6b5aa8']],
+  ['o3b','orion',3,'Shared Umbrella','smile','He tilts it toward you, every time.',['#1b2442','#4f6f9a']],
+  ['l5','lucien',5,'Beat of the Aether Heart','blush','"I promised I would never let it go out."',['#2a1a10','#e6a64a']],
+  ['l4a','lucien',4,'Midnight Rounds','smirk','Low-sodium soup, delivered at midnight.',['#101828','#4c5f80']],
+  ['l4b','lucien',4,'Frost-Lit Window','neutral','Snow on the cardiology wing.',['#0e1c2c','#9cd4ff']],
+  ['l3a','lucien',3,'Clinic Hours','angry','"Define sleep."',['#1a1e2a','#6a7890']],
+  ['l3b','lucien',3,'Black Coffee','smile','He remembered how you take yours.',['#1c1612','#8a6040']],
+  ['m5','marin',5,'Tide Song','blush','The song of a city under the sea.',['#081a36','#56d6d0']],
+  ['m4a','marin',4,'Wet Paint','happy','Blue paint, opening night, total chaos.',['#1a1440','#6a8cff']],
+  ['m4b','marin',4,'Rain Dance','smile','The rain and he have an understanding.',['#16223a','#8fa8d8']],
+  ['m3a','marin',3,'Gallery Opening','smirk','"Everyone\'s heard of me."',['#261a3a','#c08ad8']],
+  ['m3b','marin',3,'Seaglass','neutral','A green shard he swears is lucky.',['#0f2630','#58a890']],
+  ['k5','kade',5,'Red Moon Verdict','smirk','"Nobody touches what\'s mine."',['#1a0610','#e0304a']],
+  ['k4a','kade',4,'House Rules','smile','A black key, still warm from his hand.',['#1a0c14','#9a2a50']],
+  ['k4b','kade',4,'Ember\'s Gift','happy','The crow brought you a bottle cap.',['#141018','#d06030']],
+  ['k3a','kade',3,'Wrong Alley','neutral','Neon, rain, and a man in a black coat.',['#120e1c','#6a3a8a']],
+  ['k3b','kade',3,'Neon Rain','smirk','Sector 9 never sleeps.',['#0c1020','#c03a7a']],
+].map(([id,ch,r,name,mood,desc,bg])=>({id,ch,r,name,mood,desc,bg}));
+const CARD = Object.fromEntries(CARDS.map(c=>[c.id,c]));
+
+const STAGES = [
+  {name:'Night Market Breach',mul:1,waves:[['wisp',5],['wisp',6,'spitter',2]]},
+  {name:'Skyrail Station',mul:1.3,waves:[['wisp',6,'spitter',2],['spitter',3,'brute',1],['wisp',8,'brute',1]]},
+  {name:'The Rift Gate',mul:1.6,boss:true,waves:[['wisp',6,'spitter',3],['brute',2,'spitter',2],['boss',1]]},
+  {name:'Drowned Gallery',mul:2.1,waves:[['wisp',10,'spitter',3],['brute',2,'spitter',4],['wisp',8,'brute',3]]},
+  {name:'Sector 9 Undercity',mul:2.7,waves:[['spitter',6,'wisp',6],['brute',4,'wisp',6],['brute',3,'spitter',5]]},
+  {name:'Heart of the Rift',mul:3.4,boss:true,waves:[['wisp',12,'spitter',4],['brute',4,'spitter',4],['boss',1,'wisp',4]]},
+];
+
+const LINES = {
+  orion:[
+    ['...Oh. You\'re here. Good.','Want to patrol together? I\'ll stay awake for it.','I brought you a dumpling. The stand owner still remembers you.'],
+    ['The stars are clear tonight. Come look with me later.','I don\'t mind waiting for you. I\'m good at it.','You hold your blade differently now. Better.'],
+    ['I\'ve crossed a lot of sky to stand next to you. I\'m not moving.','Every time you smile, the core in your chest glows a little. Did you know?','Stay a while, partner. Five more minutes.'],
+  ],
+  lucien:[
+    ['Your checkup is on Thursday. Nine sharp.','Did you eat? That wasn\'t a rhetorical question.','Hunters who skip rest end up on my table.'],
+    ['I adjusted your prescription. Don\'t argue, it\'s already done.','...Your pulse is steady today. Good.','I finished my shift early. For unrelated reasons.'],
+    ['Eight years of research, and you\'re still the only case I can\'t stop thinking about.','My hands are warm today. You can check.','Come home safe. That\'s a medical order.'],
+  ],
+  marin:[
+    ['Darling! You\'re here! The light on your face is perfect, don\'t move.','I painted the sea again. It still isn\'t blue enough.','Is it going to rain today? Please say yes.'],
+    ['I started a portrait of you. You can see it when it\'s a masterpiece.','Hold my hand? Purely for artistic reference.','You smell like rain. That\'s my favorite smell.'],
+    ['I left the sea to find one song, and it turns out the song was you.','Stay close. The tide always comes back, and so will I.','If I painted every hour I spent with you, I\'d need a bigger gallery.'],
+  ],
+  kade:[
+    ['Out hunting in my district again? I\'ll allow it.','Ember says hi. Ember also says your coat is ugly.','Careful, sweetheart. Sector 9 bites.'],
+    ['My door\'s open if you need a place to hide.','Somebody asked about you in the undercity. They won\'t ask again.','You\'re late. I noticed. I always notice.'],
+    ['Whatever the Rift wants with you, it has to get past me first.','I don\'t share. Not my city, not my crow, not you.','Stay. I\'ll make it worth your while.'],
+  ]
+};
+
+/* Story script: "who:mood|text"  ("|text" = narration, "you|text" = player). {n} = player name. */
+const STORIES = {
+  orion:[
+    {title:'Falling Star',req:0,bg:['#0d1433','#3a2a5c'],lines:[
+      '|The night market of Lumora is loud, bright, and ten seconds from disaster.',
+      '|A Hollow tears through the lantern stalls. Your blade is still half-drawn when a streak of pale light cuts it in two.',
+      'orion:neutral|...You hesitated.',
+      'you|I was aiming!',
+      'orion:smile|Mm. You were aiming at the dumpling stand.',
+      '|He sheathes a blade that glows like a comet\'s tail. Silver hair, sleepy blue eyes, not a scratch on him.',
+      'orion:neutral|Orion. The Hunter Association assigned me as your partner. Starting tonight.',
+      {c:[['Thanks for the save, partner.',10,['orion:smile|Don\'t thank me yet. I\'m told I\'m hard to wake up in the mornings.']],
+          ['I could have handled it.',5,['orion:smirk|I know. I just wanted to see your face up close.']],
+          ['...Have we met before?',15,['orion:surprised|...','orion:neutral|Maybe in a dream. I dream about stars a lot.']]]},
+      '|He turns toward the sky, where the Rift glimmers faintly above the city.',
+      'orion:smile|Come on, {n}. The night isn\'t over.'
+    ]},
+    {title:'The Observatory Nap',req:30,bg:['#233a6a','#e89a7a'],lines:[
+      '|Orion missed the morning briefing. You find him where the receptionist said you would: asleep on the roof of the old observatory.',
+      'orion:neutral|...Five more minutes.',
+      'you|It\'s two in the afternoon.',
+      'orion:happy|Then five more minutes is very reasonable.',
+      '|You sit beside him. From up here, the city looks quiet, as if the Hollows were only a rumor.',
+      'orion:neutral|Do you know which stars are the oldest? Their light left before anyone here was born. We\'re looking at something that already happened.',
+      {c:[['That sounds lonely.',15,['orion:sad|It is. Unless someone else is looking too.','|His hand rests next to yours on the warm concrete. He doesn\'t move it away.']],
+          ['That sounds like a great excuse to nap.',8,['orion:happy|You understand me perfectly.']],
+          ['Show me which one is oldest.',12,['orion:smile|That one. Faint, blue, stubborn. It reminds me of someone.']]]},
+      'orion:blush|...I\'ll make the next briefing. Probably.'
+    ]},
+    {title:'Across the Oldest Light',req:70,bg:['#050a24','#2c3f8a'],lines:[
+      '|The Rift pulses over Lumora, brighter than it has in years. Orion calls you to the observatory at midnight.',
+      'orion:neutral|{n}. I need to tell you something before the next hunt.',
+      '|He unrolls a hand-drawn star chart, older than the building you\'re standing in. In the corner is your name.',
+      'you|Where did you get this?',
+      'orion:sad|I drew it. A long time ago, from somewhere very far away. I followed that light until it led me here.',
+      'orion:neutral|The core in your chest is the same light. I didn\'t come to Lumora to hunt Hollows. I came to find you.',
+      {c:[['Then stay. You found me.',15,['orion:blush|...I was hoping you\'d say that.','|For once, he looks wide awake.']],
+          ['Why didn\'t you tell me sooner?',10,['orion:sad|Because I was afraid you\'d look at me like a stranger.','orion:smile|You don\'t. Good.']],
+          ['Is that why you always nap near me?',8,['orion:happy|Partly. The other part is that you\'re comfortable.']]]},
+      'orion:smile|Whatever the Rift is hiding, we face it together. Partner.'
+    ]},
+  ],
+  lucien:[
+    {title:'Irregular Rhythm',req:0,bg:['#dfe8f2','#7d93b8'],lines:[
+      '|Lumora General, cardiology wing. Hunters with an Aether core need a monthly checkup. Yours is overdue.',
+      'lucien:neutral|Sit. Sleeve up. Don\'t talk while I listen.',
+      '|Dr. Lucien Hart is younger than you expected. His stethoscope is ice, and his voice is colder.',
+      'lucien:angry|Your heart skipped four beats in thirty seconds. When did you last sleep?',
+      'you|Define "sleep."',
+      'lucien:neutral|Eight hours, horizontal, eyes closed. Not a nap in a patrol vehicle.',
+      {c:[['Yes, doctor. I\'ll behave.',10,['lucien:smirk|I\'ll believe that when your chart says so.']],
+          ['Are you always this strict?',6,['lucien:neutral|Only with patients who might drop dead on my watch.']],
+          ['Your hands are freezing.',12,['lucien:blush|...Hm.','|He presses the stethoscope to his own palm to warm it before listening again.']]]},
+      'lucien:neutral|Come back in two weeks. On time, {n}.'
+    ]},
+    {title:'Midnight Rounds',req:30,bg:['#141c30','#3e4f78'],lines:[
+      '|You skip the follow-up. A Hollow nest in the east district ran long.',
+      '|At midnight there\'s a knock on your door. Dr. Hart is standing there holding a paper bag.',
+      'lucien:neutral|You missed your appointment. You also, I\'d guess, missed dinner.',
+      'you|Do you make house calls for every patient?',
+      'lucien:neutral|No.',
+      '|He sets out soup, rice, and a thermos of tea without asking where anything is.',
+      {c:[['Then why me?',14,['lucien:blush|Your core is... medically interesting.','lucien:sad|And you don\'t take care of yourself. Someone has to.']],
+          ['This is surprisingly sweet.',10,['lucien:smirk|It\'s low-sodium. Don\'t mistake nutrition for sweetness.']],
+          ['Stay and eat with me.',15,['lucien:surprised|...','lucien:smile|Just this once.']]]},
+      'lucien:smile|Two weeks. On time. I\'ll be waiting.'
+    ]},
+    {title:'Beat of the Aether Heart',req:70,bg:['#1c1410','#b07a3a'],lines:[
+      '|During a hunt your core flares and your legs give out. You wake up in Lumora General.',
+      'lucien:angry|Your heart stopped for seventeen seconds. I spent seventeen minutes not knowing if it would start again.',
+      '|His hands are shaking. You\'ve never seen them shake.',
+      'lucien:neutral|I\'ve studied Aether cores for eight years. Every paper, every case. Do you know why?',
+      'lucien:sad|A long time ago I met a child with light in their chest, and I promised I would never let it go out.',
+      {c:[['That child was me, wasn\'t it.',15,['lucien:blush|...You remembered.','lucien:smile|Then you remember I keep my promises.']],
+          ['You were afraid for me.',12,['lucien:sad|Terrified. Don\'t do it again.']],
+          ['Your hands are warm now.',10,['lucien:blush|That\'s... not clinically relevant.']]]},
+      'lucien:smile|Rest, {n}. I\'m not going anywhere.'
+    ]},
+  ],
+  marin:[
+    {title:'Wet Paint',req:0,bg:['#1a1440','#5a7cf0'],lines:[
+      '|The Tidewater Gallery reports a Hollow. You arrive to find the Hollow, a shattered skylight, and a young man shielding a canvas with his whole body.',
+      'marin:surprised|Not the painting! Hit me instead! No, wait, don\'t hit me either!',
+      '|You cut the Hollow down. He peeks out, lavender hair dripping with blue paint.',
+      'marin:smile|A hunter. Of course. Destiny sent me a hunter on opening night.',
+      'marin:smirk|Marin Solace. You\'ve heard of me. Everyone\'s heard of me.',
+      {c:[['Never heard of you.',8,['marin:angry|Rude! Wonderful! Nobody\'s ever been rude to me before. I\'m painting you.']],
+          ['You were brave just now.',12,['marin:blush|I... well. Obviously. It\'s a very good painting.']],
+          ['You have paint on your face.',10,['marin:happy|That\'s called artistry, darling.']]]},
+      'marin:smile|Come back when the gallery opens, {n}. I\'ll save you the best spot.'
+    ]},
+    {title:'Rain Dance',req:30,bg:['#2a3858','#8ea6cc'],lines:[
+      '|A storm rolls over Lumora. Everyone runs for cover except one person dancing barefoot in the plaza fountain.',
+      'marin:happy|{n}! Come here, the rain is perfect today!',
+      'you|You\'re going to catch a cold.',
+      'marin:smirk|Impossible. The rain and I have an understanding.',
+      '|He grabs your hands and spins you. For a moment the storm feels like music.',
+      'marin:neutral|Dry cities make me sad. Everyone\'s always running from water. I think it\'s the kindest thing in the world.',
+      {c:[['Then I\'ll stay in the rain with you.',15,['marin:blush|You can\'t just say that to an artist. I\'ll cry. It\'ll blend in, but still.']],
+          ['You\'re strange. I like it.',12,['marin:happy|Finally, someone with taste!']],
+          ['Let\'s get you dry.',6,['marin:sad|Fine. But you\'re holding the umbrella, and it\'s very small.']]]},
+      'marin:smile|Same time next storm?'
+    ]},
+    {title:'Tide Song',req:70,bg:['#04182e','#2aa6a0'],lines:[
+      '|After a hunt, Marin\'s sleeve is torn. Along his wrist you see a shimmer of pale scales.',
+      'marin:surprised|Don\'t look! ...Okay, you looked.',
+      'marin:sad|I\'m from Thalassa. The city under the sea, the one everyone says is a myth. I came up to find something I lost.',
+      'you|What did you lose?',
+      'marin:neutral|A song. Someone above the water used to sing it back to me. The light in your chest hums the same tune.',
+      {c:[['I\'ll keep your secret.',12,['marin:smile|I knew you would. That\'s why I let you see.']],
+          ['They\'re beautiful.',15,['marin:blush|Stop. Nobody says that. Say it again.']],
+          ['Sing it for me.',14,['|He sings, and it sounds like the tide coming home.','marin:blush|...You\'re humming along. You know it.']]]},
+      'marin:smile|Stay close, {n}. I\'m not losing it twice.'
+    ]},
+  ],
+  kade:[
+    {title:'Wrong Alley',req:0,bg:['#120a1c','#7a1c48'],lines:[
+      '|You chase a Hollow into Sector 9, the undercity where the Association\'s authority ends at the first neon sign.',
+      '|The Hollow dissolves before you reach it. A red-eyed crow lands on a railing. Behind it, a man in a black coat smiles.',
+      'kade:smirk|Hunting in my district without asking? Bold.',
+      'you|That Hollow was a threat to the city.',
+      'kade:neutral|Everything down here is a threat to the city, sweetheart. Including me.',
+      'kade:smile|Kade. And that\'s Ember. Say hello, Ember.',
+      '|The crow croaks something that sounds like an insult.',
+      {c:[['Thanks for the help.',10,['kade:smirk|Help? I was protecting my property. You just happened to be standing on it.']],
+          ['Move. I have a job to do.',12,['kade:happy|Oh, I like you.']],
+          ['Your crow is cute.',8,['kade:smile|Don\'t tell him. He\'ll get arrogant. More arrogant.']]]},
+      'kade:smirk|Next time, knock. I\'ll open the door for you, {n}.'
+    ]},
+    {title:'House Rules',req:30,bg:['#1a0610','#6a1030'],lines:[
+      '|An invitation arrives on black paper: The Crimson Room, Sector 9, tonight. Wear something nice.',
+      '|The club is all velvet and low light. Kade waves off his guards the moment you walk in.',
+      'kade:smile|You came. I bet Ember you wouldn\'t. Now I owe him a whole fish.',
+      'kade:neutral|House rules: nobody fights in here, nobody lies to me, and nobody touches what\'s mine.',
+      'you|And what\'s yours?',
+      'kade:smirk|Everything in this room. Maybe that\'ll include you, eventually.',
+      {c:[['In your dreams.',10,['kade:happy|Every night, as it happens.']],
+          ['Why did you really invite me?',14,['kade:neutral|Hollows are getting into Sector 9 from somewhere. I want the only hunter I trust looking into it.']],
+          ['I don\'t belong to anyone.',12,['kade:smile|Good answer. That\'s exactly why I like you.']]]},
+      '|He slides a black key across the bar. It\'s warm from his hand.',
+      'kade:smirk|Any door in Sector 9. Use it whenever you like.'
+    ]},
+    {title:'Red Moon Verdict',req:70,bg:['#16020a','#c0203a'],lines:[
+      '|The Rift opens directly over Sector 9. Hollows pour down the neon streets.',
+      '|You\'re cornered when a wall of crimson light tears through them. Kade stands in front of you, bleeding and grinning.',
+      'kade:smirk|Told you. Nobody touches what\'s mine.',
+      'you|You\'re hurt!',
+      'kade:neutral|I\'ve had worse. I\'ve had worse this week.',
+      'kade:sad|The truth? The light in your chest is why the Rift keeps calling Hollows here. Some people want to cut it out of you. I\'ve made sure they never get the chance.',
+      {c:[['Why protect me?',12,['kade:blush|...You\'re going to make me say it. Fine. Because you matter to me.']],
+          ['Let me patch you up.',15,['kade:smile|Careful. If you\'re gentle with me, I\'ll get used to it.']],
+          ['We fight together from now on.',14,['kade:happy|Now that\'s a verdict I\'ll accept.']]]},
+      'kade:smirk|Stay close, {n}. The night\'s still ours.'
+    ]},
+  ]
+};
+
+/* =========================================================
+   SAVE
+   ========================================================= */
+const SAVE_KEY = 'deepstar_hearts_v1';
+function freshSave(name){
+  return {name:name||'Nova',gems:1600,level:1,exp:0,
+    aff:{orion:0,lucien:0,marin:0,kade:0},chap:{orion:0,lucien:0,marin:0,kade:0},
+    cards:{},equip:{},cleared:0,companion:'orion',pity5:0,pity4:0,sound:true,started:false};
+}
+let S = freshSave();
+function load(){ try{ const raw=localStorage.getItem(SAVE_KEY); if(raw){ S=Object.assign(freshSave(),JSON.parse(raw)); } }catch(e){} }
+function save(){ try{ localStorage.setItem(SAVE_KEY,JSON.stringify(S)); }catch(e){} }
+load();
+
+function expNeed(){ return 80+40*S.level; }
+function addExp(n){
+  S.exp+=n; let ups=0;
+  while(S.exp>=expNeed()){ S.exp-=expNeed(); S.level++; ups++; }
+  return ups;
+}
+function addAff(id,n){ S.aff[id]=Math.min(150,(S.aff[id]||0)+n); }
+function cardPower(cid){
+  const c=CARD[cid]; if(!c||!S.cards[cid]) return {atk:0,hp:0};
+  const base={3:[3,10],4:[7,25],5:[14,50]}[c.r];
+  const m=1+0.2*(Math.min(5,S.cards[cid])-1);
+  return {atk:Math.round(base[0]*m),hp:Math.round(base[1]*m)};
+}
+function stats(comp){
+  const cp=cardPower(S.equip[comp]);
+  const aff=S.aff[comp]||0;
+  return {atk:10+2*(S.level-1)+cp.atk+Math.floor(aff/25),hp:120+12*(S.level-1)+cp.hp,compAtk:5+S.level+Math.round(cp.atk*0.6)+Math.floor(aff/15)};
+}
+
+/* =========================================================
+   UTIL
+   ========================================================= */
+const $=s=>document.querySelector(s);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const rand=(a,b)=>a+Math.random()*(b-a);
+function shade(hex,amt){
+  const n=parseInt(hex.slice(1),16);
+  let r=(n>>16)+amt,g=((n>>8)&255)+amt,b=(n&255)+amt;
+  return `rgb(${clamp(r,0,255)},${clamp(g,0,255)},${clamp(b,0,255)})`;
+}
+function rgba(hex,a){ const n=parseInt(hex.slice(1),16); return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`; }
+function fit(cv){
+  const r=cv.getBoundingClientRect(), d=Math.min(2,window.devicePixelRatio||1);
+  cv.width=Math.max(1,Math.round(r.width*d)); cv.height=Math.max(1,Math.round(r.height*d));
+  const c=cv.getContext('2d'); c.setTransform(d,0,0,d,0,0);
+  return {c,w:r.width,h:r.height};
+}
+function fillText(s){ return s.replace(/\{n\}/g,S.name); }
+let toastT=0;
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),2400); }
+
+let AC=null;
+function sfx(k){
+  if(!S.sound) return;
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    const P={hit:[330,110,.08,'square',.04],swing:[520,260,.06,'triangle',.03],perfect:[600,1400,.3,'sine',.08],skill:[180,900,.45,'sawtooth',.05],
+      hurt:[200,60,.2,'square',.06],pull:[300,1600,.6,'sine',.06],win:[520,1040,.5,'triangle',.07],gold:[800,1600,.8,'sine',.08],tap:[700,900,.05,'sine',.03]}[k];
+    if(!P) return;
+    const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;
+    o.type=P[3]; o.frequency.setValueAtTime(P[0],t); o.frequency.exponentialRampToValueAtTime(P[1],t+P[2]);
+    g.gain.setValueAtTime(P[4],t); g.gain.exponentialRampToValueAtTime(.0001,t+P[2]);
+    o.connect(g).connect(AC.destination); o.start(t); o.stop(t+P[2]+.02);
+  }catch(e){}
+}
+
+/* =========================================================
+   PORTRAITS  (local space: x -100..100, y 0..262)
+   ========================================================= */
+const BANGS = {
+  soft:{by:58,b:[[-50,-24,-44,100],[-34,-6,-24,95],[-16,10,-4,92],[2,26,14,96],[18,42,32,93],[34,50,46,104]],side:[[-50,-38,-52,142],[38,50,52,142]]},
+  neat:{by:56,b:[[-50,-20,-46,96],[-32,0,-24,88],[-12,20,-4,82],[8,40,20,78],[30,50,48,92]],side:[[-50,-40,-51,122],[40,50,51,118]]},
+  long:{by:58,b:[[-50,-26,-40,99],[-30,-4,-18,93],[-8,16,4,97],[12,36,22,91],[30,50,42,99]],side:[[-52,-38,-60,178],[38,52,60,178]]},
+  swept:{by:54,b:[[-50,-20,-42,82],[-24,6,-12,76],[0,30,24,78],[26,50,46,86],[-10,4,6,104]],side:[[-50,-42,-51,112],[42,50,51,110]],top:[[-44,-10,-50,20],[-14,18,4,10],[14,46,42,20]]}
+};
+function strand(c,bl,br,by,tx,ty){
+  c.moveTo(bl,by);
+  c.quadraticCurveTo((bl+tx)/2-3,(by+ty)/2,tx,ty);
+  c.quadraticCurveTo((br+tx)/2+3,(by+ty)/2,br,by);
+}
+function drawOutfit(c,ch,id){
+  c.fillStyle=ch.outfit;
+  c.beginPath(); c.moveTo(-100,262); c.bezierCurveTo(-98,196,-62,172,-20,165); c.lineTo(20,165); c.bezierCurveTo(62,172,98,196,100,262); c.closePath(); c.fill();
+  c.strokeStyle=shade(ch.outfit,-30); c.lineWidth=2;
+  c.beginPath(); c.moveTo(-60,188); c.quadraticCurveTo(-64,225,-70,262); c.moveTo(60,188); c.quadraticCurveTo(64,225,70,262); c.stroke();
+  if(id==='orion'){
+    c.fillStyle=shade(ch.outfit,-12);
+    c.beginPath(); c.moveTo(-24,146); c.lineTo(24,146); c.lineTo(32,182); c.lineTo(-32,182); c.closePath(); c.fill();
+    c.strokeStyle=ch.trim; c.lineWidth=2.5;
+    c.beginPath(); c.moveTo(-32,182); c.lineTo(32,182); c.moveTo(0,182); c.lineTo(0,262); c.stroke();
+    star(c,-44,214,7,ch.trim);
+  } else if(id==='lucien'){
+    c.fillStyle=ch.inner; c.beginPath(); c.moveTo(-22,165); c.lineTo(22,165); c.lineTo(0,240); c.closePath(); c.fill();
+    c.fillStyle='#fff'; c.beginPath(); c.moveTo(-14,160); c.lineTo(0,176); c.lineTo(14,160); c.lineTo(8,186); c.lineTo(0,178); c.lineTo(-8,186); c.closePath(); c.fill();
+    c.fillStyle='#7a1f2e'; c.beginPath(); c.moveTo(-4,180); c.lineTo(4,180); c.lineTo(6,225); c.lineTo(0,234); c.lineTo(-6,225); c.closePath(); c.fill();
+    c.fillStyle='#dfe3ec'; c.beginPath(); c.moveTo(-22,165); c.lineTo(-6,244); c.lineTo(-46,190); c.closePath(); c.fill();
+    c.beginPath(); c.moveTo(22,165); c.lineTo(6,244); c.lineTo(46,190); c.closePath(); c.fill();
+    c.fillStyle=ch.trim; c.fillRect(40,214,20,3);
+  } else if(id==='marin'){
+    c.fillStyle=ch.skin; c.beginPath(); c.moveTo(-20,165); c.lineTo(20,165); c.lineTo(0,222); c.closePath(); c.fill();
+    c.strokeStyle=ch.trim; c.lineWidth=3; c.beginPath(); c.moveTo(-20,165); c.lineTo(0,222); c.lineTo(20,165); c.stroke();
+    c.fillStyle='#fff8f0';
+    for(let i=0;i<9;i++){ const a=Math.PI*(.15+i*.0875); c.beginPath(); c.arc(Math.cos(a)*22,160+Math.sin(a)*16,2.6,0,7); c.fill(); }
+  } else if(id==='kade'){
+    c.fillStyle='#8a1426';
+    c.beginPath(); c.moveTo(-26,150); c.lineTo(-54,138); c.lineTo(-58,196); c.lineTo(-24,176); c.closePath(); c.fill();
+    c.beginPath(); c.moveTo(26,150); c.lineTo(54,138); c.lineTo(58,196); c.lineTo(24,176); c.closePath(); c.fill();
+    c.fillStyle='#0c0c12'; c.beginPath(); c.moveTo(-22,165); c.lineTo(22,165); c.lineTo(0,236); c.closePath(); c.fill();
+    c.strokeStyle='#d8b060'; c.lineWidth=2; c.beginPath(); c.moveTo(-40,210); c.quadraticCurveTo(-20,226,6,212); c.stroke();
+  }
+}
+function star(c,x,y,r,col){
+  c.fillStyle=col; c.beginPath();
+  for(let i=0;i<8;i++){ const rr=i%2?r*.38:r; const a=i*Math.PI/4-Math.PI/2; c.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr); }
+  c.closePath(); c.fill();
+}
+function drawEye(c,cx,cy,dir,ch,mood){
+  const lash='#231a2c';
+  if(mood==='happy'){
+    c.strokeStyle=lash; c.lineWidth=3.2; c.lineCap='round';
+    c.beginPath(); c.arc(cx,cy+5,10,Math.PI*1.15,Math.PI*1.85); c.stroke(); return;
+  }
+  const oh=mood==='surprised'?12.5:mood==='smirk'?8:mood==='angry'?8.5:10.5;
+  c.save();
+  c.beginPath(); c.ellipse(cx,cy,12,oh,0,0,Math.PI*2); c.fillStyle='#fffaf6'; c.fill(); c.clip();
+  const g=c.createRadialGradient(cx,cy-3,1,cx,cy+2,11);
+  g.addColorStop(0,shade(ch.eye,70)); g.addColorStop(.55,ch.eye); g.addColorStop(1,shade(ch.eye,-70));
+  c.fillStyle=g; c.beginPath(); c.ellipse(cx+dir*.5,cy+1.5,8,11,0,0,Math.PI*2); c.fill();
+  c.fillStyle=shade(ch.eye,-110); c.beginPath(); c.ellipse(cx+dir*.5,cy+2,3.4,5,0,0,Math.PI*2); c.fill();
+  c.fillStyle='rgba(0,0,0,.18)'; c.fillRect(cx-14,cy-oh,28,4);
+  c.restore();
+  c.fillStyle='#fff'; c.beginPath(); c.arc(cx-3,cy-3,2.6,0,7); c.fill();
+  c.beginPath(); c.arc(cx+3.2,cy+4,1.3,0,7); c.fill();
+  c.strokeStyle=lash; c.lineWidth=3.4; c.lineCap='round';
+  c.beginPath(); c.moveTo(cx-13*dir,cy-oh*.35); c.quadraticCurveTo(cx,cy-oh-3,cx+13*dir,cy-oh*.45); c.lineTo(cx+16*dir,cy-oh*.2); c.stroke();
+  c.lineWidth=1.2; c.beginPath(); c.moveTo(cx-9,cy+oh*.9); c.quadraticCurveTo(cx,cy+oh+1.5,cx+9,cy+oh*.9); c.stroke();
+}
+function drawPortrait(c,id,x,y,s,mood){
+  const ch=CHARS[id]; mood=mood||'neutral';
+  c.save(); c.translate(x,y); c.scale(s,s); c.lineJoin='round';
+  // back hair
+  c.fillStyle=ch.hairDark; c.beginPath();
+  if(ch.style==='long'){ c.moveTo(-54,64); c.bezierCurveTo(-78,140,-74,200,-46,236); c.lineTo(46,236); c.bezierCurveTo(74,200,78,140,54,64); c.closePath(); }
+  else c.ellipse(0,82,56,60,0,0,Math.PI*2);
+  c.fill();
+  // neck
+  c.fillStyle=shade(ch.skin,-22); c.fillRect(-15,122,30,50);
+  drawOutfit(c,ch,id);
+  // ears
+  c.fillStyle=shade(ch.skin,-8);
+  c.beginPath(); c.ellipse(-44,104,6,11,-.2,0,7); c.ellipse(44,104,6,11,.2,0,7); c.fill();
+  // face
+  c.fillStyle=ch.skin; c.beginPath();
+  c.moveTo(-43,78); c.bezierCurveTo(-45,122,-18,150,0,154); c.bezierCurveTo(18,150,45,122,43,78); c.bezierCurveTo(43,32,-43,32,-43,78); c.fill();
+  // blush
+  if(mood==='blush'||mood==='happy'){
+    c.fillStyle='rgba(255,110,140,.32)';
+    c.beginPath(); c.ellipse(-26,118,10,5,0,0,7); c.ellipse(26,118,10,5,0,0,7); c.fill();
+    if(mood==='blush'){ c.strokeStyle='rgba(220,70,100,.5)'; c.lineWidth=1.2; for(let i=0;i<3;i++){ c.beginPath(); c.moveTo(-32+i*5,121); c.lineTo(-29+i*5,115); c.moveTo(20+i*5,121); c.lineTo(23+i*5,115); c.stroke(); } }
+  }
+  // eyes
+  drawEye(c,-19,101,-1,ch,mood); drawEye(c,19,101,1,ch,mood);
+  // brows
+  let inner=0,outer=0;
+  if(mood==='angry'){inner=5;outer=-2}else if(mood==='sad'){inner=-4;outer=3}else if(mood==='surprised'){inner=-5;outer=-5}else if(mood==='smirk'){inner=1;outer=-1}
+  c.strokeStyle=ch.hairDark; c.lineWidth=3; c.lineCap='round';
+  c.beginPath(); c.moveTo(-31,83+outer); c.quadraticCurveTo(-21,79+(inner+outer)/2,-10,84+inner); c.stroke();
+  c.beginPath(); c.moveTo(31,83+outer+(mood==='smirk'?-3:0)); c.quadraticCurveTo(21,79+(inner+outer)/2,10,84+inner); c.stroke();
+  // nose
+  c.strokeStyle=shade(ch.skin,-50); c.lineWidth=1.6;
+  c.beginPath(); c.moveTo(1,114); c.lineTo(-1,121); c.lineTo(2,122); c.stroke();
+  // mouth
+  c.strokeStyle='#8a4a52'; c.lineWidth=2.2; c.beginPath();
+  if(mood==='smile'||mood==='blush'){ c.moveTo(-8,133); c.quadraticCurveTo(0,139,8,133); }
+  else if(mood==='happy'){ c.fillStyle='#b8505e'; c.moveTo(-9,132); c.quadraticCurveTo(0,145,9,132); c.closePath(); c.fill(); }
+  else if(mood==='smirk'){ c.moveTo(-6,135); c.quadraticCurveTo(3,137,9,131); }
+  else if(mood==='sad'){ c.moveTo(-6,137); c.quadraticCurveTo(0,133,6,137); }
+  else if(mood==='surprised'){ c.ellipse(0,136,3.5,4.5,0,0,7); }
+  else if(mood==='angry'){ c.moveTo(-7,136); c.lineTo(7,135); }
+  else { c.moveTo(-5,135); c.quadraticCurveTo(0,136.5,5,135); }
+  c.stroke();
+  // glasses
+  if(ch.glasses){
+    c.strokeStyle=ch.trim; c.lineWidth=1.8;
+    c.beginPath(); c.roundRect?c.roundRect(-34,90,29,22,6):c.rect(-34,90,29,22); c.stroke();
+    c.beginPath(); c.roundRect?c.roundRect(5,90,29,22,6):c.rect(5,90,29,22); c.stroke();
+    c.beginPath(); c.moveTo(-5,98); c.quadraticCurveTo(0,95,5,98); c.moveTo(-34,98); c.lineTo(-43,96); c.moveTo(34,98); c.lineTo(43,96); c.stroke();
+    c.fillStyle='rgba(255,255,255,.12)'; c.fillRect(-30,92,8,18); c.fillRect(9,92,8,18);
+  }
+  // front hair
+  const B=BANGS[ch.style];
+  c.fillStyle=ch.hair;
+  c.beginPath(); c.ellipse(0,64,52,38,0,Math.PI,0); c.lineTo(52,B.by+8); c.lineTo(-52,B.by+8); c.closePath(); c.fill();
+  c.beginPath();
+  for(const s of B.b) strand(c,s[0],s[1],B.by,s[2],s[3]);
+  for(const s of B.side) strand(c,s[0],s[1],B.by+8,s[2],s[3]);
+  if(B.top) for(const s of B.top) strand(c,s[0],s[1],44,s[2],s[3]);
+  c.fill();
+  // hair shading + shine
+  c.strokeStyle=ch.hairDark; c.lineWidth=1.4; c.globalAlpha=.55;
+  c.beginPath(); for(const s of B.b){ c.moveTo((s[0]+s[1])/2,B.by-4); c.quadraticCurveTo((s[0]+s[1])/2,(B.by+s[3])/2,s[2],s[3]-6);} c.stroke();
+  c.globalAlpha=1;
+  c.strokeStyle='rgba(255,255,255,.55)'; c.lineWidth=3.5; c.lineCap='round';
+  c.beginPath(); c.arc(0,66,38,Math.PI*1.18,Math.PI*1.34); c.stroke();
+  c.beginPath(); c.arc(0,66,38,Math.PI*1.42,Math.PI*1.5); c.stroke();
+  c.restore();
+}
+function portraitFit(c,id,w,h,mood,opts={}){
+  const s=Math.min(w/(opts.wide||210),h/262)*(opts.zoom||1);
+  drawPortrait(c,id,w/2+(opts.dx||0),h-262*s+(opts.dy||0),s,mood);
+}
+
+/* cards: drawn in a 150x210 local space */
+function drawCard(cv,card,locked){
+  cv.width=300; cv.height=420;
+  const c=cv.getContext('2d'); c.setTransform(2,0,0,2,0,0);
+  const ch=CHARS[card.ch];
+  const g=c.createLinearGradient(0,0,0,210); g.addColorStop(0,card.bg[0]); g.addColorStop(1,card.bg[1]);
+  c.fillStyle=g; c.fillRect(0,0,150,210);
+  // sparkles (deterministic)
+  let seed=card.id.split('').reduce((a,ch)=>a*31+ch.charCodeAt(0),7)>>>0;
+  const rnd=()=>{ seed=(seed*1664525+1013904223)>>>0; return seed/4294967296; };
+  for(let i=0;i<26;i++){ c.fillStyle=`rgba(255,255,255,${.2+rnd()*.6})`; c.beginPath(); c.arc(rnd()*150,rnd()*150,rnd()*1.4+.3,0,7); c.fill(); }
+  c.fillStyle=rgba(ch.accent,.25); c.beginPath(); c.arc(75,80,60,0,7); c.fill();
+  drawPortrait(c,card.ch,75,34,.66,card.mood);
+  if(locked){
+    c.globalCompositeOperation='source-atop'; c.fillStyle='rgba(10,10,26,.9)'; c.fillRect(0,0,150,210); c.globalCompositeOperation='source-over';
+    c.fillStyle='rgba(255,255,255,.5)'; c.font='700 34px Philosopher, serif'; c.textAlign='center'; c.fillText('?',75,110);
+  }
+  const band=c.createLinearGradient(0,150,0,210); band.addColorStop(0,'rgba(8,8,22,0)'); band.addColorStop(.4,'rgba(8,8,22,.85)'); band.addColorStop(1,'rgba(8,8,22,.95)');
+  c.fillStyle=band; c.fillRect(0,140,150,70);
+  const rc=card.r===5?'#ffd57e':card.r===4?'#c79bff':'#8fb6ff';
+  c.textAlign='left'; c.fillStyle=rc; c.font='700 10px "Zen Maru Gothic", sans-serif';
+  c.fillText('★'.repeat(card.r),9,176);
+  c.fillStyle='#fff'; c.font='700 12px Philosopher, serif';
+  wrapText(c,locked?'Unknown memory':card.name,9,191,132,13);
+  c.fillStyle=rgba(ch.accent,.95); c.font='700 8px "Zen Maru Gothic", sans-serif'; c.textAlign='right';
+  c.fillText(ch.name.toUpperCase(),141,176);
+  // frame
+  if(card.r===5){ const fg=c.createLinearGradient(0,0,150,210); fg.addColorStop(0,'#fff2c0'); fg.addColorStop(.5,'#ffc75a'); fg.addColorStop(1,'#fff2c0'); c.strokeStyle=fg; c.lineWidth=4; }
+  else { c.strokeStyle=rc; c.lineWidth=card.r===4?3:2; }
+  c.strokeRect(2,2,146,206);
+  c.strokeStyle='rgba(255,255,255,.25)'; c.lineWidth=.8; c.strokeRect(6,6,138,198);
+}
+function wrapText(c,t,x,y,max,lh){
+  const words=t.split(' '); let line='';
+  for(const w of words){ const test=line?line+' '+w:w; if(c.measureText(test).width>max&&line){ c.fillText(line,x,y); line=w; y+=lh; } else line=test; }
+  c.fillText(line,x,y);
+}
+
+/* =========================================================
+   BACKGROUND (starry Lumora skyline)
+   ========================================================= */
+const bgc=$('#bgc'); let bg={c:null,w:0,h:0,stars:[],sky:[]};
+function bgResize(){
+  const f=fit(bgc); bg.c=f.c; bg.w=f.w; bg.h=f.h;
+  bg.stars=Array.from({length:Math.round(f.w*f.h/5000)},()=>({x:Math.random()*f.w,y:Math.random()*f.h*.75,r:Math.random()*1.3+.2,p:Math.random()*6}));
+  bg.sky=[]; let x=0; while(x<f.w){ const w=rand(24,70),h=rand(40,f.h*.28); bg.sky.push({x,w,h,win:Math.random()}); x+=w+rand(-6,4); }
+}
+let bgOn=true;
+function bgDraw(t){
+  if(bgOn&&bg.c){
+    const {c,w,h}=bg;
+    const g=c.createLinearGradient(0,0,0,h); g.addColorStop(0,'#070919'); g.addColorStop(.6,'#15163f'); g.addColorStop(1,'#3a2352');
+    c.fillStyle=g; c.fillRect(0,0,w,h);
+    // rift
+    c.save(); c.translate(w*.72,h*.2); c.rotate(-.5);
+    const rg=c.createRadialGradient(0,0,2,0,0,Math.max(w,h)*.22);
+    rg.addColorStop(0,'rgba(255,190,230,.55)'); rg.addColorStop(.3,'rgba(164,136,255,.25)'); rg.addColorStop(1,'rgba(0,0,0,0)');
+    c.fillStyle=rg; c.scale(1,.25); c.beginPath(); c.arc(0,0,Math.max(w,h)*.22,0,7); c.fill(); c.restore();
+    c.strokeStyle='rgba(255,220,245,.8)'; c.lineWidth=1.5; c.beginPath();
+    const rx=w*.72,ry=h*.2; c.moveTo(rx-80,ry+44); c.lineTo(rx-30,ry+14); c.lineTo(rx-10,ry+20); c.lineTo(rx+30,ry-8); c.lineTo(rx+80,ry-42); c.stroke();
+    for(const s of bg.stars){ c.fillStyle=`rgba(255,255,255,${.35+.4*Math.sin(t/900+s.p)})`; c.fillRect(s.x,s.y,s.r,s.r); }
+    for(const b of bg.sky){
+      c.fillStyle='#0b0c22'; c.fillRect(b.x,h-b.h,b.w,b.h);
+      c.fillStyle='rgba(255,213,126,.35)';
+      for(let yy=h-b.h+8;yy<h-6;yy+=11) for(let xx=b.x+5;xx<b.x+b.w-5;xx+=9) if(((xx*7+yy*13)|0)%5===0) c.fillRect(xx,yy,3,4);
+    }
+    c.fillStyle='rgba(138,231,255,.08)'; c.fillRect(0,h-2,w,2);
+  }
+  requestAnimationFrame(bgDraw);
+}
+
+/* =========================================================
+   SCREENS
+   ========================================================= */
+let current='title';
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.hidden=true);
+  $('#s-'+id).hidden=false; current=id;
+  bgOn = id!=='battle' && id!=='scene';
+  if(id==='hub') renderHub();
+  if(id==='hunt') renderHunt();
+  if(id==='stories') renderStories();
+  if(id==='wish') renderWish();
+  if(id==='mem') renderMem();
+}
+document.addEventListener('click',e=>{ const b=e.target.closest('[data-go]'); if(b){ sfx('tap'); show(b.dataset.go); } });
+
+/* title */
+if(S.started){ $('#nameIn').value=S.name; $('#startBtn').textContent='Continue'; $('#resetBtn').hidden=false; }
+let resetArm=false;
+$('#resetBtn').addEventListener('click',()=>{
+  if(!resetArm){ resetArm=true; $('#resetBtn').textContent='Tap again to erase save'; return; }
+  S=freshSave($('#nameIn').value.trim()||'Nova'); save(); resetArm=false;
+  $('#resetBtn').hidden=true; $('#startBtn').textContent='Begin'; toast('Save erased. A new story begins.');
+});
+$('#nameForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=$('#nameIn').value.trim()||'Nova';
+  const first=!S.started;
+  S.name=n; S.started=true; save(); sfx('tap');
+  if(first){ playScene('orion',0); } else show('hub');
+});
+
+/* hub */
+let hubTapT=0, hubLineCache='';
+function renderHub(){
+  $('#hubName').textContent=S.name;
+  $('#hubLv').textContent=`Hunter Lv ${S.level}`;
+  $('#hubExp').style.width=(100*S.exp/expNeed())+'%';
+  $('#hubGems').textContent=S.gems.toLocaleString();
+  $('#sndBtn').textContent='Sound: '+(S.sound?'on':'off');
+  $('#hubAff').innerHTML=ORDER.map(id=>`<span class="chip"><span class="dot" style="background:${CHARS[id].accent}"></span>${CHARS[id].name} ${S.aff[id]}</span>`).join('');
+  hubLine(false);
+  requestAnimationFrame(drawHubPortrait);
+}
+let hubMood='smile';
+function drawHubPortrait(){
+  const cv=$('#hubCv'); if(!cv.offsetParent) return;
+  const {c,w,h}=fit(cv); const id=S.companion, ch=CHARS[id];
+  const g=c.createRadialGradient(w/2,h*.45,10,w/2,h*.5,Math.max(w,h)*.6);
+  g.addColorStop(0,rgba(ch.accent,.35)); g.addColorStop(1,'rgba(0,0,0,0)');
+  c.fillStyle=g; c.fillRect(0,0,w,h);
+  portraitFit(c,id,w,h*0.98,hubMood,{wide:230,dy:0});
+  c.fillStyle='rgba(255,255,255,.85)'; c.font='700 22px Philosopher, serif'; c.textAlign='left';
+  c.fillText(ch.name,16,32);
+  c.fillStyle=rgba(ch.accent,1); c.font='500 12px "Zen Maru Gothic", sans-serif';
+  c.fillText(ch.role.toUpperCase(),16,50);
+}
+function hubLine(tap){
+  const id=S.companion, a=S.aff[id], tier=a>=70?2:a>=30?1:0;
+  const opts=LINES[id][tier];
+  let l; do{ l=opts[Math.floor(Math.random()*opts.length)]; }while(opts.length>1&&l===hubLineCache);
+  hubLineCache=l;
+  hubMood=['smile','happy','smirk','blush','neutral'][Math.floor(Math.random()*5)];
+  $('#hubLine').innerHTML=`<span class="nm">${CHARS[id].name}</span>${l}`;
+  if(tap){
+    const now=Date.now();
+    if(now-hubTapT>15000){ hubTapT=now; addAff(id,1); save(); $('#hubAff').innerHTML=ORDER.map(k=>`<span class="chip"><span class="dot" style="background:${CHARS[k].accent}"></span>${CHARS[k].name} ${S.aff[k]}</span>`).join(''); }
+    drawHubPortrait(); sfx('tap');
+  }
+}
+$('#hubCv').addEventListener('click',()=>hubLine(true));
+$('#sndBtn').addEventListener('click',()=>{ S.sound=!S.sound; save(); $('#sndBtn').textContent='Sound: '+(S.sound?'on':'off'); });
+
+/* hunt */
+function renderHunt(){
+  const P=$('#pickers');
+  P.innerHTML=ORDER.map(id=>`<button class="pick ${S.companion===id?'on':''}" data-pick="${id}" style="--c:${CHARS[id].accent}"><canvas></canvas><b>${CHARS[id].name}</b><small>${CHARS[id].role}</small></button>`).join('');
+  P.querySelectorAll('.pick').forEach(b=>{
+    const cv=b.querySelector('canvas'); cv.width=240; cv.height=240;
+    const c=cv.getContext('2d'); c.setTransform(2,0,0,2,0,0);
+    c.fillStyle=rgba(CHARS[b.dataset.pick].accent,.18); c.beginPath(); c.arc(60,60,58,0,7); c.fill();
+    c.save(); c.beginPath(); c.arc(60,60,58,0,7); c.clip();
+    drawPortrait(c,b.dataset.pick,60,6,.62,S.companion===b.dataset.pick?'smile':'neutral'); c.restore();
+    b.addEventListener('click',()=>{ S.companion=b.dataset.pick; save(); sfx('tap'); renderHunt(); });
+  });
+  const ch=CHARS[S.companion], st=stats(S.companion), eq=S.equip[S.companion];
+  $('#skillNote').innerHTML=`<b>${ch.name}'s Resonance: ${ch.skill}.</b> ${ch.skillDesc}<br>Your ATK ${st.atk} · HP ${st.hp} · ${ch.name} ATK ${st.compAtk} · Memory: ${eq?`<b>${CARD[eq].name}</b> (${'★'.repeat(CARD[eq].r)} Lv ${S.cards[eq]})`:'none equipped'}`;
+  $('#stages').innerHTML=STAGES.map((s,i)=>{
+    const locked=i>S.cleared, done=i<S.cleared;
+    return `<button class="stage" data-stage="${i}" ${locked?'disabled':''}><span class="no">ZONE ${i+1} ${done?'· CLEARED':''}</span><b>${s.name}</b><small>${s.waves.length} waves · Threat ${'◆'.repeat(i+1)}${s.boss?' · <span class="boss">BOSS</span>':''}</small><small>${locked?'Clear the previous zone to unlock':`Reward: ${stageGems(i,!done)} gems${done?'':' (first clear bonus)'}`}</small></button>`;
+  }).join('');
+  $('#stages').querySelectorAll('.stage').forEach(b=>b.addEventListener('click',()=>startBattle(+b.dataset.stage)));
+}
+function stageGems(i,first){ return (80+30*i)*(first?2:1); }
+
+/* stories */
+let storyTab='orion';
+function chapState(id,i){
+  const st=STORIES[id][i];
+  if(i<S.chap[id]) return 'done';
+  if(i===S.chap[id] && S.aff[id]>=st.req) return 'open';
+  return 'locked';
+}
+function renderStories(){
+  $('#storyTabs').innerHTML=ORDER.map(id=>`<button class="tab ${storyTab===id?'on':''}" style="--c:${CHARS[id].accent}" data-tab="${id}">${CHARS[id].name}</button>`).join('');
+  $('#storyTabs').querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ storyTab=b.dataset.tab; sfx('tap'); renderStories(); }));
+  const id=storyTab, ch=CHARS[id], a=S.aff[id];
+  $('#bondBar').innerHTML=`<b style="font-family:var(--display)">${ch.name}</b><div class="bar"><i style="width:${Math.min(100,a/1.5)}%;background:${ch.accent}"></i></div><span style="font-variant-numeric:tabular-nums">Bond ${a}</span>`;
+  $('#chaps').innerHTML=STORIES[id].map((s,i)=>{
+    const st=chapState(id,i);
+    const why= st==='locked' ? (i>S.chap[id]?'Finish the previous chapter':`Needs Bond ${s.req}. Hunt with ${ch.name} or pick heartfelt answers`) : st==='done'?'Replay anytime':'+120 gems on first read';
+    return `<button class="chap" style="--c:${ch.accent}" data-ch="${i}" ${st==='locked'?'disabled':''}><span class="n">${i+1}</span><span><b>${s.title}</b><small>${why}</small></span><span class="st" style="color:${st==='open'?ch.accent:'var(--dim)'}">${st==='done'?'Read':st==='open'?'New':'Locked'}</span></button>`;
+  }).join('');
+  $('#chaps').querySelectorAll('.chap').forEach(b=>b.addEventListener('click',()=>playScene(id,+b.dataset.ch)));
+}
+
+/* =========================================================
+   SCENE PLAYER
+   ========================================================= */
+let SC=null;
+function playScene(id,idx){
+  const st=STORIES[id][idx];
+  SC={id,idx,st,queue:st.lines.slice(),speaker:null,mood:'neutral',typing:null,full:'',shown:'',gained:0,waitingChoice:false};
+  show('scene');
+  $('#sceneTitle').textContent=`${CHARS[id].name} · Chapter ${idx+1}: ${st.title}`;
+  $('#choices').hidden=true;
+  sceneNext();
+}
+function sceneDraw(){
+  if(!SC) return;
+  const {c,w,h}=fit($('#sceneCv'));
+  const g=c.createLinearGradient(0,0,0,h); g.addColorStop(0,SC.st.bg[0]); g.addColorStop(1,SC.st.bg[1]);
+  c.fillStyle=g; c.fillRect(0,0,w,h);
+  // soft bokeh
+  let seed=SC.idx*97+SC.id.length*13;
+  const rnd=()=>{ seed=(seed*16807)%2147483647; return seed/2147483647; };
+  for(let i=0;i<22;i++){ c.fillStyle=`rgba(255,255,255,${rnd()*.08+.02})`; c.beginPath(); c.arc(rnd()*w,rnd()*h*.8,rnd()*40+6,0,7); c.fill(); }
+  const ch=CHARS[SC.id];
+  const glow=c.createRadialGradient(w/2,h*.45,10,w/2,h*.45,Math.min(w,h)*.6);
+  glow.addColorStop(0,rgba(ch.accent,.28)); glow.addColorStop(1,'rgba(0,0,0,0)');
+  c.fillStyle=glow; c.fillRect(0,0,w,h);
+  const talking=SC.speaker===SC.id;
+  c.globalAlpha=SC.speaker==null?0.55:talking?1:0.8;
+  const ph=Math.min(h*0.95,w*1.5);
+  const s=ph/262;
+  drawPortrait(c,SC.id,w/2,h-262*s+ (talking?0:8),s,SC.mood);
+  c.globalAlpha=1;
+  const fade=c.createLinearGradient(0,h*.6,0,h); fade.addColorStop(0,'rgba(0,0,0,0)'); fade.addColorStop(1,'rgba(4,5,14,.75)');
+  c.fillStyle=fade; c.fillRect(0,0,w,h);
+}
+function sceneNext(){
+  if(!SC) return;
+  if(SC.typing){ clearInterval(SC.typing); SC.typing=null; $('#dlgTxt').textContent=SC.full; $('#dlgMore').hidden=false; return; }
+  if(SC.waitingChoice) return;
+  const item=SC.queue.shift();
+  if(item===undefined){ sceneEnd(); return; }
+  if(typeof item==='object'){
+    SC.waitingChoice=true;
+    $('#dlgMore').hidden=true;
+    const box=$('#choices'); box.hidden=false;
+    box.innerHTML=item.c.map((o,i)=>`<button class="btn" style="--c:${CHARS[SC.id].accent}" data-i="${i}">${fillText(o[0])}</button>`).join('');
+    box.querySelectorAll('button').forEach(b=>b.addEventListener('click',ev=>{
+      ev.stopPropagation();
+      const o=item.c[+b.dataset.i];
+      SC.gained+=o[1]; box.hidden=true; SC.waitingChoice=false; sfx('tap');
+      SC.queue.unshift('you|'+o[0],...o[2]);
+      sceneNext();
+    }));
+    return;
+  }
+  const bar=item.indexOf('|'); const head=item.slice(0,bar), text=fillText(item.slice(bar+1));
+  let spk=null, mood=SC.mood;
+  if(head==='you'){ spk='you'; }
+  else if(head){ const [who,m]=head.split(':'); spk=who; mood=m||'neutral'; }
+  SC.speaker=spk==='you'?'you':spk; SC.mood=mood;
+  $('#dlgSpk').textContent= spk==='you'?S.name: spk?CHARS[spk].name:'';
+  $('#dlgSpk').style.color= spk==='you'?'var(--cyan)': spk?CHARS[spk].accent:'var(--dim)';
+  $('#dlgTxt').style.fontStyle= spk?'normal':'italic';
+  sceneDraw();
+  SC.full=text; let i=0; $('#dlgTxt').textContent=''; $('#dlgMore').hidden=true;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ $('#dlgTxt').textContent=text; $('#dlgMore').hidden=false; return; }
+  SC.typing=setInterval(()=>{ i+=2; $('#dlgTxt').textContent=text.slice(0,i); if(i>=text.length){ clearInterval(SC.typing); SC.typing=null; $('#dlgMore').hidden=false; } },22);
+}
+function sceneEnd(){
+  const {id,idx,gained}=SC; SC=null;
+  addAff(id,gained);
+  let msg=`${CHARS[id].name} Bond +${gained}`;
+  if(idx===S.chap[id]){ S.chap[id]=idx+1; S.gems+=120; msg+=' · +120 gems'; }
+  save(); toast(msg);
+  if(current==='scene') show(idx===0&&id==='orion'&&S.level===1&&S.cleared===0?'hub':'stories');
+}
+$('#dlg').addEventListener('click',()=>sceneNext());
+$('#skipBtn').addEventListener('click',()=>{
+  if(!SC||SC.waitingChoice) return;
+  if(SC.typing){ clearInterval(SC.typing); SC.typing=null; }
+  // fast-forward to the next choice (or the end)
+  while(SC.queue.length && typeof SC.queue[0]!=='object') SC.queue.shift();
+  sceneNext();
+});
+
+/* =========================================================
+   WISH
+   ========================================================= */
+function renderWish(){
+  $('#wishGems').textContent=S.gems.toLocaleString();
+  $('#pityTxt').textContent=`${60-S.pity5} wishes until a guaranteed 5★`;
+  $('#pull1').disabled=S.gems<100; $('#pull10').disabled=S.gems<1000;
+  requestAnimationFrame(()=>{
+    const cv=$('#bannerCv'); if(!cv.offsetParent) return;
+    const {c,w,h}=fit(cv);
+    const g=c.createLinearGradient(0,0,w,h); g.addColorStop(0,'#0c1034'); g.addColorStop(.5,'#2a1d5a'); g.addColorStop(1,'#5a2350');
+    c.fillStyle=g; c.fillRect(0,0,w,h);
+    for(let i=0;i<120;i++){ c.fillStyle=`rgba(255,255,255,${Math.random()*.7})`; c.fillRect(Math.random()*w,Math.random()*h,1.3,1.3); }
+    // constellation lines
+    const pts=ORDER.map((_,i)=>[w*(.2+i*.2),h*(.25+(i%2)*.12)]);
+    c.strokeStyle='rgba(255,213,126,.5)'; c.lineWidth=1; c.beginPath(); pts.forEach((p,i)=>i?c.lineTo(...p):c.moveTo(...p)); c.stroke();
+    pts.forEach(p=>star(c,p[0],p[1],6,'#ffd57e'));
+    const ph=h*.95, s=ph/262, step=Math.min(w/4,ph*.62);
+    ORDER.forEach((id,i)=>{
+      const x=w/2+(i-1.5)*step*0.92;
+      c.save(); c.globalAlpha=.95; drawPortrait(c,id,x,h-262*s+ (i%2?18:0),s*.9,i%2?'smile':'smirk'); c.restore();
+    });
+    const f=c.createLinearGradient(0,h*.45,0,h); f.addColorStop(0,'rgba(6,6,20,0)'); f.addColorStop(1,'rgba(6,6,20,.9)');
+    c.fillStyle=f; c.fillRect(0,0,w,h);
+  });
+}
+function rollOne(forceFour){
+  S.pity5++; S.pity4++;
+  let r=Math.random(), rar;
+  if(S.pity5>=60||r<.03) rar=5;
+  else if(forceFour||S.pity4>=10||r<.20) rar=4;
+  else rar=3;
+  if(rar===5){ S.pity5=0; S.pity4=0; } else if(rar===4) S.pity4=0;
+  const pool=CARDS.filter(c=>c.r===rar);
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+function doPull(n){
+  const cost=n===10?1000:100;
+  if(S.gems<cost){ toast('Not enough gems. Clear hunts and read stories to earn more.'); return; }
+  S.gems-=cost;
+  const res=[]; for(let i=0;i<n;i++) res.push(rollOne(false));
+  const out=res.map(card=>{
+    const had=S.cards[card.id]||0;
+    S.cards[card.id]=Math.min(5,had+1);
+    if(!S.equip[card.ch]||CARD[S.equip[card.ch]].r<card.r) S.equip[card.ch]=card.id;
+    return {card,isNew:!had,lv:S.cards[card.id]};
+  });
+  save();
+  const best=Math.max(...res.map(c=>c.r));
+  showPull(out,best);
+}
+function showPull(out,best){
+  const ov=document.createElement('div'); ov.className='overlay';
+  const col=best===5?'var(--gold)':best===4?'var(--r4)':'var(--r3)';
+  ov.innerHTML=`<div class="star-drop" style="background:linear-gradient(${col},transparent);box-shadow:0 0 30px ${col}"></div>`;
+  document.body.appendChild(ov);
+  sfx(best===5?'gold':'pull');
+  setTimeout(()=>{
+    ov.innerHTML=`<span class="eyebrow">${best===5?'A 5★ memory answered your wish':'Wish results'}</span><div class="results"></div><button class="btn" id="pullDone">Continue</button>`;
+    const R=ov.querySelector('.results');
+    out.forEach((o,i)=>{
+      const d=document.createElement('div'); d.className='r'; d.style.animationDelay=(i*.08)+'s';
+      const cv=document.createElement('canvas'); cv.className='card-cv'; drawCard(cv,o.card,false);
+      d.appendChild(cv);
+      const s=document.createElement('small'); if(o.isNew) s.className='new';
+      s.textContent=o.isNew?'NEW':`Lv ${o.lv}${o.lv===5?' (max)':''}`; d.appendChild(s);
+      R.appendChild(d);
+    });
+    ov.querySelector('#pullDone').addEventListener('click',()=>{ ov.remove(); renderWish(); });
+  },950);
+}
+$('#pull1').addEventListener('click',()=>doPull(1));
+$('#pull10').addEventListener('click',()=>doPull(10));
+
+/* =========================================================
+   MEMORIES
+   ========================================================= */
+let memTab='all';
+function renderMem(){
+  const owned=CARDS.filter(c=>S.cards[c.id]).length;
+  $('#memCount').textContent=`Collected ${owned} of ${CARDS.length}`;
+  const tabs=[['all','All','var(--violet)'],...ORDER.map(id=>[id,CHARS[id].name,CHARS[id].accent])];
+  $('#memTabs').innerHTML=tabs.map(([k,n,c])=>`<button class="tab ${memTab===k?'on':''}" style="--c:${c}" data-m="${k}">${n}</button>`).join('');
+  $('#memTabs').querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ memTab=b.dataset.m; renderMem(); }));
+  const G=$('#memGrid'); G.innerHTML='';
+  CARDS.filter(c=>memTab==='all'||c.ch===memTab).sort((a,b)=>b.r-a.r).forEach(card=>{
+    const own=S.cards[card.id];
+    const b=document.createElement('button'); b.className='cardbtn';
+    const cv=document.createElement('canvas'); cv.className='card-cv'; drawCard(cv,card,!own);
+    b.appendChild(cv);
+    const s=document.createElement('small');
+    s.innerHTML= own ? (S.equip[card.ch]===card.id?`<span class="eq">Equipped</span> · Lv ${own}`:`Lv ${own}`) : 'Not yet found';
+    b.appendChild(s);
+    if(own) b.addEventListener('click',()=>openCard(card)); else b.disabled=true;
+    G.appendChild(b);
+  });
+}
+function openCard(card){
+  const ov=document.createElement('div'); ov.className='overlay';
+  const p=cardPower(card.id), eq=S.equip[card.ch]===card.id, ch=CHARS[card.ch];
+  ov.innerHTML=`<div class="modal-card"><canvas class="card-cv"></canvas><div class="meta">
+    <span class="eyebrow" style="color:${ch.accent}">${ch.name} · ${'★'.repeat(card.r)} · Lv ${S.cards[card.id]}</span>
+    <h2>${card.name}</h2><p>${card.desc}</p>
+    <div class="stat"><div><span>ATK</span> +${p.atk}</div><div><span>HP</span> +${p.hp}</div></div>
+    <p style="font-size:13px">Equipped memories boost your stats when you hunt with ${ch.name}.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn gold" id="eqBtn" ${eq?'disabled':''}>${eq?'Equipped':'Equip'}</button><button class="btn ghost" id="clBtn">Close</button></div>
+  </div></div>`;
+  document.body.appendChild(ov);
+  drawCard(ov.querySelector('canvas'),card,false);
+  ov.querySelector('#eqBtn').addEventListener('click',()=>{ S.equip[card.ch]=card.id; save(); ov.remove(); toast(`${card.name} equipped for ${ch.name}`); renderMem(); });
+  ov.querySelector('#clBtn').addEventListener('click',()=>ov.remove());
+  ov.addEventListener('click',e=>{ if(e.target===ov) ov.remove(); });
+}
+
+/* =========================================================
+   BATTLE
+   ========================================================= */
+let W=960,H=540, AR={x:30,y:70,w:900,h:440}, layout='wide';
+function setLayout(){
+  const r=bc.getBoundingClientRect(), tall=r.height>r.width*1.1;
+  const want=tall?'tall':'wide';
+  if(want===layout&&arenaImg) return;
+  layout=want;
+  if(tall){ W=540; H=1000; AR={x:20,y:76,w:500,h:640}; } else { W=960; H=540; AR={x:30,y:70,w:900,h:440}; }
+  buildArena();
+}
+const bc=$('#bc'); let bctx=bc.getContext('2d'); let BS={s:1,ox:0,oy:0,d:1};
+let G=null, lastT=0;
+const keys=new Set(); const joy={on:false,id:null,sx:0,sy:0,x:0,y:0};
+let arenaImg=null;
+
+function buildArena(){
+  const cv=document.createElement('canvas'); cv.width=W*2; cv.height=H*2;
+  const c=cv.getContext('2d'); c.scale(2,2);
+  const g=c.createLinearGradient(0,0,0,H); g.addColorStop(0,'#0a0c22'); g.addColorStop(1,'#1a1234');
+  c.fillStyle=g; c.fillRect(0,0,W,H);
+  c.save(); c.beginPath(); c.rect(AR.x,AR.y,AR.w,AR.h); c.clip();
+  const fg=c.createRadialGradient(W/2,AR.y+AR.h/2,40,W/2,AR.y+AR.h/2,AR.w*.6);
+  fg.addColorStop(0,'#1d1f48'); fg.addColorStop(1,'#0e0f28'); c.fillStyle=fg; c.fillRect(AR.x,AR.y,AR.w,AR.h);
+  c.strokeStyle='rgba(138,231,255,.07)'; c.lineWidth=1;
+  const r=26, hh=r*Math.sqrt(3);
+  for(let y=AR.y-hh;y<AR.y+AR.h+hh;y+=hh) for(let x=AR.x-r*3,i=0;x<AR.x+AR.w+r*3;x+=r*3,i++){
+    for(const oy of [0,hh/2]){ const cx=x+(oy?r*1.5:0), cy=y+oy; c.beginPath(); for(let k=0;k<6;k++){ const a=k*Math.PI/3; c.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r);} c.closePath(); c.stroke(); }
+  }
+  for(let i=0;i<14;i++){ c.fillStyle=`rgba(164,136,255,${Math.random()*.06+.02})`; c.beginPath(); c.ellipse(AR.x+Math.random()*AR.w,AR.y+Math.random()*AR.h,rand(30,90),rand(10,30),Math.random()*3,0,7); c.fill(); }
+  c.restore();
+  c.strokeStyle='rgba(245,166,200,.35)'; c.lineWidth=2; c.strokeRect(AR.x,AR.y,AR.w,AR.h);
+  c.strokeStyle='rgba(245,166,200,.12)'; c.lineWidth=8; c.strokeRect(AR.x-5,AR.y-5,AR.w+10,AR.h+10);
+  arenaImg=cv;
+}
+function resizeBattle(){
+  const r=bc.getBoundingClientRect(), d=Math.min(2,window.devicePixelRatio||1);
+  bc.width=Math.round(r.width*d); bc.height=Math.round(r.height*d);
+  const s=Math.min(bc.width/W,bc.height/H);
+  BS={s,ox:(bc.width-W*s)/2,oy:(bc.height-H*s)/2,d};
+}
+const isTouch=()=>window.matchMedia('(pointer: coarse)').matches;
+
+function startBattle(i){
+  const comp=S.companion, st=stats(comp), def=STAGES[i];
+  G={stage:i,def,wave:-1,queue:[],spawnT:0,banner:'',bannerT:0,t:0,over:false,paused:false,shake:0,slow:0,kills:0,flash:null,
+    p:{x:W/2,y:AR.y+AR.h/2,r:14,hp:st.hp,maxHp:st.hp,atk:st.atk,face:{x:1,y:0},atkCd:0,dashCd:0,dashT:0,dv:{x:0,y:0},inv:0,energy:0,combo:0,comboT:0,swing:null,walk:0},
+    c:{id:comp,x:W/2-50,y:AR.y+AR.h/2-30,cd:1,atk:st.compAtk,face:1},
+    en:[],eb:[],as:[],parts:[],txt:[],fx:[]};
+  show('battle');
+  $('#touch').hidden=!isTouch();
+  setLayout();
+  G.p.x=W/2; G.p.y=AR.y+AR.h/2; G.c.x=W/2-50; G.c.y=G.p.y-30;
+  $('#pauseBtn').textContent='Pause';
+  resizeBattle(); nextWave();
+  lastT=performance.now(); requestAnimationFrame(loop);
+}
+function nextWave(){
+  G.wave++;
+  if(G.wave>=G.def.waves.length){ endBattle(true); return; }
+  const w=G.def.waves[G.wave]; const q=[];
+  for(let i=0;i<w.length;i+=2) for(let k=0;k<w[i+1];k++) q.push(w[i]);
+  for(let i=q.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [q[i],q[j]]=[q[j],q[i]]; }
+  q.sort((a,b)=>(a==='boss')-(b==='boss')).reverse();
+  G.queue=q; G.spawnT=1.1;
+  const boss=q.includes('boss');
+  G.banner= boss?'WARNING · Abyssal Hollow':`Wave ${G.wave+1} / ${G.def.waves.length}`; G.bannerT=1.8; G.bannerBoss=boss;
+}
+const ETYPES={wisp:{r:12,hp:34,spd:100,dmg:8,col:'#b48cff'},spitter:{r:14,hp:44,spd:70,dmg:10,col:'#6fd3ff'},brute:{r:24,hp:170,spd:55,dmg:18,col:'#ff78a8'},boss:{r:44,hp:1300,spd:70,dmg:22,col:'#ff4d6d'}};
+function spawnEnemy(type,x,y){
+  const T=ETYPES[type], m=G.def.mul;
+  if(x===undefined){
+    let tries=0; do{ x=rand(AR.x+30,AR.x+AR.w-30); y=rand(AR.y+30,AR.y+AR.h-30); tries++; }while(Math.hypot(x-G.p.x,y-G.p.y)<230&&tries<30);
+    if(type==='boss'){ x=W/2; y=AR.y+90; }
+  }
+  G.en.push({type,x,y,r:T.r,hp:T.hp*m,maxHp:T.hp*m,spd:T.spd,dmg:T.dmg*(.75+.25*m),col:T.col,cd:rand(1,2.2),state:'spawn',st:.7,flash:0,frozen:0,kx:0,ky:0,dir:{x:0,y:0},ph:0,burst:0,bt:0,rot:Math.random()*6,wob:Math.random()*6,mark:0});
+}
+function nearest(x,y,max){ let best=null,bd=max; for(const e of G.en){ if(e.state==='spawn') continue; const d=Math.hypot(e.x-x,e.y-y)-e.r; if(d<bd){bd=d;best=e;} } return best; }
+function angDiff(a,b){ let d=a-b; while(d>Math.PI) d-=Math.PI*2; while(d<-Math.PI) d+=Math.PI*2; return d; }
+function ftext(x,y,t,col,size,big){ G.txt.push({x,y,t,col,size:size||14,life:big?1.4:.8,max:big?1.4:.8,big}); }
+function burst(x,y,col,n,sp){ for(let i=0;i<n;i++){ const a=Math.random()*Math.PI*2, v=rand(40,sp||220); G.parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:rand(.3,.7),max:.7,col,size:rand(1.5,3.5)}); } }
+
+function hitEnemy(e,dmg,crit,nx,ny,kb,col){
+  if(!e||e.hp<=0) return;
+  dmg=Math.round(dmg); e.hp-=dmg; e.flash=.1;
+  const kbm=e.type==='boss'?.15:e.type==='brute'?.45:1;
+  e.kx+=nx*kb*kbm; e.ky+=ny*kb*kbm;
+  ftext(e.x+rand(-8,8),e.y-e.r-6,crit?dmg+'!':String(dmg),crit?'#ffd57e':(col||'#fff'),crit?19:14);
+  burst(e.x,e.y,e.col,crit?10:5,180);
+  if(e.hp<=0){
+    G.kills++; burst(e.x,e.y,e.col,e.type==='boss'?60:18,e.type==='boss'?420:260);
+    if(e.type==='boss'){ G.shake=16; G.eb.length=0; }
+    G.en.splice(G.en.indexOf(e),1);
+  }
+}
+function hurt(d){
+  const p=G.p; if(p.inv>0||G.over) return;
+  d=Math.round(d); p.hp-=d; p.inv=.75; G.shake=Math.max(G.shake,9);
+  ftext(p.x,p.y-26,'-'+d,'#ff5f80',16); burst(p.x,p.y,'#ff5f80',10,200); sfx('hurt');
+  if(p.hp<=0){ p.hp=0; endBattle(false); }
+}
+function attack(){
+  if(!G||G.over||G.paused) return; const p=G.p; if(p.atkCd>0) return;
+  p.combo = p.comboT>0 ? (p.combo%3)+1 : 1; p.comboT=.75;
+  const big=p.combo===3; p.atkCd=big?.42:.24;
+  const tgt=nearest(p.x,p.y,170);
+  if(tgt){ const dx=tgt.x-p.x,dy=tgt.y-p.y,d=Math.hypot(dx,dy)||1; p.face={x:dx/d,y:dy/d}; }
+  const a=Math.atan2(p.face.y,p.face.x), range=big?108:84, arc=big?1.4:1.05;
+  p.swing={a,t:.18,max:.18,range,arc,big};
+  p.x+=p.face.x*(big?14:7); p.y+=p.face.y*(big?14:7);
+  let hit=false;
+  for(const e of G.en.slice()){
+    if(e.state==='spawn') continue;
+    const dx=e.x-p.x, dy=e.y-p.y, d=Math.hypot(dx,dy);
+    if(d>range+e.r) continue;
+    if(Math.abs(angDiff(Math.atan2(dy,dx),a))>arc && d>e.r+p.r+6) continue;
+    const crit=Math.random()<.15;
+    hitEnemy(e,p.atk*(big?1.9:1)*rand(.9,1.1)*(crit?1.6:1),crit,dx/(d||1),dy/(d||1),big?520:240);
+    hit=true; p.energy=Math.min(100,p.energy+(big?9:6));
+  }
+  if(hit){ G.shake=Math.max(G.shake,big?6:3); sfx('hit'); } else sfx('swing');
+}
+let mv={x:0,y:0};
+function dash(){
+  if(!G||G.over||G.paused) return; const p=G.p; if(p.dashCd>0) return;
+  let dx=mv.x,dy=mv.y; if(!dx&&!dy){ dx=p.face.x; dy=p.face.y; }
+  const d=Math.hypot(dx,dy)||1;
+  p.dv={x:dx/d*740,y:dy/d*740}; p.dashT=.16; p.dashCd=.65; p.inv=Math.max(p.inv,.28);
+  const danger=G.eb.some(b=>Math.hypot(b.x-p.x,b.y-p.y)<b.r+p.r+34) ||
+    G.en.some(e=>e.state!=='spawn'&&((e.state==='charge'&&Math.hypot(e.x-p.x,e.y-p.y)<e.r+80)||Math.hypot(e.x-p.x,e.y-p.y)<e.r+p.r+10));
+  if(danger){ G.slow=1.1; p.energy=Math.min(100,p.energy+25); ftext(p.x,p.y-34,'Perfect Dodge','#8ae7ff',18,true); sfx('perfect'); }
+  for(let i=0;i<6;i++) G.parts.push({x:p.x,y:p.y,vx:-dx/d*rand(40,120)+rand(-30,30),vy:-dy/d*rand(40,120)+rand(-30,30),life:.35,max:.35,col:'#8ae7ff',size:3});
+}
+function skill(){
+  if(!G||G.over||G.paused) return; const p=G.p; if(p.energy<100) return;
+  p.energy=0; const id=G.c.id, ch=CHARS[id];
+  G.flash={col:ch.accent,t:.35,max:.35}; G.shake=10; sfx('skill');
+  G.banner=ch.skill; G.bannerT=1.1; G.bannerBoss=false; G.bannerCol=ch.accent;
+  const atk=p.atk;
+  if(id==='orion'){
+    const tgt=nearest(p.x,p.y,700); let fx=p.face.x,fy=p.face.y;
+    if(tgt){ const dx=tgt.x-p.x,dy=tgt.y-p.y,d=Math.hypot(dx,dy)||1; fx=dx/d; fy=dy/d; }
+    const L=560, ex=p.x+fx*L, ey=p.y+fy*L;
+    G.fx.push({type:'line',x:p.x,y:p.y,ex,ey,t:.5,max:.5,col:ch.accent});
+    for(const e of G.en.slice()){ if(e.state==='spawn') continue; const t=clamp(((e.x-p.x)*fx+(e.y-p.y)*fy)/L,0,1); const px=p.x+fx*L*t,py=p.y+fy*L*t; if(Math.hypot(e.x-px,e.y-py)<48+e.r) hitEnemy(e,atk*5.5,true,fx,fy,300,ch.accent); }
+    for(let i=0;i<30;i++){ const t=Math.random(); G.parts.push({x:p.x+fx*L*t,y:p.y+fy*L*t,vx:rand(-60,60),vy:rand(-60,60),life:rand(.4,.9),max:.9,col:'#ffffff',size:rand(2,4),star:true}); }
+  } else if(id==='lucien'){
+    const heal=Math.round(p.maxHp*.3); p.hp=Math.min(p.maxHp,p.hp+heal); ftext(p.x,p.y-40,'+'+heal,'#7dffb0',20,true);
+    G.fx.push({type:'ring',x:p.x,y:p.y,r0:20,r1:240,t:.6,max:.6,col:'#bfeaff'});
+    for(const e of G.en.slice()){ const d=Math.hypot(e.x-p.x,e.y-p.y); if(d<240+e.r&&e.state!=='spawn'){ e.frozen=2.6; hitEnemy(e,atk*3.2,false,(e.x-p.x)/(d||1),(e.y-p.y)/(d||1),60,'#bfeaff'); } }
+  } else if(id==='marin'){
+    G.eb.length=0;
+    G.fx.push({type:'wave',x:p.x,y:p.y,r0:20,r1:360,t:.7,max:.7,col:ch.accent});
+    for(const e of G.en.slice()){ const d=Math.hypot(e.x-p.x,e.y-p.y); if(d<360+e.r&&e.state!=='spawn') hitEnemy(e,atk*4,false,(e.x-p.x)/(d||1),(e.y-p.y)/(d||1),900,ch.accent); }
+  } else if(id==='kade'){
+    const targets=G.en.filter(e=>e.state!=='spawn'); targets.forEach(e=>e.mark=.55);
+    G.fx.push({type:'verdict',t:.55,max:.55,targets,col:ch.accent});
+  }
+}
+
+function update(dt){
+  G.t+=dt;
+  const p=G.p, es=dt*(G.slow>0?.3:1);
+  if(G.slow>0) G.slow-=dt;
+  if(G.shake>0) G.shake=Math.max(0,G.shake-dt*40);
+  if(G.bannerT>0) G.bannerT-=dt;
+  if(G.flash){ G.flash.t-=dt; if(G.flash.t<=0) G.flash=null; }
+
+  // input
+  let ix=0,iy=0;
+  if(keys.has('a')||keys.has('arrowleft')) ix-=1;
+  if(keys.has('d')||keys.has('arrowright')) ix+=1;
+  if(keys.has('w')||keys.has('arrowup')) iy-=1;
+  if(keys.has('s')||keys.has('arrowdown')) iy+=1;
+  if(joy.on){ const dx=joy.x-joy.sx, dy=joy.y-joy.sy, d=Math.hypot(dx,dy); if(d>8){ ix=dx/Math.max(d,50); iy=dy/Math.max(d,50); } }
+  const il=Math.hypot(ix,iy); if(il>1){ ix/=il; iy/=il; }
+  mv={x:ix,y:iy};
+
+  // player
+  p.atkCd-=dt; p.dashCd-=dt; p.inv-=dt; p.comboT-=dt;
+  if(p.swing){ p.swing.t-=dt; if(p.swing.t<=0) p.swing=null; }
+  if(p.dashT>0){ p.dashT-=dt; p.x+=p.dv.x*dt; p.y+=p.dv.y*dt; }
+  else if(!G.over){
+    const spd=230; p.x+=ix*spd*dt; p.y+=iy*spd*dt;
+    if(il>.1){ if(!p.swing){ p.face={x:ix/(il||1),y:iy/(il||1)}; } p.walk+=dt*10; }
+  }
+  p.x=clamp(p.x,AR.x+p.r,AR.x+AR.w-p.r); p.y=clamp(p.y,AR.y+p.r,AR.y+AR.h-p.r);
+
+  // spawning
+  if(G.queue.length){ G.spawnT-=dt; if(G.spawnT<=0){ spawnEnemy(G.queue.shift()); G.spawnT=G.queue[0]==='boss'?1:.42; } }
+  else if(!G.en.length && !G.over){ G.spawnT-=dt; if(G.spawnT<=-1.2) nextWave(); }
+
+  // companion
+  const c=G.c;
+  const tx=p.x-p.face.x*46+(-p.face.y)*24, ty=p.y-p.face.y*46+(p.face.x)*24;
+  c.x+=(tx-c.x)*Math.min(1,dt*4); c.y+=(ty-c.y)*Math.min(1,dt*4);
+  c.x=clamp(c.x,AR.x+12,AR.x+AR.w-12); c.y=clamp(c.y,AR.y+12,AR.y+AR.h-12);
+  c.cd-=dt;
+  if(c.cd<=0&&!G.over){
+    const t=nearest(c.x,c.y,460);
+    if(t){ const dx=t.x-c.x,dy=t.y-c.y,d=Math.hypot(dx,dy)||1; c.face=dx<0?-1:1;
+      G.as.push({x:c.x,y:c.y,vx:dx/d*560,vy:dy/d*560,dmg:c.atk,life:1.2,col:CHARS[c.id].accent}); c.cd=1.05; }
+    else c.cd=.3;
+  }
+
+  // enemies
+  for(const e of G.en.slice()){
+    e.flash-=dt; e.rot+=es*2; e.wob+=es*4;
+    if(e.mark>0) continue;
+    if(e.state==='spawn'){ e.st-=es; if(e.st<=0) e.state='move'; continue; }
+    e.x+=e.kx*dt; e.y+=e.ky*dt; const decay=Math.min(1,dt*9); e.kx-=e.kx*decay; e.ky-=e.ky*decay;
+    if(e.frozen>0){ e.frozen-=dt; clampE(e); continue; }
+    const dx=p.x-e.x, dy=p.y-e.y, d=Math.hypot(dx,dy)||1, ux=dx/d, uy=dy/d;
+    if(e.type==='wisp'){
+      e.x+=(ux+Math.cos(e.wob)*.35)*e.spd*es; e.y+=(uy+Math.sin(e.wob)*.35)*e.spd*es;
+    } else if(e.type==='spitter'){
+      const want=d>270?1:d<190?-1:0;
+      e.x+=(ux*want+(-uy)*.6)*e.spd*es; e.y+=(uy*want+ux*.6)*e.spd*es;
+      e.cd-=es; if(e.cd<=0){ e.cd=2.3; G.eb.push({x:e.x,y:e.y,vx:ux*210,vy:uy*210,r:6,dmg:e.dmg,life:4,col:'#6fd3ff'}); }
+    } else if(e.type==='brute'||e.type==='boss'){
+      if(e.state==='move'){
+        e.x+=ux*e.spd*es; e.y+=uy*e.spd*es; e.cd-=es;
+        if(e.type==='brute'){ if(e.cd<=0&&d<400){ e.state='wind'; e.st=.75; e.dir={x:ux,y:uy}; } }
+        else if(e.cd<=0) bossPattern(e,ux,uy);
+      } else if(e.state==='wind'){ e.st-=es; if(e.st<=0){ e.state='charge'; e.st=e.type==='boss'?.6:.5; } }
+      else if(e.state==='charge'){
+        const sp=e.type==='boss'?520:440; e.x+=e.dir.x*sp*es; e.y+=e.dir.y*sp*es; e.st-=es;
+        if(e.st<=0){ e.state='move'; e.cd=e.type==='boss'?1.6:3; }
+      }
+      if(e.burst>0){ e.bt-=es; if(e.bt<=0){ e.burst--; e.bt=.22; const a0=Math.atan2(dy,dx); for(let k=-2;k<=2;k++){ const a=a0+k*.2; G.eb.push({x:e.x,y:e.y,vx:Math.cos(a)*250,vy:Math.sin(a)*250,r:7,dmg:e.dmg*.7,life:4,col:'#ff9ab8'}); } } }
+    }
+    clampE(e);
+    if(d<e.r+p.r) hurt(e.dmg);
+  }
+  // separation
+  for(let i=0;i<G.en.length;i++) for(let j=i+1;j<G.en.length;j++){
+    const a=G.en[i],b=G.en[j], dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||1, m=a.r+b.r;
+    if(d<m){ const push=(m-d)/2; a.x-=dx/d*push; a.y-=dy/d*push; b.x+=dx/d*push; b.y+=dy/d*push; }
+  }
+
+  // bullets
+  for(let i=G.eb.length-1;i>=0;i--){
+    const b=G.eb[i]; b.x+=b.vx*es; b.y+=b.vy*es; b.life-=es;
+    if(Math.hypot(b.x-p.x,b.y-p.y)<b.r+p.r-2&&p.inv<=0){ hurt(b.dmg); G.eb.splice(i,1); continue; }
+    if(b.life<=0||b.x<AR.x||b.x>AR.x+AR.w||b.y<AR.y||b.y>AR.y+AR.h) G.eb.splice(i,1);
+  }
+  for(let i=G.as.length-1;i>=0;i--){
+    const s=G.as[i]; s.x+=s.vx*dt; s.y+=s.vy*dt; s.life-=dt;
+    let done=s.life<=0;
+    for(const e of G.en){ if(e.state==='spawn') continue; if(Math.hypot(e.x-s.x,e.y-s.y)<e.r+5){ const crit=Math.random()<.1; hitEnemy(e,s.dmg*(crit?1.6:1)*rand(.9,1.1),crit,s.vx/560,s.vy/560,120,s.col); p.energy=Math.min(100,p.energy+1.5); done=true; break; } }
+    if(done) G.as.splice(i,1);
+  }
+  // fx
+  for(let i=G.fx.length-1;i>=0;i--){
+    const f=G.fx[i]; f.t-=dt;
+    if(f.type==='verdict'&&f.t<=0){ for(const e of f.targets){ e.mark=0; if(G.en.includes(e)) hitEnemy(e,p.atk*4.6,true,0,-1,100,'#ff5f80'); } G.shake=14; }
+    if(f.t<=0) G.fx.splice(i,1);
+  }
+  for(const e of G.en) if(e.mark>0) e.mark-=dt;
+  for(let i=G.parts.length-1;i>=0;i--){ const q=G.parts[i]; q.x+=q.vx*dt; q.y+=q.vy*dt; q.vx*=.93; q.vy*=.93; q.life-=dt; if(q.life<=0) G.parts.splice(i,1); }
+  for(let i=G.txt.length-1;i>=0;i--){ const q=G.txt[i]; q.y-=(q.big?20:40)*dt; q.life-=dt; if(q.life<=0) G.txt.splice(i,1); }
+}
+function clampE(e){ e.x=clamp(e.x,AR.x+e.r,AR.x+AR.w-e.r); e.y=clamp(e.y,AR.y+e.r,AR.y+AR.h-e.r); }
+function bossPattern(e,ux,uy){
+  const enraged=e.hp<e.maxHp*.5;
+  const pat=e.ph++%4;
+  e.cd=enraged?1.7:2.4;
+  if(pat===0){ const n=enraged?26:18, off=Math.random(); for(let k=0;k<n;k++){ const a=off+k*Math.PI*2/n; G.eb.push({x:e.x,y:e.y,vx:Math.cos(a)*190,vy:Math.sin(a)*190,r:7,dmg:e.dmg*.7,life:5,col:'#ff5f80'}); } }
+  else if(pat===1){ e.burst=enraged?4:3; e.bt=0; }
+  else if(pat===2){ e.state='wind'; e.st=.8; e.dir={x:ux,y:uy}; }
+  else { const n=enraged?4:3; for(let k=0;k<n;k++){ const a=k*Math.PI*2/n; spawnEnemy('wisp',clamp(e.x+Math.cos(a)*80,AR.x+20,AR.x+AR.w-20),clamp(e.y+Math.sin(a)*80,AR.y+20,AR.y+AR.h-20)); } }
+}
+
+function draw(){
+  const c=bctx; c.setTransform(1,0,0,1,0,0); c.fillStyle='#03040c'; c.fillRect(0,0,bc.width,bc.height);
+  if(!G) return;
+  const sx=G.shake?rand(-G.shake,G.shake):0, sy=G.shake?rand(-G.shake,G.shake):0;
+  c.setTransform(BS.s,0,0,BS.s,BS.ox+sx*BS.s,BS.oy+sy*BS.s);
+  c.drawImage(arenaImg,0,0,W,H);
+  if(G.slow>0){ c.fillStyle='rgba(138,231,255,.07)'; c.fillRect(AR.x,AR.y,AR.w,AR.h); }
+  const p=G.p, t=G.t;
+
+  // ground fx
+  for(const f of G.fx){
+    const k=1-f.t/f.max;
+    if(f.type==='ring'||f.type==='wave'){
+      const r=f.r0+(f.r1-f.r0)*(f.type==='wave'?Math.sqrt(k):k);
+      c.strokeStyle=rgba(f.col,1-k); c.lineWidth=f.type==='wave'?18*(1-k)+4:6; c.beginPath(); c.arc(f.x,f.y,r,0,7); c.stroke();
+      if(f.type==='ring'){ c.fillStyle=`rgba(191,234,255,${.15*(1-k)})`; c.beginPath(); c.arc(f.x,f.y,r,0,7); c.fill(); }
+    }
+  }
+  // enemy telegraphs
+  for(const e of G.en){
+    if(e.state==='wind'){ c.strokeStyle=`rgba(255,80,110,${.35+.35*Math.sin(t*30)})`; c.lineWidth=e.r*1.6; c.lineCap='round'; c.beginPath(); c.moveTo(e.x,e.y); c.lineTo(e.x+e.dir.x*(e.type==='boss'?340:240),e.y+e.dir.y*(e.type==='boss'?340:240)); c.stroke(); c.lineCap='butt'; }
+  }
+  // enemies
+  for(const e of G.en) drawEnemy(c,e,t);
+  // companion
+  drawCompanion(c,G.c,t);
+  // player
+  drawPlayer(c,p,t);
+  // swing
+  if(p.swing){ const s=p.swing, k=1-s.t/s.max;
+    c.save(); c.translate(p.x,p.y); c.rotate(s.a);
+    c.strokeStyle=s.big?`rgba(255,213,126,${1-k})`:`rgba(255,220,240,${1-k})`; c.lineWidth=s.big?14:9; c.lineCap='round';
+    c.beginPath(); c.arc(0,0,s.range*.78,-s.arc+k*s.arc*.6,s.arc*(k*1.4-.4)); c.stroke();
+    c.restore(); c.lineCap='butt'; }
+  // shots
+  for(const s of G.as){ c.fillStyle=s.col; c.shadowColor=s.col; c.shadowBlur=10; c.beginPath(); c.arc(s.x,s.y,4.5,0,7); c.fill(); c.shadowBlur=0; }
+  for(const b of G.eb){ c.fillStyle=b.col; c.beginPath(); c.arc(b.x,b.y,b.r,0,7); c.fill(); c.fillStyle='#fff'; c.beginPath(); c.arc(b.x,b.y,b.r*.45,0,7); c.fill(); }
+  // top fx
+  for(const f of G.fx){
+    const k=1-f.t/f.max;
+    if(f.type==='line'){ c.strokeStyle=rgba(f.col,1-k); c.lineWidth=60*(1-k)+4; c.lineCap='round'; c.beginPath(); c.moveTo(f.x,f.y); c.lineTo(f.ex,f.ey); c.stroke(); c.strokeStyle=`rgba(255,255,255,${1-k})`; c.lineWidth=8*(1-k)+1; c.stroke(); c.lineCap='butt'; }
+    if(f.type==='verdict'){ for(const e of f.targets){ if(!G.en.includes(e)) continue; c.strokeStyle=rgba(f.col,.9); c.lineWidth=3; const r=e.r+14+10*(1-k); c.beginPath(); c.arc(e.x,e.y,r,0,7); c.moveTo(e.x-r-6,e.y); c.lineTo(e.x+r+6,e.y); c.moveTo(e.x,e.y-r-6); c.lineTo(e.x,e.y+r+6); c.stroke(); } }
+  }
+  for(const q of G.parts){ c.globalAlpha=Math.max(0,q.life/q.max); if(q.star) star(c,q.x,q.y,q.size*1.6,q.col); else { c.fillStyle=q.col; c.fillRect(q.x-q.size/2,q.y-q.size/2,q.size,q.size); } }
+  c.globalAlpha=1;
+  c.textAlign='center';
+  for(const q of G.txt){ c.globalAlpha=Math.min(1,q.life/q.max*2); c.font=`700 ${q.size}px "Zen Maru Gothic", sans-serif`; c.lineWidth=3; c.strokeStyle='rgba(0,0,0,.7)'; c.strokeText(q.t,q.x,q.y); c.fillStyle=q.col; c.fillText(q.t,q.x,q.y); }
+  c.globalAlpha=1;
+  drawHUD(c);
+  if(G.flash){ c.setTransform(1,0,0,1,0,0); c.fillStyle=rgba(G.flash.col,.35*G.flash.t/G.flash.max); c.fillRect(0,0,bc.width,bc.height); }
+  if(G.paused){ c.setTransform(1,0,0,1,0,0); c.fillStyle='rgba(3,4,12,.6)'; c.fillRect(0,0,bc.width,bc.height); c.setTransform(BS.s,0,0,BS.s,BS.ox,BS.oy); c.fillStyle='#fff'; c.font='700 40px Philosopher, serif'; c.textAlign='center'; c.fillText('Paused',W/2,H/2); c.font='500 14px "Zen Maru Gothic", sans-serif'; c.fillStyle='#a6a8d2'; c.fillText('Press Resume or Esc to continue',W/2,H/2+30); }
+}
+function drawEnemy(c,e,t){
+  c.save(); c.translate(e.x,e.y);
+  if(e.state==='spawn'){ const k=1-e.st/.7; c.strokeStyle=rgba(e.col,.8); c.lineWidth=2; c.beginPath(); c.arc(0,0,e.r*2*(1-k)+4,0,7); c.stroke(); c.globalAlpha=k; }
+  const col=e.flash>0?'#ffffff':e.frozen>0?'#bfeaff':e.col;
+  c.shadowColor=e.col; c.shadowBlur=e.type==='boss'?30:14;
+  c.fillStyle=col;
+  if(e.type==='wisp'){ c.beginPath(); c.arc(0,0,e.r,0,7); c.fill(); c.beginPath(); c.moveTo(-e.r,0); c.quadraticCurveTo(-e.r*.6,e.r*1.9+Math.sin(t*10)*3,0,e.r*1.3); c.quadraticCurveTo(e.r*.6,e.r*1.9+Math.cos(t*10)*3,e.r,0); c.fill(); }
+  else if(e.type==='spitter'){ c.rotate(e.rot*.4); c.beginPath(); c.moveTo(0,-e.r*1.3); c.lineTo(e.r,0); c.lineTo(0,e.r*1.3); c.lineTo(-e.r,0); c.closePath(); c.fill(); c.rotate(-e.rot*.4); }
+  else if(e.type==='brute'){ c.beginPath(); for(let k=0;k<6;k++){ const a=k*Math.PI/3+e.rot*.2; c.lineTo(Math.cos(a)*e.r,Math.sin(a)*e.r);} c.closePath(); c.fill(); }
+  else { c.beginPath(); c.arc(0,0,e.r,0,7); c.fill(); c.shadowBlur=0; c.strokeStyle=rgba(e.col,.7); c.lineWidth=3; for(let k=0;k<3;k++){ c.beginPath(); c.arc(0,0,e.r+10+k*8,e.rot*(k%2?1:-1)+k,e.rot*(k%2?1:-1)+k+Math.PI*1.2); c.stroke(); } }
+  c.shadowBlur=0;
+  // eye
+  const p=G.p, a=Math.atan2(p.y-e.y,p.x-e.x);
+  c.fillStyle='#0a0616'; c.beginPath(); c.arc(0,0,e.r*.45,0,7); c.fill();
+  c.fillStyle=e.type==='boss'?'#ffd57e':'#fff'; c.beginPath(); c.arc(Math.cos(a)*e.r*.18,Math.sin(a)*e.r*.18,e.r*.2,0,7); c.fill();
+  c.globalAlpha=1;
+  if(e.frozen>0){ c.strokeStyle='rgba(191,234,255,.9)'; c.lineWidth=2; c.strokeRect(-e.r-4,-e.r-4,e.r*2+8,e.r*2+8); }
+  if(e.type!=='boss'&&e.hp<e.maxHp&&e.state!=='spawn'){ c.fillStyle='rgba(0,0,0,.6)'; c.fillRect(-e.r,-e.r-10,e.r*2,4); c.fillStyle=e.col; c.fillRect(-e.r,-e.r-10,e.r*2*Math.max(0,e.hp/e.maxHp),4); }
+  c.restore();
+}
+function drawPlayer(c,p,t){
+  if(p.inv>0&&p.dashT<=0&&Math.floor(t*20)%2) return;
+  c.save(); c.translate(p.x,p.y);
+  // aura
+  c.fillStyle='rgba(245,166,200,.18)'; c.beginPath(); c.ellipse(0,12,18,7,0,0,7); c.fill();
+  const bob=Math.sin(p.walk)*1.5;
+  // cape
+  const fx=p.face.x;
+  c.fillStyle='#3b2a6a'; c.beginPath(); c.moveTo(-9,-2+bob); c.lineTo(9,-2+bob); c.lineTo(12-fx*6,14); c.lineTo(-12-fx*6,14); c.closePath(); c.fill();
+  // body
+  c.fillStyle='#f5f0ff'; c.beginPath(); c.ellipse(0,4+bob,9,10,0,0,7); c.fill();
+  c.fillStyle='#f5a6c8'; c.fillRect(-9,4+bob,18,3);
+  // head
+  c.fillStyle='#f8e2d4'; c.beginPath(); c.arc(0,-10+bob,9,0,7); c.fill();
+  c.fillStyle='#4a2c3a'; c.beginPath(); c.arc(0,-12+bob,9.5,Math.PI*1.05,Math.PI*1.95); c.fill();
+  c.beginPath(); c.moveTo(-9,-12+bob); c.quadraticCurveTo(-12,0+bob,-8,6+bob); c.lineTo(-6,-8+bob); c.fill();
+  c.beginPath(); c.moveTo(9,-12+bob); c.quadraticCurveTo(12,0+bob,8,6+bob); c.lineTo(6,-8+bob); c.fill();
+  if(p.face.y>-.5){ c.fillStyle='#2a1a30'; c.fillRect(-4+fx*2,-10+bob,2,3); c.fillRect(2+fx*2,-10+bob,2,3); }
+  // core glow
+  c.fillStyle=`rgba(138,231,255,${.6+.4*Math.sin(t*4)})`; c.beginPath(); c.arc(0,2+bob,2.5,0,7); c.fill();
+  // blade
+  const a=Math.atan2(p.face.y,p.face.x);
+  c.rotate(a); c.strokeStyle='#e8f6ff'; c.lineWidth=3; c.shadowColor='#8ae7ff'; c.shadowBlur=8;
+  c.beginPath(); c.moveTo(10,4); c.lineTo(30,4); c.stroke(); c.shadowBlur=0;
+  c.restore();
+}
+function drawCompanion(c,m,t){
+  const ch=CHARS[m.id];
+  c.save(); c.translate(m.x,m.y+Math.sin(t*3)*2);
+  c.fillStyle=rgba(ch.accent,.2); c.beginPath(); c.ellipse(0,14,16,6,0,0,7); c.fill();
+  c.fillStyle=ch.outfit; c.beginPath(); c.ellipse(0,4,9,11,0,0,7); c.fill();
+  c.strokeStyle=ch.trim; c.lineWidth=1.5; c.stroke();
+  c.fillStyle=ch.skin; c.beginPath(); c.arc(0,-11,8.5,0,7); c.fill();
+  c.fillStyle=ch.hair; c.beginPath(); c.arc(0,-13,9.5,Math.PI*1.02,Math.PI*1.98); c.fill();
+  c.beginPath(); c.moveTo(-9,-13); c.lineTo(-9,ch.style==='long'?6:-4); c.lineTo(-5,-9); c.fill();
+  c.beginPath(); c.moveTo(9,-13); c.lineTo(9,ch.style==='long'?6:-4); c.lineTo(5,-9); c.fill();
+  c.fillStyle=ch.eye; c.fillRect(-4+m.face*1.5,-11,2,3); c.fillRect(2+m.face*1.5,-11,2,3);
+  c.restore();
+  c.fillStyle='rgba(255,255,255,.7)'; c.font='700 10px "Zen Maru Gothic", sans-serif'; c.textAlign='center'; c.fillText(ch.name,m.x,m.y-26);
+}
+function drawHUD(c){
+  const p=G.p, ch=CHARS[G.c.id];
+  c.textAlign='left';
+  // HP
+  c.fillStyle='rgba(8,9,24,.8)'; c.fillRect(30,14,300,46);
+  c.fillStyle='#fff'; c.font='700 13px "Zen Maru Gothic", sans-serif'; c.fillText(S.name,40,30);
+  c.fillStyle='#a6a8d2'; c.font='500 11px "Zen Maru Gothic", sans-serif'; c.fillText(`${Math.ceil(p.hp)} / ${p.maxHp}`,120,30);
+  c.fillStyle='rgba(255,255,255,.1)'; c.fillRect(40,36,280,7);
+  const hg=c.createLinearGradient(40,0,320,0); hg.addColorStop(0,'#ff5f80'); hg.addColorStop(1,'#f5a6c8');
+  c.fillStyle=hg; c.fillRect(40,36,280*p.hp/p.maxHp,7);
+  c.fillStyle='rgba(255,255,255,.1)'; c.fillRect(40,48,280,5);
+  c.fillStyle=p.energy>=100?(Math.floor(G.t*6)%2?'#ffd57e':'#fff2c0'):ch.accent; c.fillRect(40,48,280*p.energy/100,5);
+  c.fillStyle=p.energy>=100?'#ffd57e':'#a6a8d2'; c.font='700 10px "Zen Maru Gothic", sans-serif';
+  c.fillText(p.energy>=100?`${ch.skill.toUpperCase()} READY · ${isTouch()?'SKILL':'L'}`:'RESONANCE',layout==='tall'?40:340,layout==='tall'?68:54);
+  // wave
+  c.textAlign='right'; c.fillStyle='#fff'; c.font='700 15px Philosopher, serif';
+  c.fillText(`${G.def.name} · Wave ${Math.min(G.wave+1,G.def.waves.length)}/${G.def.waves.length}`,AR.x+AR.w,AR.y+AR.h+22);
+  // boss bar
+  const boss=G.en.find(e=>e.type==='boss');
+  if(boss){ c.textAlign='center'; c.fillStyle='rgba(8,9,24,.8)'; c.fillRect(W/2-200,AR.y+8,400,24); c.fillStyle='#ff4d6d'; c.fillRect(W/2-194,AR.y+22,388*Math.max(0,boss.hp/boss.maxHp),5); c.fillStyle='#fff'; c.font='700 11px "Zen Maru Gothic", sans-serif'; c.fillText('ABYSSAL HOLLOW'+(boss.hp<boss.maxHp*.5?' · ENRAGED':''),W/2,AR.y+19); }
+  if(!isTouch()){ c.textAlign='left'; c.fillStyle='rgba(166,168,210,.7)'; c.font='500 11px "Zen Maru Gothic", sans-serif'; c.fillText('WASD move · J / click attack · K / Space dash · L skill · Esc pause',AR.x,AR.y+AR.h+22); }
+  if(G.bannerT>0){
+    const a=Math.min(1,G.bannerT*2); c.globalAlpha=a; c.textAlign='center';
+    c.fillStyle='rgba(8,9,24,.7)'; c.fillRect(0,H/2-44,W,64);
+    c.fillStyle=G.bannerBoss?'#ff5f80':(G.bannerCol&&G.banner!==undefined&&G.banner.indexOf('Wave')!==0?G.bannerCol:'#ffffff');
+    c.font='700 34px Philosopher, serif'; c.fillText(G.banner,W/2,H/2);
+    c.globalAlpha=1;
+  }
+  const tS=$('#tSkl'); if(tS) tS.classList.toggle('ready',p.energy>=100);
+}
+function loop(now){
+  if(!G) return;
+  const dt=Math.min(.033,(now-lastT)/1000); lastT=now;
+  if(!G.paused) update(dt);
+  draw();
+  if(G) requestAnimationFrame(loop);
+}
+function endBattle(win){
+  if(G.over) return; G.over=true;
+  const i=G.stage, first=win&&i===S.cleared, comp=G.c.id;
+  let html;
+  if(win){
+    const gems=stageGems(i,first), exp=50+20*i, aff=6;
+    S.gems+=gems; const ups=addExp(exp); addAff(comp,aff);
+    if(first) S.cleared=Math.min(STAGES.length,S.cleared+1);
+    save(); sfx('win');
+    const next= i+1<STAGES.length && i+1<=S.cleared;
+    html=`<div class="res panel"><span class="eyebrow">Zone ${i+1} · ${G.def.name}</span><h2 style="color:var(--gold)">Hunt Complete</h2>
+      <div class="rw"><span>Gems <b>+${gems}</b></span><span>EXP <b>+${exp}</b></span><span>${CHARS[comp].name} Bond <b>+${aff}</b></span><span>Hollows <b>${G.kills}</b></span></div>
+      ${ups?`<div style="color:var(--cyan);font-weight:700">Level up! You are now Lv ${S.level}.</div>`:''}
+      <p style="margin:0;color:var(--dim);font-style:italic">"${winLine(comp)}"</p>
+      <div class="btns">${next?`<button class="btn cyan" data-act="next">Next zone</button>`:''}<button class="btn" data-act="again">Hunt again</button><button class="btn ghost" data-act="hub">Lumora</button></div></div>`;
+  } else {
+    html=`<div class="res panel"><span class="eyebrow">Zone ${i+1} · ${G.def.name}</span><h2 style="color:var(--danger)">Defeated</h2>
+      <p style="margin:0;color:var(--dim);line-height:1.6">${CHARS[comp].name} pulls you out of the Rift's reach. Equip stronger memories from Wish, or level up on earlier zones.</p>
+      <div class="btns"><button class="btn" data-act="again">Try again</button><button class="btn ghost" data-act="hub">Lumora</button></div></div>`;
+  }
+  setTimeout(()=>{
+    const ov=document.createElement('div'); ov.className='overlay'; ov.innerHTML=html; document.body.appendChild(ov);
+    ov.addEventListener('click',e=>{ const b=e.target.closest('[data-act]'); if(!b) return; ov.remove(); const act=b.dataset.act; G=null;
+      if(act==='again') startBattle(i); else if(act==='next') startBattle(i+1); else show('hub'); });
+  },900);
+}
+function winLine(id){ return {orion:'Not bad, partner. Can we nap now?',lucien:'No injuries. Keep it that way.',marin:'Magnificent! I\'m painting this.',kade:'Look at you. My kind of hunter.'}[id]; }
+function togglePause(){ if(!G||G.over) return; G.paused=!G.paused; $('#pauseBtn').textContent=G.paused?'Resume':'Pause'; if(G.paused) showPauseMenu(); }
+function showPauseMenu(){
+  const ov=document.createElement('div'); ov.className='overlay'; ov.id='pauseOv';
+  ov.innerHTML=`<div class="res panel"><h2>Paused</h2><div class="btns"><button class="btn cyan" data-p="resume">Resume</button><button class="btn ghost" data-p="quit">Retreat to Lumora</button></div></div>`;
+  document.body.appendChild(ov);
+  ov.addEventListener('click',e=>{ const b=e.target.closest('[data-p]'); if(!b) return; ov.remove();
+    if(b.dataset.p==='resume'){ G.paused=false; $('#pauseBtn').textContent='Pause'; lastT=performance.now(); }
+    else { G=null; show('hub'); } });
+}
+$('#pauseBtn').addEventListener('click',togglePause);
+
+/* input */
+window.addEventListener('keydown',e=>{
+  if(current==='scene'&&(e.key===' '||e.key==='Enter')){ e.preventDefault(); sceneNext(); return; }
+  if(current!=='battle'||!G) return;
+  const k=e.key.toLowerCase();
+  if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(k)) e.preventDefault();
+  if(k==='escape'||k==='p'){ const ov=$('#pauseOv'); if(ov){ ov.remove(); G.paused=false; $('#pauseBtn').textContent='Pause'; lastT=performance.now(); } else togglePause(); return; }
+  if(G.paused) return;
+  keys.add(k);
+  if(e.repeat) return;
+  if(k==='j'||k==='z') attack();
+  if(k==='k'||k===' '||k==='shift'||k==='x') dash();
+  if(k==='l'||k==='e'||k==='c') skill();
+});
+window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+window.addEventListener('blur',()=>keys.clear());
+bc.addEventListener('pointerdown',e=>{
+  if(!G) return;
+  if(e.pointerType==='mouse'){ attack(); return; }
+  $('#touch').hidden=false;
+  if(e.clientX<window.innerWidth*.55&&!joy.on){ joy.on=true; joy.id=e.pointerId; joy.sx=joy.x=e.clientX; joy.sy=joy.y=e.clientY; bc.setPointerCapture(e.pointerId); }
+  else attack();
+});
+bc.addEventListener('pointermove',e=>{ if(joy.on&&e.pointerId===joy.id){ joy.x=e.clientX; joy.y=e.clientY; } });
+const joyEnd=e=>{ if(e.pointerId===joy.id){ joy.on=false; joy.id=null; } };
+bc.addEventListener('pointerup',joyEnd); bc.addEventListener('pointercancel',joyEnd);
+const tbind=(id,fn)=>$(id).addEventListener('pointerdown',e=>{ e.preventDefault(); fn(); });
+tbind('#tAtk',attack); tbind('#tDsh',dash); tbind('#tSkl',skill);
+
+window.addEventListener('resize',()=>{
+  bgResize();
+  if(current==='battle') resizeBattle();
+  if(current==='hub') drawHubPortrait();
+  if(current==='scene') sceneDraw();
+  if(current==='wish') renderWish();
+});
+
+/* boot */
+bgResize(); requestAnimationFrame(bgDraw);
+show('title');
+</script>
