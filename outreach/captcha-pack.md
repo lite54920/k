@@ -465,3 +465,231 @@ Best,
 Kayla
 ClearAxis
 ```
+
+---
+
+# Round 2 additions (27 Sep)
+
+## 18. MonRae Management
+
+**Link:** https://www.monraemanagement.com/contact
+
+**How:** First/Last name · Email · Message. Leave 'Sign up for news' unticked.
+
+**Subject:** Distribution opportunity for MonRae Management’s creator roster
+
+**Message:**
+
+```
+Hi MonRae Management team,
+
+I’m Kayla from ClearAxis. I came across your roster and noticed that you represent YouTubers, gamers, comedians and podcasters, including talent producing substantial long-form video content.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with MonRae Management, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 19. Semaphore
+
+**Link:** https://semaphorebrands.com/contact-us/
+
+**How:** First/Last · Email · Phone +447444924141 · leave social handles blank · message in 'What’s up?' · contact method: Email · tick the CAPTCHA.
+
+**Subject:** Distribution opportunity for Semaphore’s creator roster
+
+**Message:**
+
+```
+Hi Semaphore team,
+
+I’m Kayla from ClearAxis. I came across Semaphore and noticed that you work with creators across kids & family, gaming, toys and lifestyle, including talent producing substantial long-form video content.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Semaphore, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 20. Elusive Agency
+
+**Link:** https://www.elusive-agency.com/for-brands
+
+**How:** Click CONTACT US: First/Last · Email · 'What best describes you': Brand (closest option) · Company: ClearAxis. There's no message box, so email the message afterwards if they reply.
+
+**Subject:** Distribution opportunity for Elusive Agency’s creator roster
+
+**Message:**
+
+```
+Hi Elusive Agency team,
+
+I’m Kayla from ClearAxis. I came across Elusive Agency and wanted to reach out about a potential partnership for your creator roster.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Elusive Agency, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 21. Select Management Group
+
+**Link:** https://www.select.co/contact-us
+
+**How:** First/Last · Email · Subject · Message.
+
+**Subject:** Distribution opportunity for Select Management Group’s creator roster
+
+**Message:**
+
+```
+Hi Select Management Group team,
+
+I’m Kayla from ClearAxis. I came across Select and noticed that you represent top-ranking creators across YouTube, TikTok and Instagram, including talent producing substantial long-form video content.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Select Management Group, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 22. HLD Talent
+
+**Link:** https://hldtalent.com/
+
+**How:** Footer form: First/Last · Email · Phone +447444924141 · Message · consent box · CAPTCHA.
+
+**Subject:** Distribution opportunity for HLD Talent’s creator roster
+
+**Message:**
+
+```
+Hi HLD Talent team,
+
+I’m Kayla from ClearAxis. I came across your roster and noticed that you represent digital, broadcast and podcast talent, including streamers and sports creators.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with HLD Talent, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 23. Whalar
+
+**Link:** https://www.whalar.com/contact
+
+**How:** Choose Whalar EMEA or Americas · I'm a Brand (closest) · First/Last · Email · Phone (optional) · Title: Partnerships · Company: ClearAxis · How can we help: General Inquiries · paste the message if there's a box.
+
+**Subject:** Distribution opportunity for Whalar’s creator roster
+
+**Message:**
+
+```
+Hi Whalar team,
+
+I’m Kayla from ClearAxis. I came across Whalar and wanted to reach out about a potential partnership for your creator roster.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Whalar, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 24. Viral Nation
+
+**Link:** https://www.viralnation.com/contact-us
+
+**How:** Pick the closest option ('I need the perfect creator for my campaign' is brand-side; use the message to explain) and paste the message.
+
+**Subject:** Distribution opportunity for Viral Nation’s creator roster
+
+**Message:**
+
+```
+Hi Viral Nation team,
+
+I’m Kayla from ClearAxis. I came across Viral Nation and wanted to reach out about a potential partnership for your creator roster.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Viral Nation, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 25. Ampverse
+
+**Link:** https://ampverse.com/contact-us-get-in-touch
+
+**How:** Name · Company · Email · Who are you: Other · Interest: Business Partnership · Country: Other. No message box.
+
+**Subject:** Distribution opportunity for Ampverse’s creator roster
+
+**Message:**
+
+```
+Hi Ampverse team,
+
+I’m Kayla from ClearAxis. I came across Ampverse and wanted to reach out about a potential partnership for your creator roster.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Ampverse, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```

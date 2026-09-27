@@ -12,7 +12,7 @@ with open('outreach-log.csv', 'w', newline='') as f:
 import collections
 c = collections.Counter(r['Submission status'] for r in rows)
 summary = f"""
-## Totals (companies 1–45)
+## Totals (all companies logged)
 
 | Status | Count |
 |---|---|
@@ -27,7 +27,7 @@ summary = f"""
 
 ## Notes
 
-- Scope: the brief said to start with Repulse Media and finish with HOUSE Talent (#45). The 12 companies listed after it (#46 The Booking Project through #57 Semaphore) were not contacted.
+- Round 1: companies #1–45. Round 2 (27 Sep): the original list's #46–57 plus new agencies found by web search (#58–77).
 - No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
 - No CAPTCHA was solved or bypassed. For three Squarespace sites (Sharper, Spires, The Gold Arena), one submission was attempted and the site's invisible reCAPTCHA rejected it, so nothing was received. Those sites were not retried. Later Squarespace forms were not attempted.
 - No phone number, website, address, social handle or budget was invented. Forms that required any of these are marked Blocked.
