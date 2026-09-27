@@ -79,6 +79,14 @@
 | 75 | The Influencer Marketing Factory | https://theinfluencermarketingfactory.com/ | https://theinfluencermarketingfactory.com/contact-us/ | Brand-side influencer marketing (TikTok, YouTube, Instagram) | — | Blocked |  |  | None found | Blocked — missing required information: requires a marketing budget and campaign goal (brand-buyer form). |
 | 76 | Long Haul Management (now THE·TEAM) | https://www.longhaulmgmt.com/ | — | Tier-1 YouTube creators (e.g. MatPat) | — | Website unavailable |  |  | None found | The connection was refused from this environment. Retry manually. |
 | 77 | TalentX Entertainment | https://www.talentx.com/ | — | YouTube/TikTok/Twitch creators | — | Website unavailable |  |  | None found | 'upstream request failed' from this environment. |
+| 78 | Moth Management |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 79 | Ruthless Talent |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 80 | Sixteenth |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 81 | MGMT.exe |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 82 | Upload Agency |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 83 | Retro MGMT |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 84 | Dulcedo |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 85 | Mana Talent Group |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
 
 ## Totals (all companies logged)
 
@@ -91,12 +99,13 @@
 | Possible competitor | 4 |
 | Skipped — unsuitable | 4 |
 | Website unavailable | 3 |
-| **Total** | **77** |
+| Already contacted (by you, by email) | 8 |
+| **Total** | **85** |
 
 ## Notes
 
 - Round 1: companies #1–45. Round 2 (27 Sep): the original list's #46–57 plus new agencies found by web search (#58–77).
-- No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
+- Contacted directly by Kayla by email (do not contact again): Moth Management, Ruthless Talent, Sixteenth, MGMT.exe, Upload Agency, Retro MGMT, Dulcedo, Mana Talent Group. No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
 - No CAPTCHA was solved or bypassed. For three Squarespace sites (Sharper, Spires, The Gold Arena), one submission was attempted and the site's invisible reCAPTCHA rejected it, so nothing was received. Those sites were not retried. Later Squarespace forms were not attempted.
 - No phone number, website, address, social handle or budget was invented. Forms that required any of these are marked Blocked.
 - Where a roster is mainly short-form or social-first, the long-form clause was left out of the opening sentence so it stays accurate.

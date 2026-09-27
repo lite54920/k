@@ -23,12 +23,13 @@ summary = f"""
 | Possible competitor | {c['Possible competitor']} |
 | Skipped — unsuitable | {c['Skipped — unsuitable']} |
 | Website unavailable | {c['Website unavailable']} |
+| Already contacted (by you, by email) | {c['Already contacted']} |
 | **Total** | **{len(rows)}** |
 
 ## Notes
 
 - Round 1: companies #1–45. Round 2 (27 Sep): the original list's #46–57 plus new agencies found by web search (#58–77).
-- No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
+- Contacted directly by Kayla by email (do not contact again): Moth Management, Ruthless Talent, Sixteenth, MGMT.exe, Upload Agency, Retro MGMT, Dulcedo, Mana Talent Group. No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
 - No CAPTCHA was solved or bypassed. For three Squarespace sites (Sharper, Spires, The Gold Arena), one submission was attempted and the site's invisible reCAPTCHA rejected it, so nothing was received. Those sites were not retried. Later Squarespace forms were not attempted.
 - No phone number, website, address, social handle or budget was invented. Forms that required any of these are marked Blocked.
 - Where a roster is mainly short-form or social-first, the long-form clause was left out of the opening sentence so it stays accurate.
