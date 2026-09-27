@@ -693,3 +693,90 @@ Best,
 Kayla
 ClearAxis
 ```
+
+
+# Round 3 additions (27 Sep, evening)
+
+## 26. Talent Resources
+
+**Link:** https://www.talentresources.com/contact-us
+
+**How:** First/Last name · Email · Company · enquiry dropdown: Celebrity & Influencer Talent · message. A reCAPTCHA popup appears on submit.
+
+**Subject:** Distribution opportunity for Talent Resources’s creator roster
+
+**Message:**
+
+```
+Hi Talent Resources team,
+
+I’m Kayla from ClearAxis. I came across Talent Resources and noticed your long track record connecting talent and creators with brands.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with Talent Resources, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 27. L3tcraft
+
+**Link:** https://www.l3tcraft.com/en/contact/
+
+**How:** Name · Email · Subject · Message · tick the privacy-policy box. It has an invisible reCAPTCHA. Spanish YouTubers agency.
+
+**Subject:** Distribution opportunity for L3tcraft’s creator roster
+
+**Message:**
+
+```
+Hi L3tcraft team,
+
+I’m Kayla from ClearAxis. I came across L3tcraft and noticed that you manage some of Spain’s leading YouTubers, streamers and gaming creators.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with L3tcraft, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```
+
+## 28. INSIGHT GG
+
+**Link:** https://ins.gg/
+
+**How:** Scroll to the contact form at the bottom: Name · E-Mail · Nachricht, then tick the reCAPTCHA. German gaming and YouTube creator management.
+
+**Subject:** Distribution opportunity for INSIGHT GG’s creator roster
+
+**Message:**
+
+```
+Hi INSIGHT GG team,
+
+I’m Kayla from ClearAxis. I came across INSIGHT GG and noticed that you manage some of Germany’s biggest gaming creators across YouTube, Twitch and TikTok.
+
+We help established creators distribute and monetize their existing content across smart-TV and streaming platforms such as Roku, Amazon Fire TV, Samsung TV Plus, Pluto TV and Tubi.
+
+Our team manages the platform submissions, onboarding, formatting, distribution, monetization and ongoing operations, so creators do not need to produce additional content.
+
+We’d like to explore a roster-level partnership with INSIGHT GG, initially submitting a small number of suitable creators for consideration. Each platform reviews creators individually, approval is not guaranteed and the process normally takes a few weeks.
+
+Would your team be interested? If this belongs with someone else, could you please direct it to whoever handles platform partnerships, content distribution or new revenue opportunities?
+
+Best,
+Kayla
+ClearAxis
+```

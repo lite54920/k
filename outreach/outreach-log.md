@@ -87,26 +87,66 @@
 | 83 | Retro MGMT |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
 | 84 | Dulcedo |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
 | 85 | Mana Talent Group |  | — |  | — | Already contacted |  |  |  | Contacted by Kayla directly by email (company and individual employees), per user on 27 Sep 2026. Do not contact again via forms or email. |
+| 86 | Apex Creator Management | https://www.apexcreatormanagement.com/ | https://www.apexcreatormanagement.com/#contact (General) | YouTube and TikTok creators | I came across Apex and noticed that you represent YouTube and TikTok creators and help them turn brand interest into signed partnerships. | Submitted | 2026-09-27 20:39 | "Message sent" |  |  |
+| 87 | 3 Cousins Agency | https://www.3cousinsagency.com/ | https://www.3cousinsagency.com/contact | Food, gardening, home, countryside lifestyle creators | I came across 3 Cousins Agency and noticed that you represent creators across food, gardening, home and countryside lifestyle. | Submitted | 2026-09-27 20:35 | "Message sent!" |  |  |
+| 88 | WeAreTENZING | https://wearetenzing.com/ | https://wearetenzing.com/contact/ (brand form) | NZ creators, athletes, speakers (family/food) | I came across WeAreTENZING and noticed that you represent New Zealand creators, athletes and speakers, including family and food creators such as HowToDadNZ and ManCanCook. | Submitted | 2026-09-27 20:36 | "Thank you for your message. It has been sent." |  |  |
+| 89 | 86 Talent | https://86talent.com/ | https://86talent.com/work-with-us/influencer-campaign-management/ | UK fashion, beauty, lifestyle creators | I came across 86 Talent and noticed that you represent a diverse roster of UK content creators across fashion, beauty and lifestyle. | Submitted | 2026-09-27 20:39 | "Thank you for your message…" |  |  |
+| 90 | MCR Agency | https://www.mcr-agency.com/ | https://www.mcr-agency.com/contacto/ (type: otro) | Gaming creators — Spain, LATAM, Brazil | I came across MCR and noticed that you represent 80 exclusive gaming creators across Spain, Latin America and Brazil. | Submitted | 2026-09-27 20:40 | Redirected to ?sent=1 |  |  |
+| 91 | NewGen | https://thenewgen.com/ | https://thenewgen.com/contact/send-a-brief/ | Gaming and family creators | I came across NewGen and noticed your creator work across gaming and family creators. | Submitted | 2026-09-27 20:47 | Redirected to /thank-you |  |  |
+| 92 | Azur Influence | https://azurinfluence.fr/ | https://azurinfluence.fr/#contact | South-of-France creators | I came across Azur and noticed that you represent a select roster of content creators from the south of France. | Submitted | 2026-09-27 20:52 | Button changed to "Merci !" |  |  |
+| 93 | One Shot Agency | https://www.oneshotgroup.it/ | https://www.oneshotgroup.it/one-shot-agency | 30+ leading Italian creators | I came across One Shot Agency and noticed that you exclusively represent a roster of 30+ of Italy’s leading creators. | Submitted | 2026-09-27 20:57 | "Thank you! Your submission has been received!" |  |  |
+| 94 | WebRangers Talent | https://webrangerstalent.com/ | https://webrangerstalent.com/#brief | Indian digital creators + TV/film talent | I came across WebRangers Talent and noticed that you represent Indian digital creators alongside TV and film talent. | Submitted | 2026-09-27 21:02 | "BRIEF RECEIVED" |  | Service "Not sure, let's talk"; budget option "Flexible / based on plan" (no figure given). |
+| 95 | Ivy Talent Co | https://www.ivytalentco.com.au/ | https://www.ivytalentco.com.au/get-in-touch | AU food, interiors, fashion, fitness, lifestyle | I came across Ivy Talent Co and noticed that you represent Australian creators across food, home interiors, fashion, health & fitness and lifestyle. | Submitted | 2026-09-27 21:08 | "Thank you!" |  |  |
+| 96 | The Millar Agency | https://www.themillaragency.com/ | https://www.themillaragency.com/contact | Broadcast, podcast and digital talent | I came across The Millar Agency and noticed that you represent broadcast, podcast and digital talent across brand building, licensing and live. | Submitted | 2026-09-27 21:10 | "Thank you!" |  | Phone +447444924141 supplied. |
+| 97 | Tall Poppy MGMT | https://www.tallpoppymgmt.com/ | https://www.tallpoppymgmt.com/contact (General Enquiry) | Australian creators and creatives | I came across Tall Poppy MGMT and noticed that you represent a diverse roster of Australian creators and creatives. | Submitted | 2026-09-27 21:10 | "Thank you! We will get back to you within the week" |  |  |
+| 98 | Sharp Talent | https://www.sharptalent.co.uk/ | https://www.sharptalent.co.uk/contact | Boutique UK creators | I came across Sharp Talent and noticed that you represent a boutique roster of UK influencers and digital content creators. | Submitted | 2026-09-27 21:13 | "Thank you!" |  | Enquiry type "Other"; creator social fields "N/A". |
+| 99 | MGMT Australia | https://www.mgmt.com.au/ | https://www.mgmt.com.au/contact | AU fashion, beauty, lifestyle, travel creators | I came across MGMT and noticed that you represent Australian digital creators across fashion, beauty, lifestyle and travel. | Submitted | 2026-09-27 21:16 | "THANK YOU! YOUR SUBMISSION HAS BEEN RECEIVED!" |  |  |
+| 100 | Level Up | https://www.levelupagency.eu/ | https://www.levelupagency.eu/ (contact form) | Streamers, broadcast talent, esports players | I came across Level Up and noticed that you represent streamers, broadcast talent and professional players across gaming and esports. | Submitted — unconfirmed | 2026-09-27 20:35 | Posted to form-to-email.php; blank page returned, no explicit confirmation |  | Probably received; do not resend. |
+| 101 | Trinity Influencer Management | https://www.trinitymanagement.co.za/ | https://www.trinitymanagement.co.za/#contact (Media Partner) | South African creators, nano to macro tiers | I came across Trinity Influencer Management and noticed that you represent South African creators across nano to macro tiers, from lifestyle and comedy to gaming and podcasts. | Submitted — unconfirmed | 2026-09-27 21:25 | Button showed "SENDING MESSAGE..."; browser closed before server reply | info@trinitymanagement.co.za | Mostly Instagram-led roster. Do not resend. |
+| 102 | Outshine Talent | https://www.outshinetalent.com/ | https://forms.gle/3YMLwydM9zveSkaf6 (Partnership Inquiry Google Form) | Creators incl. YouTubers Claire Marshall, Kirbie Johnson | I came across Outshine Talent and noticed that your roster includes YouTube creators such as Claire Marshall and Kirbie Johnson alongside your wider creator portfolio. | Submitted | 2026-09-27 21:27 | "Thank you for your inquiry to Outshine Talent." |  | Website clearaxis.org and phone supplied. |
+| 103 | Up North Management | https://www.upnorthmgmt.co/ | https://www.upnorthmgmt.co/contact | YouTube sports, lifestyle, gaming creators | I came across Up North Management and noticed that you manage YouTube creators across sports, lifestyle and gaming, including Kenny Beecham, NoisyButters and Formula. | Submitted | 2026-09-27 21:34 | "Thank you!" (SaveFormSubmission 204) |  | "Which client" answered: general partnership enquiry. |
+| 104 | Right Click Culture | https://rightclick.gg/ | https://rightclick.gg/contact | Gaming/pop-culture creators, streamers, YouTubers, musicians | I came across Right Click Culture and noticed that Right Click Management represents gaming and pop-culture creators, from major streamers to YouTube creators, alongside independent musicians. | Submitted | 2026-09-27 21:34 | "Thank you! Your submission has been received!" |  |  |
+| 105 | Warp Media | https://warpmedia.com.br/ | https://warpmedia.com.br/contato/ | YouTube-focused Brazilian creator agency | I came across Warp Media and noticed that you’re a YouTube-focused agency managing the careers of Brazilian creators, with editing, design and channel-optimisation support. | Submitted | 2026-09-27 21:41 | CF7 mail_sent: "Sua mensagem foi enviada. Obrigado!" | contato@warpmedia.com.br | Phone supplied. |
+| 106 | UPFAME | https://upfame.de/ | https://upfame.de/ (Anfrage form) | 50+ German creators across YouTube, TikTok, Instagram | I came across UPFAME and noticed that you manage 50+ German content creators across YouTube, TikTok and Instagram, with talent management and brand partnerships under one roof. | Submitted | 2026-09-27 21:43 | API: "Email sent successfully" |  |  |
+| 107 | Socially Powerful | https://sociallypowerful.com/ | https://sociallypowerful.com/contact (brand form) | Global influencer/creator marketing | — | Blocked — missing required information |  | "Estimated Budget cannot be empty" | tellmemore@sociallypowerful.com | Mandatory budget + work-type fields; no verified values. Nothing sent. |
+| 108 | Johnson & Laird | https://johnsonlaird.com/ | https://johnsonlaird.com/contact | NZ personalities and creators | — | Blocked — missing required information |  | Phone field rejects non-NZ numbers |  | Not sent. |
+| 109 | Confluencr | https://confluencr.com/ | Brand form (step 2) | Indian creators | — | Blocked — missing required information |  | Step 2 requires monthly marketing spend | hello@confluencr.com | Not sent. |
+| 110 | Purple Goat Agency | https://www.purplegoatagency.com/ | https://www.purplegoatagency.com/contact-us/ | Disabled and neurodivergent creators | — | Blocked — missing required information |  | Investment range mandatory | info@purplegoatagency.com | Not sent. |
+| 111 | Think Big Creators | https://www.thinkbigcreators.com/ | https://www.thinkbigcreators.com/contact | YouTube creator management (sponsorships) | — | Skipped — unsuitable form |  | Only a creator application / brand sponsor form |  | ClearAxis is neither a creator nor a sponsoring brand. |
+| 112 | Talent Resources | https://www.talentresources.com/ | https://www.talentresources.com/contact-us | Celebrity & influencer talent | — | Ready for CAPTCHA |  | reCAPTCHA verification popup on submit |  |  |
+| 113 | L3tcraft | https://www.l3tcraft.com/ | https://www.l3tcraft.com/en/contact/ | Spanish YouTubers, streamers, gamers | — | Ready for CAPTCHA |  | Invisible reCAPTCHA |  |  |
+| 114 | INSIGHT GG | https://ins.gg/ | https://ins.gg/ (contact form at bottom) | German gaming / YouTube / Twitch creators | — | Ready for CAPTCHA |  | reCAPTCHA |  |  |
+| 115 | MaxConnectors | https://www.maxconnectors.com.au/ | Framer form (did not submit) | 75+ Australian digital creators | — | Email only |  |  |  | Framer form submit never fired. Email not sent. |
+| 116 | Marvel The Agency | https://www.marveltheagency.ie/ | https://www.marveltheagency.ie/contact (details only, no message field) | Irish influencer talent | — | Email only |  |  | alan@marveltheagency.ie | Form has no message field. Email not sent. |
+| 117 | RE6L (Reelsix) | https://www.re6l.com/ | None | YouTube creators: PewDiePie, KickThePJ, Marzia | — | Email only |  |  | hey@re6l.com | Email not sent. |
+| 118 | Peanut Butter & Jelly | https://pbnj.gg/ | None | Gaming YouTubers (EN/DE) e.g. GoodTimesWithScar, BdoubleO100 | — | Email only |  |  | collab@pbnj.gg | Email not sent. |
+| 119 | INSTINCT3 | https://instinct3.de/ | None | German gaming YouTubers (HandOfBlood, Sterzik) | — | Email only |  |  | business@instinct3.de | Email not sent. |
+| 120 | Fixated | https://fixated.com/ | https://fixated.com/contact | Creator management + clipping/amplification network | — | Possible competitor |  |  |  | Operates content studio, clipping network and a US video property. Not submitted. |
+| 121 | LATINFLUENCE | https://www.latinfluence.com/ | https://www.latinfluence.com/contacto/ | LATAM creators | — | Skipped — unsuitable |  |  | info@latinfluence.com | Site shows injected casino spam (likely compromised); also reCAPTCHA. |
+| 122 | elev8 Agency | https://elev8agency.com/ | https://elev8agency.com/ |  | — | Blocked |  | Server firewall (ModSecurity) rejected request |  | Not retried. |
+| 123 | Summer | https://thisissummer.co/ | https://thisissummer.co/contact/ |  | — | Blocked |  | "Form token is invalid" twice |  | Not retried. |
 
 ## Totals (all companies logged)
 
 | Status | Count |
 |---|---|
-| Submitted | 20 |
-| Ready for CAPTCHA (needs manual completion) | 21 |
-| Email only | 16 |
-| Blocked (required info missing, or bot wall) | 9 |
-| Possible competitor | 4 |
-| Skipped — unsuitable | 4 |
+| Submitted (confirmed) | 39 |
+| Submitted — unconfirmed (sent, no confirmation shown; do not resend) | 2 |
+| Ready for CAPTCHA (needs manual completion) | 24 |
+| Email only | 21 |
+| Blocked (required info missing, or bot wall) | 15 |
+| Possible competitor | 5 |
+| Skipped — unsuitable | 6 |
 | Website unavailable | 3 |
 | Already contacted (by you, by email) | 8 |
-| **Total** | **85** |
+| **Total** | **123** |
 
 ## Notes
 
-- Round 1: companies #1–45. Round 2 (27 Sep): the original list's #46–57 plus new agencies found by web search (#58–77).
+- Round 1: companies #1–45. Round 2 (27 Sep): the original list's #46–57 plus new agencies found by web search (#58–77). Round 3 (27 Sep, evening): #86–123, new agencies only, sent through forms without a CAPTCHA. After the user's reminder, the focus moved to YouTube creator managers (Outshine, Up North, Right Click Culture, Warp Media, UPFAME).
 - Contacted directly by Kayla by email (do not contact again): Moth Management, Ruthless Talent, Sixteenth, MGMT.exe, Upload Agency, Retro MGMT, Dulcedo, Mana Talent Group. No company on the do-not-contact list appears among the targets. Each company was contacted at most once, and no emails were sent.
 - No CAPTCHA was solved or bypassed. For three Squarespace sites (Sharper, Spires, The Gold Arena), one submission was attempted and the site's invisible reCAPTCHA rejected it, so nothing was received. Those sites were not retried. Later Squarespace forms were not attempted.
+- Round 3: Trinity (#101) and Level Up (#100) were sent, but the page gave no explicit confirmation, so they are logged as unconfirmed and must not be resent.
 - No phone number, website, address, social handle or budget was invented. Forms that required any of these are marked Blocked.
 - Where a roster is mainly short-form or social-first, the long-form clause was left out of the opening sentence so it stays accurate.
 - Timestamps are UTC, taken from the automation host at the moment the submit button was clicked.
