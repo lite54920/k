@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Partner with us — ClearAxis</title>
+  <meta name="description" content="Tell ClearAxis about your channel or newsroom and get a distribution plan across CTV, Spotify, news syndication and Bilibili.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ClearAxis">
+  <meta property="og:title" content="Partner with us — ClearAxis">
+  <meta property="og:description" content="Tell ClearAxis about your channel or newsroom and get a distribution plan across CTV, Spotify, news syndication and Bilibili.">
+  <meta property="og:url" content="https://clearaxis.org/contact.html">
+  <meta property="og:image" content="https://clearaxis.org/assets/brand/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__in">
+      <a class="brand" href="index.html" aria-label="ClearAxis home"><span class="brand__sq"><svg viewBox="-31 -18 62 36" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M-28.5 0H-16.6M16.6 0H28.5"/><circle r="14.6"/></g><circle cx="10.32" cy="-10.32" r="4.4" fill="currentColor"/></svg></span>ClearAxis</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services" data-svc="0">CTV</a>
+        <a href="index.html#services" data-svc="1">Spotify</a>
+        <a href="index.html#services" data-svc="2">News</a>
+        <a href="index.html#services" data-svc="3">Bilibili</a>
+        <a href="index.html#playbooks">Playbooks</a>
+        <a href="index.html#network">Network</a>
+      </nav>
+      <div class="nav__right">
+        <a class="txt" href="contact.html">Contact</a>
+        <a class="pill" href="contact.html">Partner with us <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="menu" id="menu" hidden>
+    <a href="index.html#services" data-svc="0">CTV &amp; FAST</a>
+    <a href="index.html#services" data-svc="1">Spotify podcasts</a>
+    <a href="index.html#services" data-svc="2">News syndication</a>
+    <a href="index.html#services" data-svc="3">Bilibili</a>
+    <a href="index.html#playbooks">Playbooks</a>
+    <a href="index.html#network">Network</a>
+    <a class="pill" href="contact.html">Partner with us <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+  </div>
+
+  <main>
+    <section class="band" style="border-top:0">
+      <div class="frame contact">
+        <div class="contact__intro">
+          <h1><span class="hl">Partner with</span><br><span class="hl">ClearAxis.</span></h1>
+          <p class="lead">Tell us about your channel or newsroom. We&rsquo;ll come back with the platforms it belongs on and how each one pays.</p>
+          <ol>
+            <li><b>01</b><div><strong>Tell us about your content</strong><span>Channel, catalogue or newsroom, plus the markets you care about.</span></div></li>
+            <li><b>02</b><div><strong>We review your library</strong><span>Formats, volume and rights, mapped against each platform&rsquo;s requirements.</span></div></li>
+            <li><b>03</b><div><strong>You get a distribution plan</strong><span>CTV, Spotify, news syndication or Bilibili &mdash; with the commercial model for each.</span></div></li>
+          </ol>
+        </div>
+        <div class="contact__form">
+          <form class="form" id="partner-form" name="partner" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="partner">
+            <p class="form__trap" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+            <fieldset class="field" data-field="type">
+              <legend>I am a</legend>
+              <div class="seg">
+                <label><input type="radio" name="type" value="Creator" required><span>Creator</span></label>
+                <label><input type="radio" name="type" value="Publisher"><span>Publisher</span></label>
+                <label><input type="radio" name="type" value="Media company"><span>Media co.</span></label>
+                <label><input type="radio" name="type" value="Other"><span>Other</span></label>
+              </div>
+              <p class="field__error" aria-live="polite"></p>
+            </fieldset>
+
+            <div class="form__row">
+              <div class="field" data-field="name">
+                <label for="f-name">Full name</label>
+                <input class="input" id="f-name" name="name" type="text" autocomplete="name" required>
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="field" data-field="email">
+                <label for="f-email">Work email</label>
+                <input class="input" id="f-email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="f-company">Company or channel <i>(optional)</i></label>
+                <input class="input" id="f-company" name="company" type="text" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="f-interest">Interested in <i>(optional)</i></label>
+                <select class="input" id="f-interest" name="interest">
+                  <option value="">Select</option>
+                  <option>CTV &amp; FAST (Pluto TV, Roku, Tubi, Prime Video)</option>
+                  <option>Spotify podcasts</option>
+                  <option>News syndication (MSN and others)</option>
+                  <option>Bilibili</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" data-field="link">
+              <label for="f-link">Link to your content <i>(optional)</i></label>
+              <input class="input" id="f-link" name="link" type="url" inputmode="url" placeholder="https://youtube.com/@yourchannel">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-message">Anything else? <i>(optional)</i></label>
+              <textarea class="input" id="f-message" name="message" rows="4" placeholder="Markets, languages, catalogue size, timing&hellip;"></textarea>
+            </div>
+
+            <button class="pill form__submit" type="submit">Send <span class="chev" aria-hidden="true">&rsaquo;</span></button>
+            <p class="form__status" role="status"></p>
+          </form>
+
+          <div class="form-done" hidden tabindex="-1">
+            <h3>Thanks &mdash; we have your details.</h3>
+            <p>We&rsquo;ll review your content and come back to you with next steps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__in">
+      <div>
+        <div class="foot__mark"><svg viewBox="-31 -18 62 36" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M-28.5 0H-16.6M16.6 0H28.5"/><circle r="14.6"/></g><circle cx="10.32" cy="-10.32" r="4.4" fill="currentColor"/></svg></div>
+        <div class="foot__word">ClearAxis</div>
+      </div>
+      <div class="foot__cols">
+        <div>
+          <h4>Distribution</h4>
+          <a href="index.html#services" data-svc="0">CTV &amp; FAST</a>
+          <a href="index.html#services" data-svc="1">Spotify podcasts</a>
+          <a href="index.html#services" data-svc="2">News syndication</a>
+          <a href="index.html#services" data-svc="3">Bilibili</a>
+        </div>
+        <div>
+          <h4>Creators</h4>
+          <a href="index.html#playbooks">Playbooks</a>
+          <a href="index.html#how">How it works</a>
+          <a href="contact.html">Apply</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="index.html#network">Network</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html">Partner with us</a>
+        </div>
+      </div>
+      <div class="foot__legal"><span>&copy; 2026 ClearAxis</span><span>Create once. Distribute everywhere.</span></div>
+    </div>
+  </footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
