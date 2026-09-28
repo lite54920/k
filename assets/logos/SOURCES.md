@@ -7,6 +7,7 @@ official press-kit asset when available (keep the same filename).
 | --- | --- |
 | youtube, roku, tubi, plex, google-news, apple-news | Simple Icons 16.31.0 (brand colour applied) |
 | spotify | Simple Icons 16.32.0 (brand colour applied) |
+| snapchat | Simple Icons 16.31.0 (ghost in black; show on Snapchat yellow) |
 | prime-video, fire-tv | Simple Icons 13.0.0 |
 | yahoo | Simple Icons 9.0.0 |
 | pluto-tv | Wikimedia Commons — Pluto_TV_logo_2024.svg |

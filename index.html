@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ClearAxis — Put your content on every screen</title>
-  <meta name="description" content="ClearAxis distributes creators and publishers across CTV (Pluto TV, Roku, Tubi, Prime Video), Spotify, news syndication and Bilibili.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="ClearAxis gets creators and publishers paid on CTV (AVOD &amp; FAST), Spotify, MSN, Bilibili and Snapchat &mdash; fully done for you.">
+  <meta name="theme-color" content="#2f8bff">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ClearAxis">
   <meta property="og:title" content="ClearAxis — Put your content on every screen">
-  <meta property="og:description" content="ClearAxis distributes creators and publishers across CTV (Pluto TV, Roku, Tubi, Prime Video), Spotify, news syndication and Bilibili.">
+  <meta property="og:description" content="ClearAxis gets creators and publishers paid on CTV (AVOD &amp; FAST), Spotify, MSN, Bilibili and Snapchat &mdash; fully done for you.">
   <meta property="og:url" content="https://clearaxis.org/">
   <meta property="og:image" content="https://clearaxis.org/assets/brand/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -26,12 +26,12 @@
     <div class="nav__in">
       <a class="brand" href="#" aria-label="ClearAxis home"><span class="brand__sq"><svg viewBox="-31 -18 62 36" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M-28.5 0H-16.6M16.6 0H28.5"/><circle r="14.6"/></g><circle cx="10.32" cy="-10.32" r="4.4" fill="currentColor"/></svg></span>ClearAxis</a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="#services" data-svc="0">CTV</a>
-        <a href="#services" data-svc="1">Spotify</a>
-        <a href="#services" data-svc="2">News</a>
-        <a href="#services" data-svc="3">Bilibili</a>
-        <a href="#playbooks">Playbooks</a>
-        <a href="#network">Network</a>
+        <a href="#ctv" data-svc="0">CTV</a>
+        <a href="#spotify" data-svc="1">Spotify</a>
+        <a href="#news" data-svc="2">MSN</a>
+        <a href="#bilibili" data-svc="3">Bilibili</a>
+        <a href="#snapchat" data-svc="4">Snapchat</a>
+        <a href="#how">How it works</a>
       </nav>
       <div class="nav__right">
         <a class="txt" href="contact.html">Contact</a>
@@ -41,12 +41,12 @@
     </div>
   </header>
   <div class="menu" id="menu" hidden>
-    <a href="#services" data-svc="0">CTV &amp; FAST</a>
-    <a href="#services" data-svc="1">Spotify podcasts</a>
-    <a href="#services" data-svc="2">News syndication</a>
-    <a href="#services" data-svc="3">Bilibili</a>
-    <a href="#playbooks">Playbooks</a>
-    <a href="#network">Network</a>
+    <a href="#ctv" data-svc="0">CTV &mdash; AVOD &amp; FAST</a>
+    <a href="#spotify" data-svc="1">Spotify &mdash; LATAM monetization</a>
+    <a href="#news" data-svc="2">News &mdash; MSN</a>
+    <a href="#bilibili" data-svc="3">Bilibili &mdash; Chinese dubbing</a>
+    <a href="#snapchat" data-svc="4">Snapchat &mdash; managed profiles</a>
+    <a href="#how">How it works</a>
     <a class="pill" href="contact.html">Partner with us <span class="chev" aria-hidden="true">&rsaquo;</span></a>
   </div>
 
@@ -57,13 +57,16 @@
         <div class="hero">
           <div class="hero__copy">
             <h1><span class="hl">Put your content</span><br><span class="hl">on every screen.</span></h1>
-            <p class="hero__sub"><span>ClearAxis distributes creators and publishers across CTV, Spotify, news syndication and Bilibili.</span></p>
+            <p class="hero__sub"><span>ClearAxis gets creators and publishers paid on CTV, Spotify, MSN, Bilibili and Snapchat. We do the work &mdash; you receive your cut.</span></p>
             <div class="hero__cta">
               <a class="pill" href="contact.html">Partner with us <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-              <a class="pill pill--soft" href="#network">See the network <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+              <a class="pill pill--soft" href="#tracks">See the services <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="hero__badges" aria-label="Services">
+              <span class="c-ctv">CTV</span><span class="c-spot">Spotify</span><span class="c-news">MSN</span><span class="c-bili">Bilibili</span><span class="c-snap">Snapchat</span>
             </div>
           </div>
-          <img class="hero__art pixel" src="assets/art/skyline.png" alt="" width="360" height="165">
+          <img class="hero__art pixel" src="assets/art/skyline-color.png" alt="" width="360" height="109">
         </div>
       </div>
     </section>
@@ -73,18 +76,18 @@
       <div class="frame pad-x" style="padding-top:44px;padding-bottom:64px">
         <h2 class="logos__title" id="logos-title">Distributing to the platforms audiences already use</h2>
         <ul class="logos">
-        <li class="logo-tile" style="--h:17px"><img src="assets/logos/roku.svg" alt="Roku" style="--h:17px"></li>
-        <li class="logo-tile" style="--h:17px"><img src="assets/logos/tubi.svg" alt="Tubi" style="--h:17px"></li>
-        <li class="logo-tile" style="--h:36px"><img src="assets/logos/pluto-tv.svg" alt="Pluto TV" style="--h:36px"></li>
-        <li class="logo-tile" style="--h:24px"><img src="assets/logos/prime-video.svg" alt="Prime Video" style="--h:24px"></li>
-        <li class="logo-tile" style="--h:26px"><img src="assets/logos/fire-tv.svg" alt="Amazon Fire TV" style="--h:26px"></li>
-        <li class="logo-tile" style="--h:12px"><img src="assets/logos/samsung-tv-plus.svg" alt="Samsung TV Plus" style="--h:12px"></li>
-        <li class="logo-tile" style="--h:22px"><span><img src="assets/logos/spotify.svg" alt="">Spotify</span></li>
-        <li class="logo-tile" style="--h:26px"><img src="assets/logos/msn.svg" alt="MSN" style="--h:26px"></li>
-        <li class="logo-tile" style="--h:20px"><span><img src="assets/logos/yahoo.svg" alt="">Yahoo</span></li>
-        <li class="logo-tile" style="--h:20px"><span><img src="assets/logos/google-news.svg" alt="">Google News</span></li>
-        <li class="logo-tile" style="--h:20px"><span><img src="assets/logos/apple-news.svg" alt="">Apple News</span></li>
-        <li class="logo-tile" style="--h:22px"><span><img src="assets/logos/bilibili.svg" alt="">bilibili</span></li>
+        <li class="logo-tile"><img src="assets/logos/roku.svg" alt="Roku" style="--h:17px"></li>
+        <li class="logo-tile"><img src="assets/logos/tubi.svg" alt="Tubi" style="--h:17px"></li>
+        <li class="logo-tile"><img src="assets/logos/pluto-tv.svg" alt="Pluto TV" style="--h:36px"></li>
+        <li class="logo-tile"><img src="assets/logos/prime-video.svg" alt="Prime Video" style="--h:24px"></li>
+        <li class="logo-tile"><img src="assets/logos/fire-tv.svg" alt="Amazon Fire TV" style="--h:26px"></li>
+        <li class="logo-tile"><img src="assets/logos/samsung-tv-plus.svg" alt="Samsung TV Plus" style="--h:12px"></li>
+        <li class="logo-tile"><img src="assets/logos/lg-channels.svg" alt="LG Channels" style="--h:18px"></li>
+        <li class="logo-tile"><img src="assets/logos/xumo.svg" alt="Xumo" style="--h:18px"></li>
+        <li class="logo-tile"><span><img src="assets/logos/spotify.svg" alt="">Spotify</span></li>
+        <li class="logo-tile"><img src="assets/logos/msn.svg" alt="MSN" style="--h:26px"></li>
+        <li class="logo-tile"><span><img src="assets/logos/bilibili.svg" alt="">bilibili</span></li>
+        <li class="logo-tile"><span><img src="assets/logos/snapchat.svg" alt="">Snapchat</span></li>
         </ul>
       </div>
     </section>
@@ -92,83 +95,265 @@
     <!-- Services -->
     <section class="band" id="services" aria-labelledby="svc-title">
       <div class="frame pad">
-        <h2 class="h2" id="svc-title">See what <span class="dim">ClearAxis does</span> on every screen.</h2>
-        <p class="sub">From a creator&rsquo;s channel to a publisher&rsquo;s newsroom, we get content live where audiences watch, listen and read.</p>
+        <h2 class="h2" id="svc-title">Five ways to get paid. <span class="dim">All done for you.</span></h2>
+        <p class="sub">Pick one track or run all five. We handle the uploads, the platforms and the payouts.</p>
         <div class="svc">
           <ul class="svc__list" role="tablist" aria-label="Services">
-            <li class="is-on" data-svc-item="0" tabindex="0" role="tab" aria-selected="true">
-              <h3>CTV &amp; FAST distribution</h3>
-              <p>Your library becomes linear channels and on-demand collections on Pluto TV, Roku, Tubi and Amazon Prime Video.</p>
-              <a class="link-caps" href="contact.html">Get started</a>
+            <li class="c-ctv is-on" data-svc-item="0" tabindex="0" role="tab" aria-selected="true">
+              <h3>CTV &mdash; AVOD, FAST or both</h3>
+              <p>We review your content, then get it on TV on-demand (AVOD), as a 24/7 FAST channel, or both &mdash; on Pluto TV, Roku, Tubi and Prime Video.</p>
+              <a class="link-caps" href="#ctv">Details</a>
             </li>
-            <li data-svc-item="1" tabindex="0" role="tab" aria-selected="false">
-              <h3>Spotify podcasts &mdash; LATAM first</h3>
-              <p>We onboard creators to Spotify as video and audio podcasts, with Spanish and Portuguese markets as our focus.</p>
-              <a class="link-caps" href="contact.html">Get started</a>
+            <li class="c-spot" data-svc-item="1" tabindex="0" role="tab" aria-selected="false">
+              <h3>Spotify &mdash; instant monetization for LATAM</h3>
+              <p>We reupload your content to Spotify for you. Monetized from day one, higher RPMs, no copyright strikes. Just wait and receive your cut.</p>
+              <a class="link-caps" href="#spotify">Details</a>
             </li>
-            <li data-svc-item="2" tabindex="0" role="tab" aria-selected="false">
-              <h3>News syndication</h3>
-              <p>Publishers plug their newsroom into MSN and the major syndication platforms through one feed.</p>
-              <a class="link-caps" href="contact.html">Get started</a>
+            <li class="c-news" data-svc-item="2" tabindex="0" role="tab" aria-selected="false">
+              <h3>News &mdash; MSN, done for you</h3>
+              <p>We get your stories onto MSN and run it end to end &mdash; setup, formatting and publishing.</p>
+              <a class="link-caps" href="#news">Details</a>
             </li>
-            <li data-svc-item="3" tabindex="0" role="tab" aria-selected="false">
-              <h3>Bilibili onboarding</h3>
-              <p>Selected creators launch on Bilibili with Chinese subtitles, packaging and community setup handled.</p>
-              <a class="link-caps" href="contact.html">Get started</a>
+            <li class="c-bili" data-svc-item="3" tabindex="0" role="tab" aria-selected="false">
+              <h3>Bilibili &mdash; dubbed for China</h3>
+              <p>We take your content, dub it in Mandarin for Chinese audiences and run your Bilibili channel. Fully done for you.</p>
+              <a class="link-caps" href="#bilibili">Details</a>
+            </li>
+            <li class="c-snap" data-svc-item="4" tabindex="0" role="tab" aria-selected="false">
+              <h3>Snapchat &mdash; managed profiles</h3>
+              <p>We manage your Snapchat profile end to end. Each profile we run makes $5K&ndash;$25K a month.</p>
+              <a class="link-caps" href="#snapchat">Details</a>
             </li>
           </ul>
-          <div class="svc__panel" aria-live="polite">
-          <div class="mock is-on" data-mock="0">
-            <p class="mock__title">&gt; Delivering &ldquo;Channel lineup &mdash; Week 42&rdquo;</p>
+          <div class="svc__panel" aria-live="polite" data-on="0">
+          <div class="mock is-on c-ctv" data-mock="0">
+            <p class="mock__title">&gt; Content review: approved &middot; placing on CTV</p>
+            <div class="kpis"><div><span>Review</span><b>Approved</b></div><div><span>AVOD</span><b>&#10003; On-demand</b></div><div><span>FAST</span><b>&#10003; 24/7</b></div></div>
             <div class="mock__row"><img src="assets/logos/roku.svg" alt="" style="height:13px"><span class="bar"><i style="--to:100%;--d:0s"></i></span><span class="state"><b>LIVE</b></span></div>
             <div class="mock__row"><img src="assets/logos/tubi.svg" alt="" style="height:13px"><span class="bar"><i style="--to:100%;--d:0.25s"></i></span><span class="state"><b>LIVE</b></span></div>
             <div class="mock__row"><img src="assets/logos/pluto-tv.svg" alt="" style="height:24px"><span class="bar"><i style="--to:100%;--d:0.5s"></i></span><span class="state"><b>LIVE</b></span></div>
             <div class="mock__row"><img src="assets/logos/prime-video.svg" alt="" style="height:16px"><span class="bar"><i style="--to:68%;--d:0.75s"></i></span><span class="state"><s>SYNCING</s></span></div>
             <div class="epg" aria-hidden="true">
               <div class="t"></div><div class="t">18:00</div><div class="t">18:30</div><div class="t">19:00</div><div class="t">19:30</div><div class="t">20:00</div><div class="t">20:30</div>
-              <div class="t">CH 01</div><div class="x2 dark">Documentary</div><div>Interview</div><div class="x3">Series marathon</div>
-              <div class="t">CH 02</div><div>Highlights</div><div class="x3 dark">Live replay</div><div class="x2">Behind the scenes</div>
-              <div class="t">CH 03</div><div class="x2">Travel</div><div class="x2">Food</div><div class="x2 dark">Top 10</div>
+              <div class="t">FAST 01</div><div class="x2 dark">Documentary</div><div>Interview</div><div class="x3 hot">Series marathon</div>
+              <div class="t">FAST 02</div><div>Highlights</div><div class="x3 dark">Live replay</div><div class="x2">Behind the scenes</div>
             </div>
           </div>
-          <div class="mock" data-mock="1">
-            <p class="mock__title">&gt; Onboarding creator to Spotify &middot; LATAM</p>
+          <div class="mock c-spot" data-mock="1">
+            <p class="mock__title">&gt; Reuploading to Spotify &middot; LATAM</p>
+            <div class="kpis"><div><span>Monetized</span><b>Day 1</b></div><div><span>RPM</span><b>&uarr; Higher</b></div><div><span>Strikes</span><b>0</b></div></div>
             <div class="ep"><span class="ep__art"><img src="assets/logos/spotify.svg" alt="" style="filter:brightness(0) invert(1)"></span>
-              <span><b>Episodio 01</b><span class="wave"><i style="height:53%"></i><i style="height:70%"></i><i style="height:41%"></i><i style="height:58%"></i><i style="height:98%"></i><i style="height:76%"></i><i style="height:28%"></i><i style="height:79%"></i><i style="height:75%"></i><i style="height:34%"></i><i style="height:38%"></i><i style="height:41%"></i><i style="height:27%"></i><i style="height:20%"></i><i style="height:20%"></i><i style="height:21%"></i><i style="height:21%"></i><i style="height:28%"></i><i style="height:46%"></i><i style="height:46%"></i><i style="height:27%"></i><i style="height:75%"></i><i style="height:87%"></i><i style="height:42%"></i><i style="height:65%"></i><i style="height:96%"></i><i style="height:66%"></i><i style="height:29%"></i><i style="height:61%"></i><i style="height:51%"></i></span></span><span class="chip is-dark">ES</span></div>
+              <span><b>Episodio 01</b><span class="wave"><i style="height:53%"></i><i style="height:70%"></i><i style="height:41%"></i><i style="height:58%"></i><i style="height:98%"></i><i style="height:76%"></i><i style="height:28%"></i><i style="height:79%"></i><i style="height:75%"></i><i style="height:34%"></i><i style="height:38%"></i><i style="height:41%"></i><i style="height:27%"></i><i style="height:20%"></i><i style="height:20%"></i><i style="height:21%"></i><i style="height:21%"></i><i style="height:28%"></i><i style="height:46%"></i><i style="height:46%"></i><i style="height:27%"></i><i style="height:75%"></i><i style="height:87%"></i><i style="height:42%"></i><i style="height:65%"></i><i style="height:96%"></i><i style="height:66%"></i><i style="height:29%"></i><i style="height:61%"></i><i style="height:51%"></i></span></span><span class="chip is-c">ES</span></div>
             <div class="ep"><span class="ep__art"><img src="assets/logos/spotify.svg" alt="" style="filter:brightness(0) invert(1)"></span>
               <span><b>Episodio 02</b><span class="wave"><i style="height:56%"></i><i style="height:32%"></i><i style="height:59%"></i><i style="height:93%"></i><i style="height:69%"></i><i style="height:37%"></i><i style="height:88%"></i><i style="height:82%"></i><i style="height:33%"></i><i style="height:49%"></i><i style="height:53%"></i><i style="height:33%"></i><i style="height:22%"></i><i style="height:23%"></i><i style="height:20%"></i><i style="height:20%"></i><i style="height:24%"></i><i style="height:35%"></i><i style="height:36%"></i><i style="height:29%"></i><i style="height:67%"></i><i style="height:76%"></i><i style="height:33%"></i><i style="height:71%"></i><i style="height:99%"></i><i style="height:65%"></i><i style="height:38%"></i><i style="height:74%"></i><i style="height:61%"></i><i style="height:25%"></i></span></span><span class="chip">PT-BR</span></div>
-            <div class="ep"><span class="ep__art"><img src="assets/logos/spotify.svg" alt="" style="filter:brightness(0) invert(1)"></span>
-              <span><b>Episodio 03</b><span class="wave"><i style="height:25%"></i><i style="height:56%"></i><i style="height:84%"></i><i style="height:60%"></i><i style="height:44%"></i><i style="height:94%"></i><i style="height:85%"></i><i style="height:28%"></i><i style="height:61%"></i><i style="height:66%"></i><i style="height:38%"></i><i style="height:26%"></i><i style="height:30%"></i><i style="height:22%"></i><i style="height:20%"></i><i style="height:20%"></i><i style="height:26%"></i><i style="height:27%"></i><i style="height:29%"></i><i style="height:57%"></i><i style="height:63%"></i><i style="height:25%"></i><i style="height:72%"></i><i style="height:97%"></i><i style="height:60%"></i><i style="height:47%"></i><i style="height:86%"></i><i style="height:69%"></i><i style="height:23%"></i><i style="height:45%"></i></span></span><span class="chip">ES</span></div>
             <div class="chart">
-              <div class="caption"><span>Weekly listens</span><span>Sample view</span></div>
+              <div class="caption"><span>Your cut, month by month</span><span>Sample view</span></div>
               <svg viewBox="0 0 400 110" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 100 H400" stroke="#e3e6eb"/><path d="M0 55 H400" stroke="#eef0f3"/>
-                <path class="draw" d="M0 96 C40 94 60 88 90 84 S150 74 180 66 S240 60 270 44 S330 30 360 22 S390 14 400 10" fill="none" stroke="#0a0a0a" stroke-width="2"/>
+                <path d="M0 100 H400" stroke="#cfeedd"/><path d="M0 55 H400" stroke="#e3f7eb"/>
+                <path class="draw" d="M0 96 C40 94 60 88 90 84 S150 74 180 66 S240 60 270 44 S330 30 360 22 S390 14 400 10" fill="none" stroke="#12b85a" stroke-width="3"/>
               </svg>
             </div>
           </div>
-          <div class="mock" data-mock="2">
-            <p class="mock__title">&gt; Syndicating from newsroom feed</p>
-            <div class="article"><span>FEED ITEM 0412</span><b>City council approves new transit plan</b><span>Article &middot; 640 words &middot; 1 video</span></div>
-            <div class="syn"><div style="--d:0.5s"><img src="assets/logos/msn.svg" alt="" style="height:18px"></div><div style="--d:0.75s"><img src="assets/logos/yahoo.svg" alt="" style="height:16px"></div><div style="--d:1.0s"><img src="assets/logos/google-news.svg" alt="" style="height:18px"></div><div style="--d:1.25s"><img src="assets/logos/apple-news.svg" alt="" style="height:18px"></div></div>
+          <div class="mock c-news" data-mock="2">
+            <p class="mock__title">&gt; Publishing to MSN &middot; done for you</p>
+            <div class="article"><span>STORY 0412</span><b>City council approves new transit plan</b><span>Article &middot; 640 words &middot; 1 video</span></div>
+            <div style="margin-top:12px">
+              <div class="mock__row"><img src="assets/logos/msn.svg" alt="" style="height:16px"><span class="bar"><i style="--to:100%;--d:0.2s"></i></span><span class="state"><b>LIVE</b></span></div>
+              <div class="mock__row"><span>Partner setup</span><span class="bar"><i style="--to:100%;--d:0.4s"></i></span><span class="state"><b>DONE</b></span></div>
+              <div class="mock__row"><span>Formatting</span><span class="bar"><i style="--to:100%;--d:0.6s"></i></span><span class="state"><b>DONE</b></span></div>
+            </div>
             <div class="chart">
-              <div class="caption"><span>Stories delivered per day</span><span>Sample view</span></div>
-              <div class="bars"><span style="--h:62%;--d:0.2s"></span><span style="--h:84%;--d:0.32s"></span><span style="--h:48%;--d:0.44s"></span><span style="--h:70%;--d:0.56s"></span><span style="--h:92%;--d:0.6799999999999999s"></span><span style="--h:56%;--d:0.8s"></span><span style="--h:76%;--d:0.9199999999999999s"></span><span style="--h:88%;--d:1.04s"></span></div>
+              <div class="caption"><span>Stories published per day</span><span>Sample view</span></div>
+              <div class="bars"><span style="--h:62%;--d:0.2s"></span><span style="--h:84%;--d:0.32s"></span><span style="--h:48%;--d:0.44s"></span><span style="--h:70%;--d:0.56s"></span><span style="--h:92%;--d:0.68s"></span><span style="--h:56%;--d:0.8s"></span><span style="--h:76%;--d:0.92s"></span><span style="--h:88%;--d:1.04s"></span></div>
             </div>
           </div>
-          <div class="mock" data-mock="3">
-            <p class="mock__title">&gt; Publishing to Bilibili &middot; 中文字幕</p>
+          <div class="mock c-bili" data-mock="3">
+            <p class="mock__title">&gt; Dubbing for Bilibili &middot; 中文配音</p>
             <div class="player">
-              <img class="player__art pixel" src="assets/art/skyline.png" alt="">
-              <span class="danmaku" style="top:18px;--d:0s;--s:7s">来了来了</span><span class="danmaku" style="top:46px;--d:1.2s;--s:8s">字幕组辛苦了</span><span class="danmaku" style="top:74px;--d:2.6s;--s:6.5s">太好看了</span><span class="danmaku" style="top:102px;--d:0.6s;--s:9s">前方高能</span><span class="danmaku" style="top:130px;--d:3.4s;--s:7.5s">哈哈哈哈</span>
+              <img class="player__art pixel" src="assets/art/skyline-color.png" alt="">
+              <span class="danmaku" style="top:18px;--d:0s;--s:7s">来了来了</span><span class="danmaku" style="top:46px;--d:1.2s;--s:8s">配音太棒了</span><span class="danmaku" style="top:74px;--d:2.6s;--s:6.5s">太好看了</span><span class="danmaku" style="top:102px;--d:0.6s;--s:9s">前方高能</span><span class="danmaku" style="top:130px;--d:3.4s;--s:7.5s">哈哈哈哈</span>
               <div class="player__bar"><img src="assets/logos/bilibili.svg" alt="">bilibili &middot; 00:42 / 12:08</div>
             </div>
             <div style="margin-top:12px">
-              <div class="mock__row"><span>Subtitles ZH</span><span class="bar"><i style="--to:100%"></i></span><span class="state"><b>DONE</b></span></div>
-              <div class="mock__row"><span>Upload</span><span class="bar"><i style="--to:100%;--d:.4s"></i></span><span class="state"><b>LIVE</b></span></div>
+              <div class="mock__row"><span>Mandarin dub</span><span class="bar"><i style="--to:100%"></i></span><span class="state"><b>DONE</b></span></div>
+              <div class="mock__row"><span>Titles &amp; subs</span><span class="bar"><i style="--to:100%;--d:.3s"></i></span><span class="state"><b>DONE</b></span></div>
+              <div class="mock__row"><span>Upload</span><span class="bar"><i style="--to:100%;--d:.6s"></i></span><span class="state"><b>LIVE</b></span></div>
+            </div>
+          </div>
+          <div class="mock c-snap" data-mock="4">
+            <p class="mock__title">&gt; Managing Snapchat profiles</p>
+            <div class="snap">
+              <div class="phone" aria-hidden="true">
+                <div class="phone__top"><img src="assets/logos/snapchat.svg" alt=""><b>@yourprofile</b></div>
+                <div class="phone__story"><span><i></i></span><img class="pixel" src="assets/art/towers-color.png" alt=""></div>
+                <div class="phone__cta">Subscribe</div>
+              </div>
+              <div>
+                <div class="kpis" style="grid-template-columns:1fr 1fr"><div><span>Per profile</span><b>$5K&ndash;$25K</b></div><div><span>Paid</span><b>Monthly</b></div></div>
+                <div class="mock__row"><span>Stories</span><span class="bar"><i style="--to:100%;--c:var(--ink)"></i></span><span class="state"><b>DAILY</b></span></div>
+                <div class="mock__row"><span>Spotlight</span><span class="bar"><i style="--to:100%;--d:.3s;--c:var(--ink)"></i></span><span class="state"><b>DAILY</b></span></div>
+                <div class="mock__row"><span>Monetization</span><span class="bar"><i style="--to:100%;--d:.6s;--c:var(--ink)"></i></span><span class="state"><b>ON</b></span></div>
+                <div class="mock__row"><span>Growth</span><span class="bar"><i style="--to:82%;--d:.9s;--c:var(--ink)"></i></span><span class="state"><s>RUNNING</s></span></div>
+              </div>
             </div>
           </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service deep dives -->
+    <section class="band" id="tracks" aria-labelledby="tracks-title">
+      <div class="frame pad">
+        <h2 class="h2" id="tracks-title">What you get, <span class="dim">track by track.</span></h2>
+        <p class="sub">Every service is done for you. You send the content &mdash; we do the rest and pay you your cut.</p>
+        <div class="lanes">
+
+          <article class="lane c-ctv" id="ctv">
+            <div class="lane__lead">
+              <span class="lane__kick"><img src="assets/logos/roku.svg" alt="">01 &middot; CTV</span>
+              <h3>Get your library on TV.</h3>
+              <p>We check your content first, then place it where it earns the most: AVOD, FAST, or both at once.</p>
+              <div class="lane__big">AVOD + FAST<small>Pluto TV &middot; Roku &middot; Tubi &middot; Prime Video</small></div>
+              <a class="pill" href="contact.html?interest=ctv">Get on TV <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="lane__body">
+              <div>
+                <h4>Where your content goes</h4>
+                <div class="split-opts">
+                  <div><b>AVOD</b>On-demand episodes in platform libraries. Viewers pick, ads pay.</div>
+                  <div><b>FAST</b>A free 24/7 linear channel programmed from your catalogue.</div>
+                  <div><b>BOTH</b>Run a channel and an on-demand library from the same content.</div>
+                </div>
+              </div>
+              <div>
+                <h4>What we handle</h4>
+                <ul class="gets">
+                  <li><b>Content review</b>We check format, volume and rights, and tell you what fits.</li>
+                  <li><b>Platform placement</b>Pitched and delivered to Pluto TV, Roku, Tubi and Prime Video.</li>
+                  <li><b>Specs &amp; packaging</b>Encoding, captions, artwork and EPG metadata.</li>
+                  <li><b>Ads &amp; payouts</b>Ad breaks set up, revenue collected and reported to you.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="lane c-spot" id="spotify">
+            <div class="lane__lead">
+              <span class="lane__kick"><img src="assets/logos/spotify.svg" alt="">02 &middot; Spotify</span>
+              <h3>Instant monetization for LATAM creators.</h3>
+              <p>We reupload your content to Spotify for you &mdash; fully done. You just wait and receive your cut.</p>
+              <div class="lane__big">Paid from day 1<small>Spanish &amp; Portuguese markets</small></div>
+              <a class="pill" href="contact.html?interest=spotify">Start earning <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="lane__body">
+              <div>
+                <h4>Why creators switch it on</h4>
+                <ul class="gets">
+                  <li><b>Instant monetization</b>Your content earns from the first upload. No waiting to qualify.</li>
+                  <li><b>Higher RPM</b>Earn more per play than you&rsquo;re used to on other platforms.</li>
+                  <li><b>No copyright strikes</b>We handle rights and claims, so no strikes land on you.</li>
+                  <li><b>Fully done reupload</b>Video, audio, artwork, titles and descriptions &mdash; all handled.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>How it works</h4>
+                <ol class="flow">
+                  <li><strong>Share your channel</strong>Send us your YouTube or catalogue link.</li>
+                  <li><strong>We reupload it all</strong>Rebuilt and localized for Spotify.</li>
+                  <li><strong>Receive your cut</strong>Paid out to you every month.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
+          <article class="lane c-news" id="news">
+            <div class="lane__lead">
+              <span class="lane__kick"><img src="assets/logos/msn.svg" alt="">03 &middot; News</span>
+              <h3>Your newsroom on MSN. Done for you.</h3>
+              <p>We set up your MSN presence and run it for you &mdash; your stories reach MSN&rsquo;s audience without extra work.</p>
+              <div class="lane__big">MSN<small>Setup &middot; formatting &middot; publishing</small></div>
+              <a class="pill" href="contact.html?interest=news">Get on MSN <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="lane__body">
+              <div>
+                <h4>What we handle</h4>
+                <ul class="gets">
+                  <li><b>MSN setup</b>Onboarding and partner setup handled end to end.</li>
+                  <li><b>Formatting</b>Articles and video formatted to MSN&rsquo;s spec.</li>
+                  <li><b>Daily publishing</b>We publish from your site or feed on an ongoing basis.</li>
+                  <li><b>Revenue &amp; reporting</b>Earnings collected and reported to you monthly.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>How it works</h4>
+                <ol class="flow">
+                  <li><strong>Send your site</strong>Share your newsroom, site or feed.</li>
+                  <li><strong>We set up MSN</strong>Onboarding and formatting, done.</li>
+                  <li><strong>Stories go live</strong>Published for you, every day.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
+          <article class="lane c-bili" id="bilibili">
+            <div class="lane__lead">
+              <span class="lane__kick"><img src="assets/logos/bilibili.svg" alt="">04 &middot; Bilibili</span>
+              <h3>Dubbed for China. Fully done for you.</h3>
+              <p>We take your content, dub it in Mandarin for Chinese audiences and run your Bilibili channel.</p>
+              <div class="lane__big">中文配音<small>Mandarin dubbing &middot; new audience</small></div>
+              <a class="pill" href="contact.html?interest=bilibili">Go to China <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="lane__body">
+              <div>
+                <h4>What we handle</h4>
+                <ul class="gets">
+                  <li><b>Mandarin dubbing</b>Your videos voiced in Mandarin for Chinese viewers.</li>
+                  <li><b>Localized packaging</b>Chinese titles, subtitles, descriptions and thumbnails.</li>
+                  <li><b>Channel setup &amp; uploads</b>Your Bilibili channel created and run for you.</li>
+                  <li><b>Community</b>Comments and danmaku managed, with revenue shared back to you.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>How it works</h4>
+                <ol class="flow">
+                  <li><strong>Send your videos</strong>Share your channel or library.</li>
+                  <li><strong>We dub &amp; upload</strong>Voiced, packaged and published.</li>
+                  <li><strong>Receive your cut</strong>Reported and paid monthly.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
+          <article class="lane c-snap" id="snapchat">
+            <div class="lane__lead">
+              <span class="lane__kick"><img src="assets/logos/snapchat.svg" alt="">05 &middot; Snapchat</span>
+              <h3>We manage your Snapchat profile.</h3>
+              <p>Hand us your profile. We post, grow and monetize it for you, every day.</p>
+              <div class="lane__big">$5K&ndash;$25K / month<small>What each profile we manage makes</small></div>
+              <a class="pill" href="contact.html?interest=snapchat">Hand it over <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="lane__body">
+              <div>
+                <h4>What we handle</h4>
+                <ul class="gets">
+                  <li><b>Profile management</b>We run your profile end to end, from setup to daily posting.</li>
+                  <li><b>Stories &amp; Spotlight</b>Content cut for Snapchat and posted every day.</li>
+                  <li><b>Monetization</b>Earnings switched on, tracked and paid out to you.</li>
+                  <li><b>Growth</b>We test formats and post times to keep views climbing.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>How it works</h4>
+                <ol class="flow">
+                  <li><strong>Hand us the profile</strong>Or we set a new one up for you.</li>
+                  <li><strong>We post &amp; grow it</strong>Daily Stories and Spotlight.</li>
+                  <li><strong>Receive your cut</strong>$5K&ndash;$25K a month per profile.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -180,21 +365,21 @@
     <section class="band" aria-labelledby="split-title">
       <div class="frame split">
         <div>
-          <h2 id="split-title"><span class="hl-soft">Run your library like a network.</span></h2>
-          <p class="lead">You already made the content. The audience is on screens you&rsquo;re not on yet.</p>
-          <p class="lead">We get you there without building a distribution team.</p>
+          <h2 id="split-title"><span class="hl-soft">You made the content.</span><br><span class="hl-soft">We get it paid.</span></h2>
+          <p class="lead">Your audience is on screens you&rsquo;re not on yet.</p>
+          <p class="lead">We get you there without building a team &mdash; and you receive your cut.</p>
           <div class="checks">
-            <p>Your <span class="tag">BRIDGE</span> between <span class="tag">CREATORS</span> and <span class="tag">PLATFORMS</span></p>
+            <p>Your <span class="tag">BRIDGE</span> between <span class="tag tag--o">CREATORS</span> and <span class="tag tag--g">PLATFORMS</span></p>
             <ul>
-              <li>Packages to every platform&rsquo;s spec</li>
-              <li>Programs FAST channels</li>
-              <li>Localizes for LATAM audiences</li>
-              <li>Syndicates newsroom feeds</li>
-              <li>Collects and reports revenue</li>
+              <li class="c-ctv">Places content on CTV &mdash; AVOD &amp; FAST</li>
+              <li class="c-spot">Reuploads and monetizes on Spotify</li>
+              <li class="c-news">Publishes newsrooms on MSN</li>
+              <li class="c-bili">Dubs content for Bilibili</li>
+              <li class="c-snap">Manages Snapchat profiles</li>
             </ul>
           </div>
         </div>
-        <div class="split__art"><img class="pixel" src="assets/art/screens.png" alt="" width="320" height="152"></div>
+        <div class="split__art"><img class="pixel" src="assets/art/screens-color.png" alt="" width="320" height="152"></div>
       </div>
     </section>
 
@@ -202,54 +387,54 @@
     <section class="band" aria-labelledby="cards-title">
       <div class="frame pad">
         <h2 class="h2" id="cards-title">Everything a network does, <span class="dim">handled for you.</span></h2>
-        <p class="sub">Channels, shows, feeds and payouts &mdash; one relationship.</p>
+        <p class="sub">Uploads, channels, dubbing, profiles and payouts &mdash; one relationship.</p>
         <div class="cards">
-          <article class="card">
-            <div class="card__art"><div class="mini"><div class="dots"><i class=""></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></div></div>
-            <h3>Launch FAST channels</h3>
-            <p>Linear channels programmed from your catalogue, scheduled and delivered to each platform.</p>
-            <a class="link-caps" href="contact.html">Get started</a>
+          <article class="card c-ctv">
+            <div class="card__art"><div class="mini"><div class="dots"><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="hot"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i class="hot"></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div></div>
+            <h3>AVOD &amp; FAST on CTV</h3>
+            <p>On-demand libraries and 24/7 channels on Pluto TV, Roku, Tubi and Prime Video.</p>
+            <a class="link-caps" href="#ctv">Details</a>
           </article>
-          <article class="card">
+          <article class="card c-spot">
             <div class="card__art"><div class="mini"><div class="row"><img src="assets/logos/spotify.svg" alt="" style="height:12px"><span class="grow"><i style="width:92%"></i></span></div><div class="row"><img src="assets/logos/spotify.svg" alt="" style="height:12px"><span class="grow"><i style="width:74%"></i></span></div><div class="row"><img src="assets/logos/spotify.svg" alt="" style="height:12px"><span class="grow"><i style="width:58%"></i></span></div></div></div>
-            <h3>Spotify video podcasts</h3>
-            <p>Existing YouTube episodes rebuilt as a Spotify show &mdash; video, audio, artwork and feed.</p>
-            <a class="link-caps" href="contact.html">Get started</a>
+            <h3>Done-for-you Spotify reuploads</h3>
+            <p>Your whole channel rebuilt on Spotify &mdash; video, audio, artwork and feed.</p>
+            <a class="link-caps" href="#spotify">Details</a>
           </article>
-          <article class="card">
-            <div class="card__art"><div class="mini"><div class="chips" style="justify-content:center;margin-bottom:10px"><span class="chip is-dark">ES</span><span class="chip">PT-BR</span><span class="chip">EN</span></div><div class="row">T&iacute;tulo &middot; Descripci&oacute;n</div><div class="row">T&iacute;tulo &middot; Descri&ccedil;&atilde;o</div></div></div>
-            <h3>Localized for LATAM</h3>
-            <p>Spanish and Portuguese titles, descriptions and artwork so shows land in the right markets.</p>
-            <a class="link-caps" href="contact.html">Get started</a>
+          <article class="card c-spot">
+            <div class="card__art"><div class="mini"><div class="chips" style="justify-content:center;margin-bottom:10px"><span class="chip is-c">ES</span><span class="chip">PT-BR</span></div><div class="row">Monetized &middot; Day 1</div><div class="row">RPM &uarr; &middot; Strikes 0</div></div></div>
+            <h3>Instant LATAM monetization</h3>
+            <p>Higher RPMs and no copyright strikes for Spanish- and Portuguese-speaking creators.</p>
+            <a class="link-caps" href="#spotify">Details</a>
           </article>
-          <article class="card">
-            <div class="card__art"><div class="mini"><div class="row"><img src="assets/logos/msn.svg" alt="" style="height:13px"><span class="grow"><i style="width:88%"></i></span></div><div class="row"><img src="assets/logos/yahoo.svg" alt="" style="height:11px"><span class="grow"><i style="width:70%"></i></span></div><div class="row"><img src="assets/logos/google-news.svg" alt="" style="height:12px"><span class="grow"><i style="width:64%"></i></span></div><div class="row"><img src="assets/logos/apple-news.svg" alt="" style="height:12px"><span class="grow"><i style="width:52%"></i></span></div></div></div>
-            <h3>Syndicate your newsroom</h3>
-            <p>One feed from your CMS to MSN, Yahoo, Google News and Apple News.</p>
-            <a class="link-caps" href="contact.html">Get started</a>
+          <article class="card c-news">
+            <div class="card__art"><div class="mini"><div class="row"><img src="assets/logos/msn.svg" alt="" style="height:13px"><span class="grow"><i style="width:88%"></i></span></div><div class="row">&#10003; Partner setup</div><div class="row">&#10003; Daily publishing</div></div></div>
+            <h3>MSN, done for you</h3>
+            <p>Setup, formatting and daily publishing to MSN, handled end to end.</p>
+            <a class="link-caps" href="#news">Details</a>
           </article>
-          <article class="card">
-            <div class="card__art"><div class="mini"><div class="row" style="justify-content:space-between"><span>字幕</span><img src="assets/logos/bilibili.svg" alt="" style="height:14px"></div><div class="row">前方高能 &nbsp; 太好看了</div><div class="row">字幕组辛苦了</div></div></div>
-            <h3>Bilibili for select creators</h3>
-            <p>Chinese subtitles, packaging and channel setup for creators with an audience in China.</p>
-            <a class="link-caps" href="contact.html">Get started</a>
+          <article class="card c-bili">
+            <div class="card__art"><div class="mini"><div class="row" style="justify-content:space-between"><span>中文配音</span><img src="assets/logos/bilibili.svg" alt="" style="height:14px"></div><div class="row">前方高能 &nbsp; 配音太棒了</div><div class="row">&#10003; Dub &middot; &#10003; Upload</div></div></div>
+            <h3>Chinese dubbing for Bilibili</h3>
+            <p>Your videos dubbed in Mandarin and published to a Bilibili channel we run.</p>
+            <a class="link-caps" href="#bilibili">Details</a>
           </article>
-          <article class="card">
-            <div class="card__art"><div class="mini"><svg viewBox="0 0 200 80" aria-hidden="true"><rect x="0" y="34" width="200" height="12" fill="#e3e6eb"/><rect x="0" y="34" width="120" height="12" fill="#0a0a0a"/><rect x="38" y="26" width="3" height="28" fill="#0a0a0a"/><rect x="88" y="26" width="3" height="28" fill="#0a0a0a"/><rect x="150" y="26" width="3" height="28" fill="#0a0a0a"/><text x="0" y="72" font-size="9" font-family="monospace" fill="#6b7280">AD BREAKS · PRE / MID / MID</text></svg></div></div>
+          <article class="card c-snap">
+            <div class="card__art"><div class="mini"><div class="row" style="justify-content:space-between"><span>@yourprofile</span><img src="assets/logos/snapchat.svg" alt="" style="height:14px"></div><div class="row">Stories &middot; daily</div><div class="row"><b style="font-weight:600">$5K&ndash;$25K</b>&nbsp;/ month</div></div></div>
+            <h3>Managed Snapchat profiles</h3>
+            <p>We post, grow and monetize your profile. $5K&ndash;$25K a month per profile.</p>
+            <a class="link-caps" href="#snapchat">Details</a>
+          </article>
+          <article class="card c-ctv">
+            <div class="card__art"><div class="mini"><svg viewBox="0 0 200 80" aria-hidden="true"><rect x="0" y="34" width="200" height="12" fill="#fff"/><rect x="0" y="34" width="120" height="12" fill="#5b3df5"/><rect x="38" y="26" width="3" height="28" fill="#ff5a1f"/><rect x="88" y="26" width="3" height="28" fill="#ff5a1f"/><rect x="150" y="26" width="3" height="28" fill="#ff5a1f"/><text x="0" y="72" font-size="9" font-family="monospace" fill="#0b0b1a">AD BREAKS · PRE / MID / MID</text></svg></div></div>
             <h3>Ad monetization</h3>
-            <p>Ad breaks, markers and revenue-share set up per platform, with revenue collected for you.</p>
+            <p>Ad breaks, markers and revenue share set up per platform, with revenue collected for you.</p>
             <a class="link-caps" href="contact.html">Get started</a>
           </article>
-          <article class="card">
-            <div class="card__art"><div class="mini"><div class="row"><b style="font-weight:500">&#10003;</b> Encoding · H.264 / HLS</div><div class="row"><b style="font-weight:500">&#10003;</b> Captions · SRT</div><div class="row"><b style="font-weight:500">&#10003;</b> Metadata · EPG</div><div class="row"><b style="font-weight:500">&#10003;</b> Rights · cleared</div></div></div>
-            <h3>Specs &amp; rights handled</h3>
-            <p>Encoding, captions, metadata and rights checks prepared to each destination&rsquo;s spec.</p>
-            <a class="link-caps" href="contact.html">Get started</a>
-          </article>
-          <article class="card">
-            <div class="card__art"><div class="mini"><svg viewBox="0 0 200 80" aria-hidden="true"><rect x="8" y="46" width="14" height="30" fill="#0a0a0a"/><rect x="32" y="32" width="14" height="44" fill="#c9ced6"/><rect x="56" y="38" width="14" height="38" fill="#c9ced6"/><rect x="80" y="20" width="14" height="56" fill="#0a0a0a"/><rect x="104" y="26" width="14" height="50" fill="#c9ced6"/><rect x="128" y="12" width="14" height="64" fill="#c9ced6"/><rect x="152" y="16" width="14" height="60" fill="#0a0a0a"/><rect x="176" y="4" width="14" height="72" fill="#c9ced6"/></svg></div></div>
-            <h3>Reporting across platforms</h3>
-            <p>One monthly view of performance across CTV, Spotify, news and Bilibili.</p>
+          <article class="card c-news">
+            <div class="card__art"><div class="mini"><svg viewBox="0 0 200 80" aria-hidden="true"><rect x="8" y="46" width="14" height="30" fill="#5b3df5"/><rect x="32" y="32" width="14" height="44" fill="#12b85a"/><rect x="56" y="38" width="14" height="38" fill="#2f8bff"/><rect x="80" y="20" width="14" height="56" fill="#ff4f9e"/><rect x="104" y="26" width="14" height="50" fill="#ffe234"/><rect x="128" y="12" width="14" height="64" fill="#5b3df5"/><rect x="152" y="16" width="14" height="60" fill="#12b85a"/><rect x="176" y="4" width="14" height="72" fill="#ff5a1f"/></svg></div></div>
+            <h3>One monthly report</h3>
+            <p>Performance and payouts across CTV, Spotify, MSN, Bilibili and Snapchat in one view.</p>
             <a class="link-caps" href="contact.html">Get started</a>
           </article>
         </div>
@@ -262,50 +447,53 @@
         <h2 class="h2 center" id="pb-title">There&rsquo;s a playbook for that</h2>
         <div class="play">
           <div class="play__list">
-            <button type="button" data-pb="0" aria-pressed="true">Launch a FAST channel on Pluto TV &amp; Roku<span aria-hidden="true">&rarr;</span></button>
-            <button type="button" data-pb="1" aria-pressed="false">Turn a YouTube channel into a Spotify show<span aria-hidden="true">&rarr;</span></button>
-            <button type="button" data-pb="2" aria-pressed="false">Grow a LATAM creator on Spotify<span aria-hidden="true">&rarr;</span></button>
-            <button type="button" data-pb="3" aria-pressed="false">Syndicate a newsroom to MSN<span aria-hidden="true">&rarr;</span></button>
-            <button type="button" data-pb="4" aria-pressed="false">Bring a creator to Bilibili<span aria-hidden="true">&rarr;</span></button>
+            <button type="button" data-pb="0" aria-pressed="true">Get a library on TV &mdash; AVOD, FAST or both<span aria-hidden="true">&rarr;</span></button>
+            <button type="button" data-pb="1" aria-pressed="false">Monetize a LATAM creator on Spotify<span aria-hidden="true">&rarr;</span></button>
+            <button type="button" data-pb="2" aria-pressed="false">Put a newsroom on MSN<span aria-hidden="true">&rarr;</span></button>
+            <button type="button" data-pb="3" aria-pressed="false">Dub a channel for Bilibili<span aria-hidden="true">&rarr;</span></button>
+            <button type="button" data-pb="4" aria-pressed="false">Hand us your Snapchat profile<span aria-hidden="true">&rarr;</span></button>
           </div>
           <div class="play__detail" aria-live="polite">
             <a class="kick" href="contact.html">Start this playbook</a>
-            <p data-pb-desc>Turn a back catalogue into a programmed linear channel, then place it on free ad-supported TV.</p>
+            <p data-pb-desc>We review your catalogue, then place it on-demand (AVOD), as a 24/7 FAST channel, or both.</p>
             <dl class="play__meta">
-              <dt>PLATFORMS</dt><dd class="chips" data-pb-platforms><span class="chip is-dark">Pluto TV</span><span class="chip">Roku</span><span class="chip">Tubi</span></dd>
-              <dt>FORMATS</dt><dd class="chips" data-pb-formats><span class="chip">Linear channel</span><span class="chip">EPG</span><span class="chip">Ad markers</span></dd>
+              <dt>PLATFORMS</dt><dd class="chips" data-pb-platforms><span class="chip is-dark">Pluto TV</span><span class="chip">Roku</span><span class="chip">Tubi</span><span class="chip">Prime Video</span></dd>
+              <dt>YOU GET</dt><dd class="chips" data-pb-formats><span class="chip">AVOD</span><span class="chip">FAST channel</span><span class="chip">Ad revenue</span></dd>
             </dl>
           </div>
         </div>
       </div>
-      <script type="application/json" id="pb-data">[{"desc": "Turn a back catalogue into a programmed linear channel, then place it on free ad-supported TV.", "platforms": ["Pluto TV", "Roku", "Tubi"], "formats": ["Linear channel", "EPG", "Ad markers"]}, {"desc": "Rebuild existing uploads as a Spotify video podcast with its own feed, artwork and monetization.", "platforms": ["Spotify"], "formats": ["Video podcast", "Audio", "RSS feed"]}, {"desc": "Localize titles, descriptions and artwork for Spanish- and Portuguese-speaking listeners.", "platforms": ["Spotify"], "formats": ["Spanish", "Portuguese", "Localized artwork"]}, {"desc": "Connect your CMS once and deliver articles and video to the major news platforms.", "platforms": ["MSN", "Yahoo", "Google News", "Apple News"], "formats": ["Articles", "Video", "Feeds"]}, {"desc": "Subtitled uploads and channel setup for creators with a Chinese-speaking audience.", "platforms": ["Bilibili"], "formats": ["Chinese subtitles", "Uploads", "Community"]}]</script>
+      <script type="application/json" id="pb-data">[{"desc": "We review your catalogue, then place it on-demand (AVOD), as a 24/7 FAST channel, or both.", "platforms": ["Pluto TV", "Roku", "Tubi", "Prime Video"], "formats": ["AVOD", "FAST channel", "Ad revenue"]}, {"desc": "We reupload your channel to Spotify, fully done. Monetized from day one, higher RPMs, no copyright strikes — you just receive your cut.", "platforms": ["Spotify"], "formats": ["Instant monetization", "Higher RPM", "No strikes", "Spanish & Portuguese"]}, {"desc": "We set up your MSN presence, format your stories and publish them for you every day.", "platforms": ["MSN"], "formats": ["Partner setup", "Formatting", "Daily publishing"]}, {"desc": "We dub your videos in Mandarin, package them for Chinese audiences and run your Bilibili channel.", "platforms": ["Bilibili"], "formats": ["Mandarin dubbing", "Chinese titles & subs", "Channel management"]}, {"desc": "We manage your Snapchat profile end to end — posting, growth and monetization. Each profile we run makes $5K–$25K a month.", "platforms": ["Snapchat"], "formats": ["Stories", "Spotlight", "Monetization", "$5K–$25K / month"]}]</script>
     </section>
 
     <!-- Steps -->
     <section class="band" id="how" aria-labelledby="how-title">
       <div class="frame pad">
-        <h2 class="h2" id="how-title">Zero setup. <span class="dim">Real distribution.</span></h2>
-        <p class="sub">Send us your channel, we package and deliver, you grow and get paid.</p>
+        <h2 class="h2" id="how-title">Zero setup. <span class="dim">Just wait and receive your cut.</span></h2>
+        <p class="sub">Send us your content, we do the work, you get paid.</p>
         <div class="steps">
-          <article class="step">
-            <div class="step__art"><img class="tex pixel" src="assets/art/tex-sky.png" alt="">
-              <div class="step__ui"><span>Your channel</span><span class="field">youtube.com/@yourchannel</span><span class="field">Newsroom feed URL</span><span class="go">Submit &rsaquo;</span></div></div>
-            <h3>Send us your channel</h3>
-            <p>Share your YouTube channel, catalogue or newsroom feed. We review formats and rights.</p>
+          <article class="step c-ctv">
+            <div class="step__art"><img class="tex pixel" src="assets/art/tex-sky-color.png" alt="">
+              <div class="step__ui"><span>Your content</span><span class="field">youtube.com/@yourchannel</span><span class="field">Snapchat / newsroom / library</span><span class="go">Submit &rsaquo;</span></div></div>
+            <span class="step__num">01</span>
+            <h3>Send us your content</h3>
+            <p>Share your channel, library, newsroom or Snapchat profile. We review it and pick the right tracks.</p>
           </article>
-          <article class="step">
-            <div class="step__art"><img class="tex pixel" src="assets/art/tex-park.png" alt="">
-              <div class="step__ui"><span>Pipeline</span><span>&#10003; Encoding</span><span>&#10003; Subtitles ES / PT / ZH</span><span>&#10003; Artwork &amp; metadata</span><span class="go">Delivered</span></div></div>
-            <h3>We package and deliver</h3>
-            <p>Everything prepared to each platform&rsquo;s spec and delivered to CTV, Spotify, news and Bilibili.</p>
+          <article class="step c-bili">
+            <div class="step__art"><img class="tex pixel" src="assets/art/tex-park-color.png" alt="">
+              <div class="step__ui"><span>We do the work</span><span>&#10003; Reuploads</span><span>&#10003; Mandarin dubbing</span><span>&#10003; AVOD / FAST placement</span><span>&#10003; Profile management</span><span class="go">Live</span></div></div>
+            <span class="step__num">02</span>
+            <h3>We do everything</h3>
+            <p>Uploads, dubbing, formatting, posting and platform deals &mdash; fully done for you.</p>
           </article>
-          <article class="step">
-            <div class="step__art"><img class="tex pixel" src="assets/art/tex-water.png" alt="">
-              <div class="step__ui"><span>Monthly report</span>
-                <svg viewBox="0 0 200 70" aria-hidden="true"><path d="M0 60 L30 52 L60 55 L90 40 L120 42 L150 26 L180 20 L200 12" fill="none" stroke="#0a0a0a" stroke-width="2"/></svg>
-                <span class="go">View report</span></div></div>
-            <h3>Grow and get paid</h3>
-            <p>Revenue is collected across platforms and reported back to you every month.</p>
+          <article class="step c-spot">
+            <div class="step__art"><img class="tex pixel" src="assets/art/tex-water-color.png" alt="">
+              <div class="step__ui"><span>Your cut</span>
+                <svg viewBox="0 0 200 70" aria-hidden="true"><path d="M0 60 L30 52 L60 55 L90 40 L120 42 L150 26 L180 20 L200 12" fill="none" stroke="#12b85a" stroke-width="3"/></svg>
+                <span class="go">Paid monthly</span></div></div>
+            <span class="step__num">03</span>
+            <h3>Receive your cut</h3>
+            <p>Revenue is collected across platforms and paid out to you with a monthly report.</p>
           </article>
         </div>
       </div>
@@ -314,8 +502,8 @@
     <!-- CTA -->
     <section class="band">
       <div class="frame pad cta">
-        <h2 class="h2">Every screen, at production scale.</h2>
-        <p>No distribution team to hire. No platform deals to negotiate.</p>
+        <h2 class="h2">Every screen. Every payout. Done for you.</h2>
+        <p>No team to hire. No platform deals to negotiate. No uploads to manage.</p>
         <div class="hero__cta">
           <a class="pill" href="contact.html">Partner with us <span class="chev" aria-hidden="true">&rsaquo;</span></a>
           <a class="pill pill--soft" href="contact.html">Talk to us <span class="chev" aria-hidden="true">&rsaquo;</span></a>
@@ -326,11 +514,12 @@
     <!-- Big stat -->
     <section class="band" aria-labelledby="big-title">
       <div class="frame big">
-        <div class="big__left"><h2 id="big-title"><span class="hl-soft">Don&rsquo;t just upload.<br>Distribute it.</span></h2></div>
-        <div class="big__right"><img class="pixel" src="assets/art/towers.png" alt="" width="240" height="298"></div>
+        <div class="big__left"><h2 id="big-title"><span class="hl-soft">Don&rsquo;t just upload.<br>Get paid everywhere.</span></h2></div>
+        <div class="big__right"><img class="pixel" src="assets/art/towers-color.png" alt="" width="240" height="298"></div>
         <div class="big__stat">
-          <span class="caps">Platforms in the ClearAxis network</span><br>
-          <strong><span data-count="20">20</span>+ destinations</strong>
+          <span class="caps">Per managed Snapchat profile</span><br>
+          <strong>$5K&ndash;$25K</strong>
+          <small>every month</small>
         </div>
       </div>
     </section>
@@ -339,33 +528,35 @@
     <section class="band" id="network" aria-labelledby="net-title">
       <div class="frame pad">
         <h2 class="h2" id="net-title">The network <span class="dim">at a glance.</span></h2>
-        <p class="sub">Four distribution tracks, one relationship.</p>
+        <p class="sub">Five revenue tracks, one relationship.</p>
         <div class="graphs">
-          <div class="graph">
+          <div class="graph c-ctv">
             <div class="graph__head"><b>Named destinations by track</b><span>From our platform list</span></div>
             <div class="hbars">
-              <div class="hbar"><span>CTV &amp; FAST</span><span class="track"><i data-w="100"></i><span class="logos-row"><img src="assets/logos/roku.svg" alt=""><img src="assets/logos/tubi.svg" alt=""><img src="assets/logos/pluto-tv.svg" alt=""><img src="assets/logos/prime-video.svg" alt=""><img src="assets/logos/fire-tv.svg" alt=""></span></span><em>9</em></div>
-              <div class="hbar"><span>News &amp; syndication</span><span class="track"><i data-w="67"></i><span class="logos-row"><img src="assets/logos/msn.svg" alt=""><img src="assets/logos/yahoo.svg" alt=""><img src="assets/logos/google-news.svg" alt=""><img src="assets/logos/apple-news.svg" alt=""></span></span><em>6</em></div>
-              <div class="hbar"><span>Audio &mdash; Spotify</span><span class="track"><i data-w="11"></i><span class="logos-row"><img src="assets/logos/spotify.svg" alt=""></span></span><em>1</em></div>
-              <div class="hbar"><span>Video &mdash; Bilibili</span><span class="track"><i data-w="11"></i><span class="logos-row"><img src="assets/logos/bilibili.svg" alt=""></span></span><em>1</em></div>
+              <div class="hbar c-ctv"><span>CTV &mdash; AVOD &amp; FAST</span><span class="track"><i data-w="100"></i><span class="logos-row"><img src="assets/logos/roku.svg" alt=""><img src="assets/logos/tubi.svg" alt=""><img src="assets/logos/pluto-tv.svg" alt=""><img src="assets/logos/prime-video.svg" alt=""><img src="assets/logos/fire-tv.svg" alt=""></span></span><em>9</em></div>
+              <div class="hbar c-news"><span>News &mdash; MSN</span><span class="track"><i data-w="11"></i><span class="logos-row"><img src="assets/logos/msn.svg" alt=""></span></span><em>1</em></div>
+              <div class="hbar c-spot"><span>Audio &mdash; Spotify</span><span class="track"><i data-w="11"></i><span class="logos-row"><img src="assets/logos/spotify.svg" alt=""></span></span><em>1</em></div>
+              <div class="hbar c-bili"><span>Video &mdash; Bilibili</span><span class="track"><i data-w="11"></i><span class="logos-row"><img src="assets/logos/bilibili.svg" alt=""></span></span><em>1</em></div>
+              <div class="hbar c-snap"><span>Social &mdash; Snapchat</span><span class="track"><i data-w="11"></i><span class="logos-row"><img src="assets/logos/snapchat.svg" alt=""></span></span><em>1</em></div>
             </div>
           </div>
-          <div class="graph">
-            <div class="graph__head"><b>Share of destinations</b><span>17 named</span></div>
+          <div class="graph c-bili">
+            <div class="graph__head"><b>Share of destinations</b><span>13 named</span></div>
             <div class="donut">
-              <svg viewBox="0 0 150 150" aria-hidden="true"><circle r="54" cx="75" cy="75" fill="none" stroke="#0a0a0a" stroke-width="22" stroke-dasharray="179.6 339.3" stroke-dashoffset="0.0" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#5b5b5b" stroke-width="22" stroke-dasharray="119.8 339.3" stroke-dashoffset="-179.6" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#a3a3a3" stroke-width="22" stroke-dasharray="20.0 339.3" stroke-dashoffset="-299.4" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#d4d4d4" stroke-width="22" stroke-dasharray="20.0 339.3" stroke-dashoffset="-319.3" transform="rotate(-90 75 75)"/></svg>
-              <ul class="legend"><li><i style="background:#0a0a0a"></i>CTV &amp; FAST &middot; 9</li><li><i style="background:#5b5b5b"></i>News &amp; syndication &middot; 6</li><li><i style="background:#a3a3a3"></i>Audio &mdash; Spotify &middot; 1</li><li><i style="background:#d4d4d4"></i>Video &mdash; Bilibili &middot; 1</li></ul>
+              <svg viewBox="0 0 150 150" aria-hidden="true"><circle r="54" cx="75" cy="75" fill="none" stroke="#5b3df5" stroke-width="22" stroke-dasharray="234.9 339.3" stroke-dashoffset="0" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#2f8bff" stroke-width="22" stroke-dasharray="26.1 339.3" stroke-dashoffset="-234.9" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#12b85a" stroke-width="22" stroke-dasharray="26.1 339.3" stroke-dashoffset="-261.0" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#ff4f9e" stroke-width="22" stroke-dasharray="26.1 339.3" stroke-dashoffset="-287.1" transform="rotate(-90 75 75)"/><circle r="54" cx="75" cy="75" fill="none" stroke="#ffe234" stroke-width="22" stroke-dasharray="26.1 339.3" stroke-dashoffset="-313.2" transform="rotate(-90 75 75)"/></svg>
+              <ul class="legend"><li><i style="background:#5b3df5"></i>CTV &middot; 9</li><li><i style="background:#2f8bff"></i>MSN &middot; 1</li><li><i style="background:#12b85a"></i>Spotify &middot; 1</li><li><i style="background:#ff4f9e"></i>Bilibili &middot; 1</li><li><i style="background:#ffe234"></i>Snapchat &middot; 1</li></ul>
             </div>
           </div>
-          <div class="graph spark">
+          <div class="graph spark c-spot">
             <div class="graph__head"><b>Monthly reporting view</b><span>Sample</span></div>
             <svg viewBox="0 0 300 150" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 140 H300 M0 95 H300 M0 50 H300" stroke="#eceef1"/>
-              <path class="line-a" d="M0 120 L50 112 L100 100 L150 92 L200 70 L250 58 L300 40" fill="none" stroke="#0a0a0a" stroke-width="2"/>
-              <path class="line-b" d="M0 130 L50 126 L100 118 L150 110 L200 104 L250 90 L300 82" fill="none" stroke="#8c8c8c" stroke-width="2"/>
-              <path class="line-c" d="M0 136 L50 134 L100 128 L150 126 L200 118 L250 116 L300 106" fill="none" stroke="#c9ced6" stroke-width="2" stroke-dasharray="4 4"/>
+              <path d="M0 140 H300 M0 95 H300 M0 50 H300" stroke="#eceaf5"/>
+              <path d="M0 120 L50 112 L100 100 L150 92 L200 70 L250 58 L300 40" fill="none" stroke="#5b3df5" stroke-width="2.5"/>
+              <path d="M0 130 L50 126 L100 118 L150 110 L200 104 L250 90 L300 82" fill="none" stroke="#12b85a" stroke-width="2.5"/>
+              <path d="M0 110 L50 104 L100 96 L150 80 L200 74 L250 60 L300 30" fill="none" stroke="#e8c400" stroke-width="2.5"/>
+              <path d="M0 136 L50 134 L100 128 L150 126 L200 118 L250 116 L300 106" fill="none" stroke="#2f8bff" stroke-width="2.5" stroke-dasharray="4 4"/>
             </svg>
-            <ul class="legend" style="grid-auto-flow:column;margin-top:10px"><li><i style="background:#0a0a0a"></i>CTV</li><li><i style="background:#8c8c8c"></i>Spotify</li><li><i style="background:#c9ced6"></i>News</li></ul>
+            <ul class="legend" style="grid-template-columns:1fr 1fr;margin-top:10px"><li><i style="background:#5b3df5"></i>CTV</li><li><i style="background:#12b85a"></i>Spotify</li><li><i style="background:#e8c400"></i>Snapchat</li><li><i style="background:#2f8bff"></i>MSN</li></ul>
             <p class="note">Illustrative. Partners get a real version of this every month.</p>
           </div>
         </div>
@@ -378,9 +569,9 @@
         <h2 class="h2" id="tiles-title" style="font-size:30px">Built for creators and publishers</h2>
         <div class="tiles">
           <div class="tile"><strong><span data-count="100">100</span>+</strong><span class="caps">Creator relationships</span></div>
-          <div class="tile"><strong><span data-count="20">20</span>+</strong><span class="caps">Distribution platforms</span></div>
-          <div class="tile"><strong><span data-count="4">4</span></strong><span class="caps">Distribution tracks</span></div>
+          <div class="tile"><strong><span data-count="5">5</span></strong><span class="caps">Revenue tracks</span></div>
           <div class="tile"><strong>LATAM</strong><span class="caps">Spotify focus markets</span></div>
+          <div class="tile"><strong>$5K&ndash;25K</strong><span class="caps">Per Snapchat profile / mo</span></div>
         </div>
       </div>
     </section>
@@ -394,11 +585,12 @@
       </div>
       <div class="foot__cols">
         <div>
-          <h4>Distribution</h4>
-          <a href="#services" data-svc="0">CTV &amp; FAST</a>
-          <a href="#services" data-svc="1">Spotify podcasts</a>
-          <a href="#services" data-svc="2">News syndication</a>
-          <a href="#services" data-svc="3">Bilibili</a>
+          <h4>Services</h4>
+          <a href="#ctv" data-svc="0">CTV &mdash; AVOD &amp; FAST</a>
+          <a href="#spotify" data-svc="1">Spotify</a>
+          <a href="#news" data-svc="2">News &mdash; MSN</a>
+          <a href="#bilibili" data-svc="3">Bilibili</a>
+          <a href="#snapchat" data-svc="4">Snapchat</a>
         </div>
         <div>
           <h4>Creators</h4>
@@ -413,7 +605,7 @@
           <a href="contact.html">Partner with us</a>
         </div>
       </div>
-      <div class="foot__legal"><span>&copy; 2026 ClearAxis</span><span>Create once. Distribute everywhere.</span></div>
+      <div class="foot__legal"><span>&copy; 2026 ClearAxis</span><span>Create once. Get paid everywhere.</span></div>
     </div>
   </footer>
   <script src="app.js" defer></script>

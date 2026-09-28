@@ -33,8 +33,10 @@
   if (items.length) {
     let current = 0;
     let timer = null;
+    const panel = $('.svc__panel');
     const show = (i) => {
       current = i;
+      panel.dataset.on = String(i);
       items.forEach((li, k) => { li.classList.toggle('is-on', k === i); li.setAttribute('aria-selected', String(k === i)); });
       mocks.forEach((m, k) => {
         if (k === i) { m.classList.remove('is-on'); void m.offsetWidth; m.classList.add('is-on'); }  // restart animations
@@ -46,7 +48,6 @@
       li.addEventListener('click', (e) => { if (e.target.closest('a')) return; show(i); cycle(); });
       li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); cycle(); } });
     });
-    const panel = $('.svc__panel');
     panel.addEventListener('mouseenter', () => clearInterval(timer));
     panel.addEventListener('mouseleave', cycle);
     // Nav / footer links jump straight to a service
@@ -137,6 +138,11 @@
     if (preset) {
       const r = $$('input[name="type"]', formEl).find((x) => x.value.toLowerCase().startsWith(preset.toLowerCase()));
       if (r) r.checked = true;
+    }
+    const interest = new URLSearchParams(location.search).get('interest');
+    if (interest) {
+      const opt = Array.from(formEl.elements.interest.options).find((o) => o.value && o.textContent.toLowerCase().includes(interest.toLowerCase()));
+      if (opt) opt.selected = true;
     }
     formEl.addEventListener('submit', async (e) => {
       e.preventDefault();
